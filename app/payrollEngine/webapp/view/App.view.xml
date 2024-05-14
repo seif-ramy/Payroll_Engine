@@ -3,5 +3,13 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <App id="app">
+    <pages>
+				<Page id="_IDGenPage1">
+					<content>
+						<mvc:XMLView id="_IDGenXMLView1" viewName="sp.payrollEngine.view.Header"/>
+                        <mvc:XMLView id="_IDGenXMLView2" viewName="sp.payrollEngine.view.payrollEngineView"></mvc:XMLView>
+					</content>
+				</Page>
+			</pages>
     </App>
 </mvc:View>

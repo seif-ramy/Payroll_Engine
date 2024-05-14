@@ -90,35 +90,6 @@
         }
       ]
     },
-    "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "viewType": "XML",
-        "async": true,
-        "viewPath": "sp.payrollEngine.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "clearControlAggregation": false
-      },
-      "routes": [
-        {
-          "name": "RoutePayrollEngineView",
-          "pattern": ":?query:",
-          "target": [
-            "TargetPayrollEngineView"
-          ]
-        }
-      ],
-      "targets": {
-        "TargetPayrollEngineView": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "payrollEngineView",
-          "viewName": "payrollEngineView"
-        }
-      }
-    },
     "rootView": {
       "viewName": "sp.payrollEngine.view.App",
       "type": "XML",
