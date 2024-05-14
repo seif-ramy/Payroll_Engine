@@ -1,0 +1,136 @@
+<mvc:View xmlns:imageeditor="sap.suite.ui.commons.imageeditor" controllerName="sp.payrollEngine.controller.payrollEngineController"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:core="sap.ui.core"
+	xmlns:tnt="sap.tnt"
+	xmlns:unified="sap.ui.unified"
+	xmlns:l="sap.ui.layout"
+	>
+			<Page id="_IDGenPage1" showHeader="false" enableScrolling="true" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
+		<OverflowToolbar id="_IDGenToolbar1" class="color" >
+		<Button id="_IDGenButton10" icon="images/Raptors_Icon_Color_white.png"></Button>
+		<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+		<Title id="_IDGenTitle1" text="Shift Planning" class="titleColor" ></Title>
+		<ToolbarSpacer id="_IDGenToolbarSpacer2"/>
+		
+			<Image width="30px" height="30px" alt="Avatar" class="logo" id="_IDGenAvatar1" src="images/AhmedSalah.png"/>
+		</OverflowToolbar>
+		<content>
+		<l:DynamicSideContent id="_IDGenDynamicSideContent1"
+		class="sapUiDSCExplored "
+			sideContentVisibility="AlwaysShow"
+			containerQuery="true" >
+
+		
+    <VBox id="_IDGenHBox1" fitContainer="true">
+	<PlanningCalendar id="PCID"
+	singleSelection="false"
+			showIntervalHeaders="false"
+			builtInViews="One Month"
+			startDate="{path: '/startDate'}"
+					rows="{path: '/people'}"
+				appointmentsVisualization="Filled" 
+				showWeekNumbers="true" 
+			    showEmptyIntervalHeaders="false"
+				stickyHeader="true"
+					class="sapMPlanCalSuppressAlternatingRowColors"
+					viewChange="handleViewChange"
+					legend="PlanningCalendarLegend"
+					specialDates="{path: '/specialDates', templateShareable: false}"
+
+				>			
+                <toolbarContent>
+				<Button id="_IDGenButton1" text="Create" type="Default" ></Button>
+			</toolbarContent>
+            <rows>
+			<PlanningCalendarRow id="_IDGenPlanningCalendarRow1"
+							icon="{pic}"
+							title="{name}"
+							text="{role}"
+							specialDates="{path : 'specialDates', templateShareable: false}"
+							appointments="{path : 'appointments', templateShareable: false}"
+							intervalHeaders="{path: 'headers', templateShareable: false}">
+						<specialDates>
+							<unified:DateTypeRange id="_IDGenDateTypeRange1"
+								startDate="{start}"
+								endDate="{end}"
+								type="{type}"/>
+						</specialDates>
+						<appointments>
+							<unified:CalendarAppointment id="_IDGenCalendarAppointment2"
+									startDate="{start}"
+									endDate="{end}"
+									icon="{pic}"
+									title="{title}"
+									text="{info}"
+									type="{type}"
+									tentative="{tentative}">
+							</unified:CalendarAppointment>
+						</appointments>
+						<intervalHeaders>
+							<unified:CalendarAppointment id="_IDGenCalendarAppointment1"
+									startDate="{start}"
+									endDate="{end}"
+									icon="{pic}"
+									title="{title}"
+									type="{type}"
+									>
+							</unified:CalendarAppointment>
+						</intervalHeaders>
+					</PlanningCalendarRow>
+			</rows>
+				<specialDates>
+					<unified:DateTypeRange id="_IDGenDateTypeRange2"
+							startDate="{start}"
+							endDate="{end}"
+							type="{type}"
+							color="{color}">
+					</unified:DateTypeRange>
+				</specialDates>
+                </PlanningCalendar>
+    </VBox>
+	 <!-- Side Navigation -->
+	 <l:sideContent>
+	 			<PlanningCalendarLegend id="PlanningCalendarLegend" items="{path : '/legendItems', templateShareable: false}">
+				<items>
+					<unified:CalendarLegendItem id="_IDGenCalendarLegendItem1" text="{text}" type="{type}" tooltip="{text}" color="{color}" />
+				</items>
+				<!-- <appointmentItems>
+					<unified:CalendarLegendItem id="_IDGenCalendarLegendItem2" text="{text}" type="{type}" tooltip="{text}" />
+				</appointmentItems> -->
+				</PlanningCalendarLegend>
+				<List id="_IDGenList2" items="{ path:'/legendAppointmentItems' }" headerText="Default Day Modules">
+				<CustomListItem id="_IDGenColumnListItem2" >
+				<HBox id="_IDGenHBox3" >
+				<core:Icon id="_IDGenIcon2" color="{color}" src="sap-icon://color-fill" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+				<VBox id="_IDGenVBox2" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+				<Label id="_IDGenStandardListItem2" text="{text}"  ></Label>
+				</VBox>
+				</HBox>
+				</CustomListItem>
+				</List>
+				<List id="_IDGenList1" items="{ path:'/customDayModules' }" headerText="Custom Day Modules">
+				<CustomListItem id="_IDGenColumnListItem1" >
+				<HBox id="_IDGenHBox2" >
+				<core:Icon id="_IDGenIcon1" color="{color}" src="sap-icon://color-fill" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+				<VBox id="_IDGenVBox1" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+				<Label id="_IDGenStandardListItem1" text="{text}"  ></Label>
+				</VBox>
+				</HBox>
+				</CustomListItem>
+				</List>
+	 </l:sideContent>
+</l:DynamicSideContent>
+			</content>
+			<footer>
+            <Bar id="_IDGenBar1">
+                <contentRight>
+                    <Button id="rejectButton" icon="sap-icon://decline" text="Cancel" type="Reject"   press=".onOpenDialog"></Button>
+                    <Button id="_IDGenButton9" icon="sap-icon://accept" text="Save" type="Default" press=".openApproveDialog"></Button>
+                </contentRight>
+            </Bar>
+        </footer>
+	</Page>
+
+</mvc:View>

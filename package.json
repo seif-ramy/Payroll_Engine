@@ -1,0 +1,37 @@
+{
+  "name": "Payroll_Engine",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "@sap/cds-hana": "^2",
+    "@sap/cds-mtxs": "^1.9",
+    "@sap/xssec": "^3",
+    "express": "^4",
+    "passport": "^0.7.0"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^7"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "profile": "with-mtx-sidecar",
+    "requires": {
+      "multitenancy": true,
+      "auth": "mocked",
+      "db": "hana",
+      "messaging": {
+        "kind": "enterprise-messaging"
+      }
+    },
+    "features": {
+      "kibana_formatter": true
+    }
+  }
+}

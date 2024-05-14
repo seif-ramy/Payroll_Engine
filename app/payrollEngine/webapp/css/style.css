@@ -1,0 +1,37 @@
+/* Enter your custom styles here */
+.sapMImg.logo{
+    border-radius: 50%;
+}
+.color{
+    background-color: #121b43 ;
+}
+.titleColor{
+    color: white;
+}
+
+:root {
+    --dynamic-color: #fff; /* Default color */
+}
+
+.sapUiCalendarApp {
+    background-color:var(--dynamic-color);
+}
+
+
+
+
+/* Define additional classes for other colors as needed */
+
+
+/* .sapUiCalendarRowVisFilled>.sapUiCalendarRowApps>.sapUiCalendarAppType06.sapUiCalendarApp:not(.sapUiCalendarAppSel)>.sapUiCalendarAppCont {
+    background-color: darkblue;
+} */
+/* .sapUiCalendarAppType01.sapUiCalendarApp, .sapUiCalendarAppType06.sapUiCalendarApp:active {
+    border-left-color:darkblue;
+} */
+/* .sapUiCalendarRowVisFilled>.sapUiCalendarRowApps>.sapUiCalendarAppType01.sapUiCalendarApp:not(.sapUiCalendarAppSel)>.sapUiCalendarAppCont {
+    background-color:#e21f4a;
+} */
+/* .sapUiCalendarAppType01.sapUiCalendarApp, .sapUiCalendarAppType01.sapUiCalendarApp:active  {
+    border-left-color: #e21f4a;
+} */
