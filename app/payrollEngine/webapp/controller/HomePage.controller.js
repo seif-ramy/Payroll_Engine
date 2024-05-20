@@ -13,6 +13,9 @@ sap.ui.define([
             },
             onRunPayroll: function(){
                 MessageToast.show("Run Payroll");
+            },
+            onCalculatePaycheck: function(){
+                MessageToast.show("Calculate Paycheck");
             }
         });
     });
