@@ -1,5 +1,5 @@
 /* Enter your custom styles here */
-.sapMImg.logo{
+/* .sapMImg.logo{
     border-radius: 50%;
 }
 .color{
@@ -10,12 +10,35 @@
 }
 
 :root {
-    --dynamic-color: #fff; /* Default color */
+    --dynamic-color: #fff; 
 }
 
 .sapUiCalendarApp {
     background-color:var(--dynamic-color);
+} */
+/* webapp/css/style.css */
+body {
+    font-family: "72", Arial, Helvetica, sans-serif;
 }
+.sapUiBody {
+    background-color: #f4f4f4;
+}
+.sapUiContentPadding {
+    padding: 20px;
+}
+.sapUiTinyMarginTop {
+    margin-top: 5px;
+}
+.sapUiTinyMarginBottom {
+    margin-bottom: 5px;
+}
+.sapUiTinyMargin {
+    margin: 5px;
+}
+.sapUiSmallMargin {
+    margin: 10px;
+}
+
 
 
 

@@ -7,7 +7,7 @@ sap.ui.define([
     function (Controller, UI5Date, JSONModel, Core) {
         "use strict";
 
-        return Controller.extend("sp.payrollEngine.controller.Header", {
+        return Controller.extend("sp.payrollEngine.controller.HomePage", {
             onInit: function () {
             },
         });

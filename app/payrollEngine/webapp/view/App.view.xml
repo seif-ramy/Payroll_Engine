@@ -1,15 +1,30 @@
 <mvc:View controllerName="sp.payrollEngine.controller.App"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+	xmlns:tnt="sap.tnt">
     <App id="app">
+    
     <pages>
-				<Page id="_IDGenPage1">
-					<content>
-						<mvc:XMLView id="_IDGenXMLView1" viewName="sp.payrollEngine.view.Header"/>
-                        <mvc:XMLView id="_IDGenXMLView2" viewName="sp.payrollEngine.view.payrollEngineView"></mvc:XMLView>
-					</content>
-				</Page>
-			</pages>
+   <tnt:ToolPage id="_IDGenToolPage1" >
+   
+	<tnt:sideContent>
+	<tnt:SideNavigation id="_IDGenSideNavigation1" >
+	<tnt:NavigationList id="_IDGenNavigationList1" >
+	<tnt:NavigationListItem id="_IDGenNavigationListItem1" text="Home" icon="sap-icon://home" ></tnt:NavigationListItem>
+	<tnt:NavigationListItem id="_IDGenNavigationListItem2" text="Payroll" icon="sap-icon://home" ></tnt:NavigationListItem>
+	<tnt:NavigationListItem id="_IDGenNavigationListItem3" text="People" icon="sap-icon://home" ></tnt:NavigationListItem>
+	</tnt:NavigationList>
+	</tnt:SideNavigation>
+    
+	</tnt:sideContent>
+	<tnt:mainContents>
+     <Page id="_IDGenPage1" >
+     <mvc:XMLView id="_IDGenXMLView1" viewName="sp.payrollEngine.view.HomePage"></mvc:XMLView> 
+     </Page>
+	</tnt:mainContents>
+	</tnt:ToolPage>	
+	</pages>
     </App>
 </mvc:View>
