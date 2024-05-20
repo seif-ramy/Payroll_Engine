@@ -17,7 +17,7 @@
     background-color:var(--dynamic-color);
 } */
 /* webapp/css/style.css */
-body {
+.body {
     font-family: "72", Arial, Helvetica, sans-serif;
 }
 .sapUiBody {
@@ -32,12 +32,49 @@ body {
 .sapUiTinyMarginBottom {
     margin-bottom: 5px;
 }
+.TinyMarginBottom {
+    margin-bottom: 10px;
+}
 .sapUiTinyMargin {
     margin: 5px;
 }
 .sapUiSmallMargin {
     margin: 10px;
 }
+.leftMargin {
+    margin-left: 250px; /* Adjust the value as needed */
+}
+.transparentBackground {
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha value (0.5 in this example) for the desired opacity */
+}
+
+.darkBlueBackground {
+    background-color: #00008B; /* Dark Blue */
+}
+.customVBox {
+    background-color: #03035d; /* Dark Blue */
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    color: white;
+}
+.whiteText {
+    color: white;
+}
+.largeText {
+    font-size: 25px; /* Adjust the font size as needed */
+}
+/* CSS class to center the search box */
+.centeredSearchBox {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
 
 
 
