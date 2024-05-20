@@ -10,11 +10,24 @@
    <tnt:ToolPage id="_IDGenToolPage1" >
    
 	<tnt:sideContent>
-	<tnt:SideNavigation id="_IDGenSideNavigation1" >
-	<tnt:NavigationList id="_IDGenNavigationList1" >
+	<tnt:SideNavigation id="_IDGenSideNavigation1">
+	<tnt:NavigationList id="_IDGenNavigationList1">
+    <tnt:items>
 	<tnt:NavigationListItem id="_IDGenNavigationListItem1" text="Home" icon="sap-icon://home" ></tnt:NavigationListItem>
-	<tnt:NavigationListItem id="_IDGenNavigationListItem2" text="Payroll" icon="sap-icon://home" ></tnt:NavigationListItem>
-	<tnt:NavigationListItem id="_IDGenNavigationListItem3" text="People" icon="sap-icon://home" ></tnt:NavigationListItem>
+	<tnt:NavigationListItem id="_IDGenNavigationListItem2" text="Payroll" icon="sap-icon://lead" ></tnt:NavigationListItem>
+	<tnt:NavigationListItem id="_IDGenNavigationListItem3" text="People" icon="sap-icon://group" ></tnt:NavigationListItem>
+	<tnt:NavigationListItem id="_IDGenNavigationListItem4" text="Third-party Integration" icon="sap-icon://home" ></tnt:NavigationListItem>
+	<tnt:NavigationListItem id="_IDGenNavigationListItem5" text="Reports" icon="sap-icon://expense-report" ></tnt:NavigationListItem>
+    <tnt:NavigationListItem id="_IDGenNavigationListItem6" text="General Settings" icon="sap-icon://settings">
+    <tnt:NavigationListItem id="_IDGenNavigationListItem7"  text="Taxes" icon="sap-icon://money-bills"></tnt:NavigationListItem>
+    <tnt:NavigationListItem id="_IDGenNavigationListItem8"  text="Social insurance" icon="sap-icon://insurance-life"></tnt:NavigationListItem>
+    <tnt:NavigationListItem id="_IDGenNavigationListItem9"  text="Gratuity"></tnt:NavigationListItem>
+    <tnt:NavigationListItem id="_IDGenNavigationListItem10"  text="Absences"></tnt:NavigationListItem>
+    <tnt:NavigationListItem id="_IDGenNavigationListItem11"  text="Wage Types"></tnt:NavigationListItem>
+    <tnt:NavigationListItem id="_IDGenNavigationListItem12"  text="Loans" icon="sap-icon://loan"></tnt:NavigationListItem>
+    <tnt:NavigationListItem id="_IDGenNavigationListItem13"  text="Mapping"  ></tnt:NavigationListItem>
+    </tnt:NavigationListItem>
+    </tnt:items>
 	</tnt:NavigationList>
 	</tnt:SideNavigation>
     
