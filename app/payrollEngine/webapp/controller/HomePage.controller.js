@@ -3,9 +3,10 @@ sap.ui.define([
     "sap/ui/core/date/UI5Date",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Core",
-    'sap/m/MessageToast'
+    'sap/m/MessageToast',
+    "sap/ui/core/UIComponent"
 ],
-    function (Controller, UI5Date, JSONModel, Core,MessageToast) {
+    function (Controller, UI5Date, JSONModel, Core,MessageToast,UIComponent) {
         "use strict";
 
         return Controller.extend("sp.payrollEngine.controller.HomePage", {
@@ -19,6 +20,11 @@ sap.ui.define([
             },
             onCalculatePaycheck: function(){
                 MessageToast.show("Calculate Paycheck");
+            },
+            onItemSelect: function (oEvent) {
+                var sKey = oEvent.getParameter("item").getKey();
+                console.log("sKey",sKey);
+                UIComponent.getRouterFor(this).navTo(sKey);
             },
             onTicketButtonClick: function() {
                 // Redirect to the ticket link
