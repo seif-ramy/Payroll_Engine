@@ -95,6 +95,8 @@
       "viewName": "sp.payrollEngine.view.App",
       "type": "XML",
       "async": true,
+      "name": "App",
+      "target": "App",
       "id": "App"
     },
     "routing": {
@@ -126,7 +128,7 @@
       ],
       "targets": {
           "home": {
-              "viewName": "Home",
+              "viewName": "HomePage",
               "viewLevel": 1
           },
           "PayrollProcessing": {
