@@ -4,12 +4,12 @@
 	xmlns:f="sap.f"
 	xmlns:core="sap.ui.core"
 	xmlns:tnt="sap.tnt"
-	xmlns:unified="sap.ui.unified">
+	xmlns:u="sap.ui.unified">
         <!-- Vertical Box (VBox) to layout content vertically -->
  <VBox id="parentVBox" height="100%" >
     <!-- Content goes here -->
-    <VBox id="_IDGenVBox1" height="100%" class="customVBox">
-        <VBox id="firstVBox" >
+    <VBox id="_IDGenVBox1" height="100%" class="customVBox" >
+        <VBox id="firstVBox"  >
             <HBox id="_IDGenHBox6" justifyContent="SpaceBetween" alignItems="Center">
                 <Text id="_IDGenText1" text="Raptors" class="largeText sapUiSmallMargin whiteText"/>
                 <HBox id="_IDGenHBox7" justifyContent="End">
@@ -24,10 +24,51 @@
     <HBox id="_IDGenHBox5" justifyContent="Center" alignItems="Center">
         <Text id="_IDGenText2" text="Good Morning Alex" class="whiteText largeText" />
     </HBox>
+    
         <SearchField id="_IDGenSearchField1" width="60%" placeholder="Search..." class="leftMargin TinyMarginBottom"/>
 </VBox>
 
-        <VBox id="_IDGenVBox2" height="100px"></VBox>
+        <VBox id="_IDGenVBox2" height="100px" alignItems="Center">	
+               <HBox id="_IDGenHBox11" >
+        <Button id="_IDGenButton1" type="Accept"
+						text="Employees"
+						press="onPress"
+                        icon ="sap-icon://employee"
+                        width="120px"
+						ariaDescribedBy="acceptButtonDescription genericButtonDescription">             
+				</Button>
+                        <Button id="_IDGenButton2" type="Accept"
+						text="HR"
+						press="onPress"
+                        icon ="sap-icon://work-history"
+                        width="120px"
+						ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+				</Button>
+                        <Button id="_IDGenButton3" type="Accept"
+						text="Add Employee"
+						press="onPress"
+                        icon ="sap-icon://add-employee"
+                        width="140px"
+						ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+				</Button>
+                        <Button id="_IDGenButton5" type="Accept"
+						text="Reports"
+						press="onPress"
+                        icon ="sap-icon://expense-report"
+                        width="120px"
+						ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+				</Button>
+                        <Button id="_IDGenButton4" type="Accept"
+						text="More"
+						press="onPress"
+                        icon ="sap-icon://shortcut"
+                        width="120px"
+						ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+				</Button>
+              </HBox>  
+        
+        </VBox>
+        
     </VBox>
        
     </VBox>
@@ -97,11 +138,8 @@
                     </Panel>
                     
                     <Panel id="_IDGenPanel232" class="sapUiTinyMargin" headerText="Calendar">
-                        <VBox id="_IDGenVBox24" class="sapUiSmallMargin">
-                            <Text id="_IDGenText227" text="April 2021" />
-                            <Text id="_IDGenText28" text="04/01/21 - Last day of pay period" />
-                            <Text id="_IDGenText29" text="04/02/21 - It's Payday!" />
-                        </VBox>
+                        <u:Calendar id="calendar" legend="legend" intervalSelection="true"/>
+			            <u:CalendarLegend id="legend"/>
                     </Panel>
                 </HBox>
             </VBox>
