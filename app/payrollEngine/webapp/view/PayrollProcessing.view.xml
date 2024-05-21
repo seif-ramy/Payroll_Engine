@@ -1,29 +1,8 @@
 <mvc:View controllerName="sp.payrollEngine.controller.PayrollProcessing" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-    <Page id="payrollProcessingPage">
-      <headerContent>
-            <!-- Header content goes here -->
-            <Bar class="darkBlueHeader">
-                <contentLeft>
-                    <!-- Content for the left side of the header -->
-                    <Text id="_IDGenText1" text="Raptors" class="largeText sapUiSmallMargin whiteText"/>
-                </contentLeft>
-                <contentMiddle>
-                    <!-- Content for the middle of the header -->
-                    <SearchField id="_IDGenSearchField1" width="60%" placeholder="Search..."/>
-                </contentMiddle>
-                <contentRight>
-                    <Button id="_IDGenButton11" icon="images/ticket.png" press="onTicketButtonClick"></Button>
-                    <Button id="_IDGenButton12" icon="images/help.png"  press="onOIPButtonClick"></Button>
-                    <Button id="_IDGenButton13" icon="images/notification.png" press="onNotificationButtonClick"></Button>
-                    <Button id="_IDGenButton14" icon="images/ProfileSetting.png" press="onProfileSettingButtonClick"></Button>
-                </contentRight>
-            </Bar>
-        </headerContent>
-
+    <Page id="payrollProcessingPage" title="Enter Payroll">
         <content>
             <!-- Add your payroll processing UI elements here -->
             <Button id="btnNextPayrollProcessing" text="Next" press="onNext" />
-            
         </content>
     </Page>
 </mvc:View>
