@@ -1,0 +1,8 @@
+<mvc:View controllerName="sp.payrollEngine.controller.PayrollProcessing" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+    <Page id="payrollProcessingPage" title="Enter Payroll">
+        <content>
+            <!-- Add your payroll processing UI elements here -->
+            <Button id="btnNextPayrollProcessing" text="Next" press="onNext" />
+        </content>
+    </Page>
+</mvc:View>

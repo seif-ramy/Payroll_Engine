@@ -54,7 +54,7 @@
                                     <Text id="_IDGenTextPayPeriodLabel" text="Pay Period" class="sapUiTinyMarginBottom" />
                                     <Text id="_IDGenTextPayPeriod" text="04/01 → 04/15" />
                                 </VBox>
-                                <Button id="_IDGenButton133" text="Run Payroll" type="Emphasized" press="onRunPayroll" icon="sap-icon://add" class="sapUiTinyMarginBottom" />
+                                <Button id="_IDGenButton133" text="Run Payroll" type="Emphasized" press="onRunPayroll"  class="sapUiTinyMarginBottom" />
                             </VBox>
                             <VBox id="_IDGenVBox6" class="sapUiSmallMargin sapUiContentPadding" width="2px">
                                 <core:Icon id="_IDGenSeparator" src="sap-icon://vertical-bar-chart" />
