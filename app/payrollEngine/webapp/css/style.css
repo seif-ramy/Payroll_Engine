@@ -69,7 +69,10 @@
     display: flex;
     justify-content: center;
 }
-
+.darkBlueHeader {
+    background-color: #03035d; /* Dark blue color */
+    color: white; /* Text color */
+}
 
 
 
