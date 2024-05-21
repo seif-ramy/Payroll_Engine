@@ -1,8 +1,60 @@
-<mvc:View controllerName="sp.payrollEngine.controller.PayrollProcessing" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-    <Page id="payrollProcessingPage" title="Enter Payroll">
-        <content>
-            <!-- Add your payroll processing UI elements here -->
-            <Button id="btnNextPayrollProcessing" text="Next" press="onNext" />
-        </content>
-    </Page>
+<mvc:View
+    controllerName="sp.payrollEngine.controller.PayrollProcessing"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:tnt="sap.tnt">
+    <tnt:ToolPage id="toolPage">
+        <tnt:sideContent>
+            <tnt:SideNavigation id="_IDGenSideNavigation1">
+                <tnt:NavigationList id="_IDGenNavigationList1" itemSelect="onItemSelect">
+                    <tnt:items>
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem1" text="Home" icon="sap-icon://home" ></tnt:NavigationListItem>
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem2" text="Payroll" icon="sap-icon://lead" ></tnt:NavigationListItem>
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem3" text="People" icon="sap-icon://group" ></tnt:NavigationListItem>
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem4" text="Third-party Integration" icon="sap-icon://home" ></tnt:NavigationListItem>
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem5" text="Reports" icon="sap-icon://expense-report" ></tnt:NavigationListItem>
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem6" text="General Settings" icon="sap-icon://settings">
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem7"  text="Taxes" icon="sap-icon://money-bills"></tnt:NavigationListItem>
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem8"  text="Social insurance" icon="sap-icon://insurance-life"></tnt:NavigationListItem>
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem9"  text="Gratuity"></tnt:NavigationListItem>
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem10"  text="Absences"></tnt:NavigationListItem>
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem11"  text="Wage Types"></tnt:NavigationListItem>
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem12"  text="Loans" icon="sap-icon://loan"></tnt:NavigationListItem>
+                    <tnt:NavigationListItem id="_IDGenNavigationListItem13"  text="Mapping"  ></tnt:NavigationListItem>
+                    </tnt:NavigationListItem>
+                    </tnt:items>
+                </tnt:NavigationList>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+        <tnt:mainContents>
+            <Page id="payrollProcessingPage" >
+              <headerContent>
+            <!-- Header content goes here -->
+            <Bar class="darkBlueHeader">
+                <contentLeft>
+                    <!-- Content for the left side of the header -->
+                    <Text id="_IDGenText1" text="Raptors" class="largeText sapUiSmallMargin whiteText"/>
+                </contentLeft>
+                <contentMiddle>
+                    <!-- Content for the middle of the header -->
+                    <SearchField id="_IDGenSearchField1" width="60%" placeholder="Search..."/>
+                </contentMiddle>
+                <contentRight>
+                    <Button id="_IDGenButton11" icon="images/ticket.png" press="onTicketButtonClick"></Button>
+                    <Button id="_IDGenButton12" icon="images/help.png"  press="onOIPButtonClick"></Button>
+                    <Button id="_IDGenButton13" icon="images/notification.png" press="onNotificationButtonClick"></Button>
+                    <Button id="_IDGenButton14" icon="images/ProfileSetting.png" press="onProfileSettingButtonClick"></Button>
+                </contentRight>
+            </Bar>
+        </headerContent>
+
+                <content>
+                    <!-- Add your payroll processing UI elements here -->
+                    <Button id="btnNextPayrollProcessing" text="Next" press="onNext" />
+                </content>
+            </Page>
+        </tnt:mainContents>
+    </tnt:ToolPage>
 </mvc:View>
