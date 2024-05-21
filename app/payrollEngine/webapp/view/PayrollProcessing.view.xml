@@ -50,8 +50,8 @@
             </Bar>
         </headerContent>
 
-                <content>
-                    <!-- Add your payroll processing UI elements here -->
+        <content>
+          
                     <Button id="btnNextPayrollProcessing" text="Next" press="onNext" />
                 </content>
             </Page>

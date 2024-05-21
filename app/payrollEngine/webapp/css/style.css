@@ -44,8 +44,11 @@
 .leftMargin {
     margin-left: 250px; /* Adjust the value as needed */
 }
-.transparentBackground {
-    background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha value (0.5 in this example) for the desired opacity */
+.SmallLeftMargin {
+    margin-left: 20px; /* Adjust the value as needed */
+}
+.transparentBackgroundButton .sapMBtnInner {
+    background-color: transparent !important;
 }
 
 .darkBlueBackground {
@@ -64,6 +67,15 @@
 .largeText {
     font-size: 25px; /* Adjust the font size as needed */
 }
+.largerText {
+    font-size: 40px; /* Adjust the font size as needed */
+}
+.blueText {
+    color: #03035d; /* Set text color to blue */
+}
+.blueeText {
+    color: blue; /* Set text color to blue */
+}
 /* CSS class to center the search box */
 .centeredSearchBox {
     display: flex;
@@ -77,7 +89,60 @@
     background-color: #19199a; /* Dark blue color */
     color: white; /* Text color */
 }
+.straightLine {
+    height: 2px;
+    width: 100px; /* Adjust the width of the line as needed */
+    background-color: blue;
+    position: relative;
+    top: -3px; /* Adjust this value to vertically center the line */
+}
 
+.circle {
+    width: 20px;
+    height: 20px;
+    background-color:#03035d;;
+    border-radius: 50%; /* Ensures the circle is round */
+}
+.leftMarginForLine {
+    margin-left: 350px; /* Adjust the value as needed */
+}
+.RightMarginForLine {
+    margin-right: 30px; /* Adjust the value as needed */
+}
+.circleNotFilled {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #03035d;; /* Border width and color */
+    border-radius: 50%; /* Ensures the circle is round */
+}
+.container {
+    display: flex;
+}
+
+.boxContainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px; /* Adjust the margin between boxes */
+    flex: 1; /* Make the boxes grow to fill available space */
+    display: flex; /* Nested flexbox to align content vertically */
+    flex-direction: column; /* Align content vertically */
+    align-items: stretch; /* Stretch items to match height */
+    height: fit-content; /* Ensure both boxes have the same height */
+}
+
+.headerText {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.contentText {
+    font-size: 16px;
+    margin-top: 5px;
+}
+.greyText {
+    color: grey;
+}
 
 
 

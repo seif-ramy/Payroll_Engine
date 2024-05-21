@@ -53,7 +53,146 @@
         </headerContent>
 
                 <content>
-                    <Button id="btnApprovePayrollPreview" text="Approve" press="onApprove" />
+             <VBox id="_IDGenVBox2" height="25px"></VBox>
+    <HBox class="container">
+                <!-- Circle 1 -->
+                <core:Icon src="images/filledCircle.png" size="2rem" class="circle leftMarginForLine"/>
+                
+                <!-- Straight Line -->
+                <core:Icon src="sap-icon://line" size="2rem" class="straightLine"/>
+
+                <!-- Circle 2 -->
+                <core:Icon src="images/filledCircle.png" size="2rem" class="circle"/>
+                
+                <!-- Straight Line -->
+                <core:Icon src="sap-icon://line" size="2rem" class="straightLine"/>
+
+                <!-- Circle 3 -->
+                <core:Icon src="images/filledCircle.png" size="2rem" class="circleNotFilled"/>
+            </HBox>
+
+            <VBox>
+                 <VBox id="_IDGenVBox3" height="50px"></VBox>
+                 <Text text="Preview Payroll" class="largeText SmallLeftMargin"/>
+                 <VBox id="_IDGenVBox4" height="25px"></VBox>
+            </VBox>
+            <HBox class="container">
+    <!-- First box for Cash Required -->
+                <VBox class="boxContainer sapUiSmallMargin">
+                    <Text text="Cash Required" class="headerText"/>
+                    <Text text="$3344" class="contentText"/>
+                    <Text text="Biweekly" class="contentText"/>
+                    <Text text="Any Date to Any Date" class="contentText"/>
+                </VBox>
+                <VBox class="boxContainer sapUiSmallMargin">
+                    <Text text="Payroll Dates" class="headerText"/>
+                    <Text text="" class="contentText"/>
+                    <Text text="" class="contentText"/>
+                    <Text text="Check Date" class="contentText"/>
+                    <Text text="Wed,April 20,2022" class="contentText"/>
+                </VBox>
+                <VBox class="boxContainer sapUiSmallMargin">
+                    <Text text="People" class="headerText SmallLeftMargin"/>
+                    <HBox justifyContent="SpaceBetween" alignItems="Center">  
+                        <Text text="3" class="blueText largerText SmallLeftMargin" />
+                        <HBox id="_IDGenHBox7" justifyContent="End">
+                            <Text text="0" class="blueText largerText RightMarginForLine" />
+                        </HBox>
+                    </HBox>
+                    <HBox justifyContent="SpaceBetween" alignItems="Center">  
+                        <Text text="Employees" class="contentText SmallLeftMargin greyText"/>
+                        <HBox justifyContent="End">
+                            <Text text="Contractors" class="contentText SmallLeftMargin greyText"/>
+                        </HBox>
+                    </HBox>
+                    <Text text="Check Date" class="contentText SmallLeftMargin"/>
+                    <Text text="Wed,April 20,2022" class="contentText SmallLeftMargin"/>
+                </VBox>
+        </HBox>
+        <Table id="employeeTable" growing="true" growingScrollToLoad="true">
+            <columns>
+                <Column>
+                    <Text text="Employee Name" class="greyText"/>
+                </Column>
+                <Column>
+                    <Text text="Type" class="greyText"/>
+                </Column>
+                <Column>
+                    <Text text="Total Hours" class="greyText"/>
+                </Column>
+                <Column>
+                    <Text text="Gross Pay" class="greyText"/>
+                </Column>
+                <Column>
+                    <Text text="Taxes" class="greyText"/>
+                </Column>
+                <Column>
+                    <Text text="Deductions" class="greyText"/>
+                </Column>
+                <Column>
+                    <Text text="Net Pay" class="greyText"/>
+                </Column>
+                <Column>
+                    <Text text="Employee Taxes" class="greyText"/>
+                </Column>
+            </columns>
+    <items>
+        <ColumnListItem>
+            <cells>
+                <Text text="2-Dept" />  
+            </cells>
+        </ColumnListItem>
+
+        <ColumnListItem>   
+            <cells>
+                <Text text="Don, May" class="blueeText" />
+                <Text text="Regular"/>
+                <Text text="0.00"/>
+                <Text text="$1600.00"/>
+                <Text text="$271.68"/>
+                <Text text="$0.00"/>
+                <Text text="$1,228.32"/>
+                <Text text="$156.75"/>
+            </cells>
+        </ColumnListItem>
+        <ColumnListItem>
+            <cells>
+              <Text text="Doe, Jane" class ="blueeText"/>
+                <Text text="Regular"/>
+                <Text text="25.00"/>
+                <Text text="$500.00"/>
+                <Text text="$85.04"/>
+                <Text text="$35.00"/>
+                <Text text="$379.96.32"/>
+                <Text text="$52.25"/>
+            </cells>
+        </ColumnListItem>
+        <ColumnListItem>
+            <cells>
+                <Text text="Smith, John" class ="blueeText"/>
+                <Text text="Regular"/>
+                <Text text="70.00"/>
+                <Text text="$1050.00"/>
+                <Text text="$207.00"/>
+                <Text text="$0.00"/>
+                <Text text="$843.00"/>
+                <Text text="$109.73"/>
+            </cells>
+        </ColumnListItem>
+        <ColumnListItem>
+            <cells>
+                <Text text="Totals"/>
+                <Text text=""/>
+                <Text text="95.00"/>
+                <Text text="$3,050.00"/>
+                <Text text="$563.72"/>
+                <Text text="$35"/>
+                <Text text="$2451.28"/>
+                <Text text="$318.73"/>
+            </cells>    
+        </ColumnListItem>
+    </items>
+    </Table>
                 </content>
             </Page>
         </tnt:mainContents>
