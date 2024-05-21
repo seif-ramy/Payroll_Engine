@@ -13,10 +13,10 @@
             <HBox id="_IDGenHBox6" justifyContent="SpaceBetween" alignItems="Center">
                 <Text id="_IDGenText1" text="Raptors" class="largeText sapUiSmallMargin whiteText"/>
                 <HBox id="_IDGenHBox7" justifyContent="End">
-                    <Button id="_IDGenButton11" icon="images/ticket.png" class="sapUISmallMargin"></Button>
-                    <Button id="_IDGenButton12" icon="images/OIP.jpg" class="sapUISmallMargin"></Button>
-                    <Button id="_IDGenButton13" icon="images/notification.jpg" class="sapUISmallMargin"></Button>
-                    <Button id="_IDGenButton14" icon="images/ProfileSetting.jpg" class="sapUISmallMargin"></Button> 
+                    <Button id="_IDGenButton11" icon="images/ticket.png" class="sapUISmallMargin" press="onTicketButtonClick"></Button>
+                    <Button id="_IDGenButton12" icon="images/OIP.jpg" class="sapUISmallMargin" press="onOIPButtonClick"></Button>
+                    <Button id="_IDGenButton13" icon="images/notification.jpg" class="sapUISmallMargin" press="onNotificationButtonClick"></Button>
+                    <Button id="_IDGenButton14" icon="images/ProfileSetting.jpg" class="sapUISmallMargin" press="onProfileSettingButtonClick"></Button>
                 </HBox>
             </HBox>
         </VBox>
