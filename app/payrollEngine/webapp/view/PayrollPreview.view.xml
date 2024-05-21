@@ -1,7 +1,6 @@
 <mvc:View controllerName="sp.payrollEngine.controller.PayrollPreview" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
     <Page id="payrollPreviewPage" title="Preview Payroll">
         <content>
-            <!-- Add your payroll preview UI elements here -->
             <Button id="btnApprovePayrollPreview" text="Approve" press="onApprove" />
         </content>
     </Page>
