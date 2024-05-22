@@ -16,7 +16,6 @@ sap.ui.define([
             onRunPayroll: function(){
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("PayrollProcessing");
-                MessageToast.show("Run Payroll");
             },
             onCalculatePaycheck: function(){
                 MessageToast.show("Calculate Paycheck");
