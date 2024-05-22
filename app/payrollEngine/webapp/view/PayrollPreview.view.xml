@@ -65,15 +65,19 @@
                 <VBox id="_IDGenVBox6" class="boxContainer sapUiSmallMargin">
                     <Text id="_IDGenText3" text="Cash Required" class="headerText"/>
                     <Text id="_IDGenText4" text="$3344" class="contentText"/>
-                    <Text id="_IDGenText5" text="Biweekly" class="contentText"/>
-                    <Text id="_IDGenText6" text="Any Date to Any Date" class="contentText"/>
+                    <Text id="_IDGenText5" text="Biweekly" class="contentText greyText"/>
+                    <Text id="_IDGenText6" text="Apr 01, 2022 –> Apr 15, 2022" class="contentText"/>
                 </VBox>
                 <VBox id="_IDGenVBox7" class="boxContainer sapUiSmallMargin">
                     <Text id="_IDGenText7" text="Payroll Dates" class="headerText"/>
                     <Text id="_IDGenText8" text="" class="contentText"/>
                     <Text id="_IDGenText9" text="" class="contentText"/>
-                    <Text id="_IDGenText10" text="Check Date" class="contentText"/>
-                    <Text id="_IDGenText11" text="Wed,April 20,2022" class="contentText"/>
+                    <HBox id="_IDGenHBox100" justifyContent="SpaceBetween" alignItems="Center">  
+                        <Text id="_IDGenText10" text="Check Date" class="contentText greyText"/>
+                        <HBox id="_IDGenHBox700" justifyContent="End">
+                            <Text id="_IDGenText11" text="Wed,April 20,2022" class="contentText"/>
+                        </HBox>
+                    </HBox>
                 </VBox>
                 <VBox id="_IDGenVBox8" class="boxContainer sapUiSmallMargin">
                     <Text id="_IDGenText12" text="People" class="headerText SmallLeftMargin"/>
