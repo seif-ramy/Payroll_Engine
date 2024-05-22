@@ -47,10 +47,18 @@
 .SmallLeftMargin {
     margin-left: 20px; /* Adjust the value as needed */
 }
+.SmallRightMargin {
+    margin-left: 10px; /* Adjust the value as needed */
+}
+.SmallRightMargin2 {
+    margin-left: 25px; /* Adjust the value as needed */
+}
 .transparentBackgroundButton .sapMBtnInner {
     background-color: transparent !important;
 }
-
+.darkBlueBackgroundButton .sapMBtnInner1 {
+    background-color:  #00008B;
+}
 .darkBlueBackground {
     background-color: #00008B; /* Dark Blue */
 }
@@ -63,6 +71,9 @@
 }
 .whiteText {
     color: white;
+}
+.mediumText {
+    font-size: 15px; /* Adjust the font size as needed */
 }
 .largeText {
     font-size: 25px; /* Adjust the font size as needed */
