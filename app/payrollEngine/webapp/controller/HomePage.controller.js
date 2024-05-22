@@ -8,7 +8,7 @@ sap.ui.define([
     'sap/m/MessageToast',
     "sap/ui/core/UIComponent"
 ],
-    function (Controller, CalendarLegendItem,DateTypeRange,UI5Date, JSONModel, Core,MessageToast,UIComponent) {
+    function (Controller, UI5Date,CalendarLegendItem,DateTypeRange, JSONModel, Core,MessageToast,UIComponent) {
         "use strict";
 
         return Controller.extend("sp.payrollEngine.controller.HomePage", {
