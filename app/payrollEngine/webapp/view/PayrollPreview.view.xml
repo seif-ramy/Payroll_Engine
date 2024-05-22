@@ -54,7 +54,129 @@
                     </Bar>
                 </headerContent>
                 <content>
-                    <Button id="btnApprovePayrollPreview" text="Approve" press="onApprove" />
+
+            <VBox id="_IDGenVBox5">
+                 <VBox id="_IDGenVBox3" height="50px"></VBox>
+                 <Text id="_IDGenText2" text="Preview Payroll" class="largeText SmallLeftMargin"/>
+                 <VBox id="_IDGenVBox4" height="25px"></VBox>
+            </VBox>
+            <HBox id="_IDGenHBox9" class="container">
+    <!-- First box for Cash Required -->
+                <VBox id="_IDGenVBox6" class="boxContainer sapUiSmallMargin">
+                    <Text id="_IDGenText3" text="Cash Required" class="headerText"/>
+                    <Text id="_IDGenText4" text="$3344" class="contentText"/>
+                    <Text id="_IDGenText5" text="Biweekly" class="contentText"/>
+                    <Text id="_IDGenText6" text="Any Date to Any Date" class="contentText"/>
+                </VBox>
+                <VBox id="_IDGenVBox7" class="boxContainer sapUiSmallMargin">
+                    <Text id="_IDGenText7" text="Payroll Dates" class="headerText"/>
+                    <Text id="_IDGenText8" text="" class="contentText"/>
+                    <Text id="_IDGenText9" text="" class="contentText"/>
+                    <Text id="_IDGenText10" text="Check Date" class="contentText"/>
+                    <Text id="_IDGenText11" text="Wed,April 20,2022" class="contentText"/>
+                </VBox>
+                <VBox id="_IDGenVBox8" class="boxContainer sapUiSmallMargin">
+                    <Text id="_IDGenText12" text="People" class="headerText SmallLeftMargin"/>
+                    <HBox id="_IDGenHBox10" justifyContent="SpaceBetween" alignItems="Center">  
+                        <Text id="_IDGenText13" text="3" class="blueText largerText SmallLeftMargin" />
+                        <HBox id="_IDGenHBox7" justifyContent="End">
+                            <Text id="_IDGenText14" text="0" class="blueText largerText RightMarginForLine" />
+                        </HBox>
+                    </HBox>
+                    <HBox id="_IDGenHBox11" justifyContent="SpaceBetween" alignItems="Center">  
+                        <Text id="_IDGenText15" text="Employees" class="contentText SmallLeftMargin greyText"/>
+                        <HBox id="_IDGenHBox12" justifyContent="End">
+                            <Text id="_IDGenText16" text="Contractors" class="contentText SmallLeftMargin greyText"/>
+                        </HBox>
+                    </HBox>
+                    <Text id="_IDGenText17" text="Check Date" class="contentText SmallLeftMargin"/>
+                    <Text id="_IDGenText18" text="Wed,April 20,2022" class="contentText SmallLeftMargin"/>
+                </VBox>
+        </HBox>
+        <Table id="employeeTable" growing="true" growingScrollToLoad="true">
+            <columns>
+                <Column id="_IDGenColumn1">
+                    <Text id="_IDGenText19" text="Employee Name" class="greyText"/>
+                </Column>
+                <Column id="_IDGenColumn2">
+                    <Text id="_IDGenText20" text="Type" class="greyText"/>
+                </Column>
+                <Column id="_IDGenColumn3">
+                    <Text id="_IDGenText21" text="Total Hours" class="greyText"/>
+                </Column>
+                <Column id="_IDGenColumn4">
+                    <Text id="_IDGenText22" text="Gross Pay" class="greyText"/>
+                </Column>
+                <Column id="_IDGenColumn5">
+                    <Text id="_IDGenText23" text="Taxes" class="greyText"/>
+                </Column>
+                <Column id="_IDGenColumn6">
+                    <Text id="_IDGenText24" text="Deductions" class="greyText"/>
+                </Column>
+                <Column id="_IDGenColumn7">
+                    <Text id="_IDGenText25" text="Net Pay" class="greyText"/>
+                </Column>
+                <Column id="_IDGenColumn8">
+                    <Text id="_IDGenText26" text="Employee Taxes" class="greyText"/>
+                </Column>
+            </columns>
+    <items>
+        <ColumnListItem id="_IDGenColumnListItem1">
+            <cells>
+                <Text id="_IDGenText27" text="2-Dept" />  
+            </cells>
+        </ColumnListItem>
+
+        <ColumnListItem id="_IDGenColumnListItem2">   
+            <cells>
+                <Text id="_IDGenText28" text="Don, May" class="blueeText" />
+                <Text id="_IDGenText29" text="Regular"/>
+                <Text id="_IDGenText30" text="0.00"/>
+                <Text id="_IDGenText31" text="$1600.00"/>
+                <Text id="_IDGenText32" text="$271.68"/>
+                <Text id="_IDGenText33" text="$0.00"/>
+                <Text id="_IDGenText34" text="$1,228.32"/>
+                <Text id="_IDGenText35" text="$156.75"/>
+            </cells>
+        </ColumnListItem>
+        <ColumnListItem id="_IDGenColumnListItem3">
+            <cells>
+              <Text id="_IDGenText36" text="Doe, Jane" class ="blueeText"/>
+                <Text id="_IDGenText37" text="Regular"/>
+                <Text id="_IDGenText38" text="25.00"/>
+                <Text id="_IDGenText39" text="$500.00"/>
+                <Text id="_IDGenText40" text="$85.04"/>
+                <Text id="_IDGenText41" text="$35.00"/>
+                <Text id="_IDGenText42" text="$379.96.32"/>
+                <Text id="_IDGenText43" text="$52.25"/>
+            </cells>
+        </ColumnListItem>
+        <ColumnListItem id="_IDGenColumnListItem4">
+            <cells>
+                <Text id="_IDGenText44" text="Smith, John" class ="blueeText"/>
+                <Text id="_IDGenText45" text="Regular"/>
+                <Text id="_IDGenText46" text="70.00"/>
+                <Text id="_IDGenText47" text="$1050.00"/>
+                <Text id="_IDGenText48" text="$207.00"/>
+                <Text id="_IDGenText49" text="$0.00"/>
+                <Text id="_IDGenText50" text="$843.00"/>
+                <Text id="_IDGenText51" text="$109.73"/>
+            </cells>
+        </ColumnListItem>
+        <ColumnListItem id="_IDGenColumnListItem5">
+            <cells>
+                <Text id="_IDGenText52" text="Totals"/>
+                <Text id="_IDGenText53" text=""/>
+                <Text id="_IDGenText54" text="95.00"/>
+                <Text id="_IDGenText55" text="$3,050.00"/>
+                <Text id="_IDGenText56" text="$563.72"/>
+                <Text id="_IDGenText57" text="$35"/>
+                <Text id="_IDGenText58" text="$2451.28"/>
+                <Text id="_IDGenText59" text="$318.73"/>
+            </cells>    
+        </ColumnListItem>
+    </items>
+    </Table>
                 </content>
             </Page>
         </tnt:mainContents>
