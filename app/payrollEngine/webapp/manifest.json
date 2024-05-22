@@ -95,7 +95,51 @@
       "viewName": "sp.payrollEngine.view.App",
       "type": "XML",
       "async": true,
+      "name": "App",
+      "target": "App",
       "id": "App"
-    }
+    },
+    "routing": {
+      "config": {
+          "routerClass": "sap.m.routing.Router",
+          "viewType": "XML",
+          "viewPath": "sp.payrollEngine.view",
+          "controlId": "app",
+          "controlAggregation": "pages",
+          "async": true
+      },
+      "routes": [
+          {
+              "pattern": "",
+              "name": "home",
+              "target": "home"
+          },
+          {
+              "pattern": "PayrollProcessing",
+              "name": "PayrollProcessing",
+              "target": "PayrollProcessing"
+          },
+          {
+            "pattern": "PayrollPreview",
+            "name": "PayrollPreview",
+            "target": "PayrollPreview"
+        }
+          
+      ],
+      "targets": {
+          "home": {
+              "viewName": "HomePage",
+              "viewLevel": 1
+          },
+          "PayrollProcessing": {
+              "viewName": "PayrollProcessing",
+              "viewLevel": 2
+          },
+          "PayrollPreview": {
+              "viewName": "PayrollPreview",
+              "viewLevel": 3
+          }
+      }
+  }
   }
 }
