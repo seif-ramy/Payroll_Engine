@@ -53,9 +53,20 @@
 .SmallRightMargin2 {
     margin-left: 25px; /* Adjust the value as needed */
 }
+.transparentBackgroundButton {
+    background-color: transparent;
+    border: none;
+    padding: 5px; /* Adjust padding as needed */
+    box-shadow: none; /* Remove any box shadow */
+}
+
 .transparentBackgroundButton .sapMBtnInner {
     background-color: transparent !important;
+    border: none !important; /* Remove the border */
+    box-shadow: none !important; /* Remove any box shadow */
+    padding: 0; /* Adjust padding as needed */
 }
+
 .darkBlueBackgroundButton .sapMBtnInner1 {
     background-color:  #00008B;
 }
@@ -142,10 +153,6 @@
     height: fit-content; /* Ensure both boxes have the same height */
 }
 
-.headerText {
-    font-size: 18px;
-    font-weight: bold;
-}
 
 .contentText {
     font-size: 16px;
@@ -154,6 +161,102 @@
 .greyText {
     color: grey;
 }
+
+.headerBox {
+    background-color: #121b43;
+    padding: 10px;
+}
+.headerText {
+    color: white;
+    font-size: 24px;
+}
+.searchContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.searchField {
+    margin: 0 auto;
+    width: 30%; /* Adjust width as needed */
+    border-radius: 25px; /* This makes the container circular */
+    overflow: hidden; /* Ensure the content stays within the rounded container */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+}
+
+.searchField .sapMSFI {
+    border-radius: 0; /* Reset the input field's border radius if needed */
+}
+
+
+/* .transparentBackgroundButton {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+} */
+.infoBox {
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.infoNumber {
+    font-size: 32px;
+    color: #007cc0;
+}
+.infoText {
+    font-size: 16px;
+    color: #555555;
+}
+.sapUiTinyMargin {
+    margin: 5px;
+}
+.sapUiTinyMarginBottom {
+    margin-bottom: 5px;
+}
+.sapUiContentPadding {
+    padding: 10px;
+}
+.sapUiSmallMargin {
+    margin: 10px;
+}
+
+.tileContainer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sapUiTinyMargin {
+    margin: 10px;
+}
+
+.tileText {
+    margin-top: 5px;
+    font-size: 14px;
+    color: gray;
+}
+
+
+.sapMGT {
+    width: 300px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    margin: 10px; /* Adjust margin as needed */
+}
+
+.headerImage {
+    width: 150px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+
+
+
+
 
 
 

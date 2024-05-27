@@ -93,10 +93,10 @@
                             <Text id="_IDGenText16" text="Contractors" class="contentText SmallLeftMargin greyText"/>
                         </HBox>
                     </HBox>
-                    <HBox justifyContent="SpaceBetween" alignItems="Center">
+                    <HBox id="_IDGenHBox701" justifyContent="SpaceBetween" alignItems="Center">
                         <Text id="_IDGenText17" text="3" class="contentText SmallLeftMargin blueText largeText"/>
                     </HBox>
-                    <Text text="1 terminated employee paid" class="contentText SmallLeftMargin"/>
+                    <Text id="_IDGenText61" text="1 terminated employee paid" class="contentText SmallLeftMargin"/>
                 </VBox>
         </HBox>
         <Table id="employeeTable" growing="true" growingScrollToLoad="true">
@@ -171,8 +171,8 @@
         </ColumnListItem>
         <ColumnListItem id="_IDGenColumnListItem5">
             <cells>
-                <Text id="_IDGenText52" text="Totals"/>
-                <Text id="_IDGenText53" text=""/>
+                <Text id="_IDGenText70" text="Totals"/>
+                <Text id="_IDGenText71" text=""/>
                 <Text id="_IDGenText54" text="95.00"/>
                 <Text id="_IDGenText55" text="$3,050.00"/>
                 <Text id="_IDGenText56" text="$563.72"/>
@@ -183,19 +183,19 @@
         </ColumnListItem>
     </items>
     </Table>
-       <VBox height="25px"></VBox>
-    <HBox>
-        <Text text="Payrun Total: $3,365.73" class="SmallRightMargin mediumText"/>
-        <Text text="Cash Required: $3,333.73" class="SmallRightMargin2 mediumText"/>
+       <VBox id="_IDGenVBox9" height="25px"></VBox>
+    <HBox id="_IDGenHBox702">
+        <Text id="_IDGenText52" text="Payrun Total: $3,365.73" class="SmallRightMargin mediumText"/>
+        <Text id="_IDGenText53" text="Cash Required: $3,333.73" class="SmallRightMargin2 mediumText"/>
     </HBox>
-           <VBox height="25px"></VBox>
+           <VBox id="_IDGenVBox10" height="25px"></VBox>
 
-    <HBox justifyContent="SpaceBetween" alignItems="Center">
-    <HBox>  
+    <HBox id="_IDGenHBox703" justifyContent="SpaceBetween" alignItems="Center">
+    <HBox id="_IDGenHBox704">  
          <Button id="_IDGenButton141" text="Check Sub Message" class="SmallRightMargin "></Button>
          <Button id="_IDGenButton142" text="Reports" class="SmallRightMargin "></Button>
      </HBox>
-                    <HBox justifyContent="End">
+                    <HBox id="_IDGenHBox705" justifyContent="End">
                         <Button id="_IDGenButton143" text="Previous" class="SmallRightMargin "></Button>
                         <Button id="_IDGenButton144" text="Finish Later" class="SmallRightMargin "></Button>
                         <Button id="_IDGenButton145" text="Approve" class="SmallRightMargin SmallRightMargin"></Button>

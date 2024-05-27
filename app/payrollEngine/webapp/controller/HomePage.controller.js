@@ -8,34 +8,31 @@ sap.ui.define([
     'sap/m/MessageToast',
     "sap/ui/core/UIComponent"
 ],
-    function (Controller, UI5Date,CalendarLegendItem,DateTypeRange, JSONModel, Core,MessageToast,UIComponent) {
+    function (Controller, UI5Date, CalendarLegendItem, DateTypeRange, JSONModel, Core, MessageToast, UIComponent) {
         "use strict";
 
         return Controller.extend("sp.payrollEngine.controller.HomePage", {
             onInit: function () {
+                // Calendar and legend initialization
                 var oCal = this.byId("calendar"),
-                oLeg = this.byId("legend"),
-                oRefDate = UI5Date.getInstance(),
-                sType;
+                    oLeg = this.byId("legend"),
+                    oRefDate = UI5Date.getInstance(),
+                    sType;
                 for (var i = 1; i <= 10; i++) {
-                    if (i < 10) {
-                        sType = "Type0" + i;
-                    } else {
-                        sType = "Type" + i;
-                    }
-        
+                    sType = (i < 10) ? "Type0" + i : "Type" + i;
+
                     oLeg.addItem(new CalendarLegendItem({
                         type: sType,
                         text: "Placeholder " + i
                     }));
-        
+
                     oRefDate.setDate(i);
                     oCal.addSpecialDate(new DateTypeRange({
                         startDate: UI5Date.getInstance(oRefDate),
                         type: sType,
                         tooltip: "Placeholder " + i
                     }));
-        
+
                     oRefDate.setDate(i + 12);
                     oCal.addSpecialDate(new DateTypeRange({
                         startDate: UI5Date.getInstance(oRefDate),
@@ -44,41 +41,42 @@ sap.ui.define([
                     }));
                 }
             },
-            onRunPayroll: function(){
+            onRunPayroll: function () {
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("PayrollProcessing");
             },
-            onCalculatePaycheck: function(){
+            onCalculatePaycheck: function () {
                 MessageToast.show("Calculate Paycheck");
+            },
+            onOffCyclePayroll: function () {
+                MessageToast.show("Off-Cycle Payroll");
+            },
+            onViewAllAlerts: function () {
+                MessageToast.show("Viewing all alerts");
+            },
+            onViewFullReport: function () {
+                MessageToast.show("Viewing full report");
             },
             onItemSelect: function (oEvent) {
                 var sKey = oEvent.getParameter("item").getKey();
-                console.log("sKey",sKey);
                 UIComponent.getRouterFor(this).navTo(sKey);
             },
-            onTicketButtonClick: function() {
-                // Redirect to the ticket link
+            onOpenAlert: function (oEvent) {
+                MessageToast.show("Opening alert");
+            },
+            onTicketButtonClick: function () {
                 window.location.href = "https://rptrs.freshdesk.com/support/login";
             },
-    
-            onOIPButtonClick: function() {
-                // Redirect to the OIP link
+            onOIPButtonClick: function () {
                 window.location.href = "https://rptrs.freshdesk.com/support/login";
             },
-    
-            onNotificationButtonClick: function() {
-                // Redirect to the notification link
+            onNotificationButtonClick: function () {
                 window.location.href = "https://rptrs.freshdesk.com/support/login";
             },
-    
-            onProfileSettingButtonClick: function() {
-                // Redirect to the profile setting link
+            onProfileSettingButtonClick: function () {
                 window.location.href = "https://rptrs.freshdesk.com/support/login";
-            }
-        
-        
-        
-        
-        
+            },
+
+           
         });
     });
