@@ -11,7 +11,6 @@ sap.ui.define([
         
         onItemSelect: function (oEvent) {
             var sKey = oEvent.getParameter("item").getKey();
-            console.log("sKey",sKey);
             UIComponent.getRouterFor(this).navTo(sKey);
         },
         onTicketButtonClick: function() {

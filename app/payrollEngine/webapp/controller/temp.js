@@ -61,22 +61,7 @@ sap.ui.define([
             },
             onItemSelect: function (oEvent) {
                 var sKey = oEvent.getParameter("item").getKey();
-                // var Id = oEvent.getParameter("item").getId();//NavigationListItem Currently selected
-                // this.byId("navigationList").setSelectedItem(Id);
-                if(sKey=="Toggle"){
-                    var oSideNavigation = this.byId("sideNavigation");
-                    var bExpanded = oSideNavigation.getExpanded();
-                    //law bExpanded b false yeb2a expanded w law bExpanded b true yeb2a collapsed
-                    oSideNavigation.setExpanded(!bExpanded);
-                    // this.byId("navigationList").setSelectedItem(null);
-                }
-                
-                else{
-                    UIComponent.getRouterFor(this).navTo(sKey);
-                }
-
-                //console.log(this.byId("navigationList").getSelectedItem());
-
+                UIComponent.getRouterFor(this).navTo(sKey);
             },
             onOpenAlert: function (oEvent) {
                 MessageToast.show("Opening alert");
@@ -92,7 +77,14 @@ sap.ui.define([
             },
             onProfileSettingButtonClick: function () {
                 window.location.href = "https://rptrs.freshdesk.com/support/login";
+            },
+            onCollapseExpandPress: function () {
+                var oSideNavigation = this.byId("sideNavigation");
+                var bExpanded = oSideNavigation.getExpanded();
+    
+                oSideNavigation.setExpanded(!bExpanded);
             }
+
            
         });
     });

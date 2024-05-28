@@ -7,6 +7,8 @@ sap.ui.define([
 
     return Controller.extend("sp.payrollEngine.controller.PayrollProcessing", {
         onInit: function () {
+                // var navigationList = this.byId("navigationList");
+                // navigationList.setSelectedItem(null);
             var oData = {
                 payrollItems: [
                     { name: "Dan, May", department: "Dept1", rate: "$80.00 / hr", regularHours: "95.00", salaryAmount: "1500.00", overtimeHours: "0.00", vacationHours: "0.00", sickHours: "0.00", personalHours: "0.00", holidayHours: "0.00", bonusAmount: "0.00", miscAmount: "0.00", miscReimb: "0.00" },

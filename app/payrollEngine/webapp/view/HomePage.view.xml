@@ -7,10 +7,11 @@
     xmlns:tnt="sap.tnt"
     xmlns:u="sap.ui.unified">
     <tnt:ToolPage id="toolPage" sideExpanded="false">
-        <tnt:sideContent>
+            <tnt:sideContent>
             <tnt:SideNavigation id="sideNavigation">
-                <tnt:NavigationList id="navigationList" itemSelect="onItemSelect">
+                <tnt:NavigationList id="navigationList" itemSelect="onItemSelect" >
                     <tnt:items>
+                        <tnt:NavigationListItem id="_IDGenNavigationListItem0" icon="sap-icon://menu2" key="Toggle"/>
                         <tnt:NavigationListItem id="_IDGenNavigationListItem1" text="Home" icon="sap-icon://home" key="home"/>
                         <tnt:NavigationListItem id="_IDGenNavigationListItem2" text="Payroll Operation Center" icon="sap-icon://lead" key="PayrollProcessing"/>
                         <tnt:NavigationListItem id="_IDGenNavigationListItem3" text="People" icon="sap-icon://group" key="people"/>
