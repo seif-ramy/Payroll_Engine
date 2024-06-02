@@ -6,16 +6,21 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Core",
     'sap/m/MessageToast',
-    "sap/ui/core/UIComponent"
+    "sap/ui/core/UIComponent",
+    "sap/viz/ui5/format/ChartFormatter",
+    "sap/viz/ui5/api/env/Format"
 ],
-    function (Controller, UI5Date, CalendarLegendItem, DateTypeRange, JSONModel, Core, MessageToast, UIComponent) {
+    function (Controller, UI5Date, CalendarLegendItem, DateTypeRange, JSONModel, Core, MessageToast, UIComponent,ChartFormatter,
+        Format) {
         "use strict";
 
         return Controller.extend("sp.payrollEngine.controller.HomePage", {
             onInit: function () {
-                // var navigationList = this.byId("navigationList");
-                // navigationList.setSelectedItem(null);
-                // Calendar and legend initialization
+                this._setModel();
+                this._setCustomFormatter();
+                var navigationList = this.byId("navigationList");
+                navigationList.setSelectedItem(null);
+                //Calendar and legend initialization
                 var oCal = this.byId("calendar"),
                     oLeg = this.byId("legend"),
                     oRefDate = UI5Date.getInstance(),
@@ -43,7 +48,55 @@ sap.ui.define([
                     }));
                 }
             },
-            onRunPayroll: function () {
+            _setModel:function(){
+
+                var aData = {
+                        Items : [  
+                            {
+                                Name:"Salaries",
+                                Number : 25370000
+                            },
+                            {
+                                Name:"Benefits",
+                                Number : 7610000
+                            },
+                            {
+                                Name:"Overtime",
+                                Number : 15220000
+                            },
+                            {
+                                Name:"Taxes",
+                                Number : 2540000
+                            }
+                            ]
+                }
+                
+                var oModel = new JSONModel();
+                oModel.setData(aData);
+                this.getView().setModel(oModel, "DataModel");
+
+                var oChart = this.getView().byId("idpiechart"),
+                oChartProperties = oChart.getVizProperties(),
+                aColorPalate = ["#43BECC","#8E257A","#121B43","#E21F4A"];
+                oChartProperties.plotArea.colorPalette = aColorPalate;
+                oChart.setVizProperties(oChartProperties);
+    },
+
+    _setCustomFormatter:function(){	
+        var chartFormatter = ChartFormatter.getInstance();
+        
+        Format.numericFormatter(chartFormatter);
+        
+        var UI5_FLOAT_FORMAT = "CustomFloatFormat_F2";
+        
+        chartFormatter.registerCustomFormatter(UI5_FLOAT_FORMAT, function(value) {
+        var ofloatInstance =  sap.ui.core.format.NumberFormat.getFloatInstance({style: 'short',maxFractionDigits: 2});
+        return ofloatInstance.format(value);
+                });
+    },
+    
+    
+    onRunPayroll: function () {
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("PayrollProcessing");
             },
@@ -67,8 +120,15 @@ sap.ui.define([
                     var oSideNavigation = this.byId("sideNavigation");
                     var bExpanded = oSideNavigation.getExpanded();
                     //law bExpanded b false yeb2a expanded w law bExpanded b true yeb2a collapsed
+                    if(bExpanded==false){
+                        this.byId("_IDGenVBox16").setHeight("442px"); 
+                        //this.byId("_IDGenPanel14").setHeight("500px");
+                    }
+                    else if(bExpanded==true){
+                        this.byId("_IDGenVBox16").setHeight("435px"); 
+                        //this.byId("_IDGenPanel14").setHeight("460px");
+                    }
                     oSideNavigation.setExpanded(!bExpanded);
-                    // this.byId("navigationList").setSelectedItem(null);
                 }
                 
                 else{

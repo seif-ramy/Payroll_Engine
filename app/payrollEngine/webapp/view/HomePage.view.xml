@@ -5,7 +5,15 @@
     xmlns:f="sap.f"
     xmlns:core="sap.ui.core"
     xmlns:tnt="sap.tnt"
-    xmlns:u="sap.ui.unified">
+    xmlns:u="sap.ui.unified"
+    xmlns:l="sap.ui.layout"
+    xmlns:card="sap.f.cards"
+    xmlns:w="sap.ui.integration.widgets"
+    xmlns:mc="sap.suite.ui.microchart"
+    xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:chart="sap.suite.ui.commons">
     <tnt:ToolPage id="toolPage" sideExpanded="false">
             <tnt:sideContent>
             <tnt:SideNavigation id="sideNavigation">
@@ -32,131 +40,183 @@
                 </tnt:NavigationList>
             </tnt:SideNavigation>
         </tnt:sideContent>
+        
         <tnt:mainContents>
-            <VBox id="mainContentVBox" height="100%">
-                <ScrollContainer id="_IDGenScrollContainer1" height="100%" vertical="true">
-                    <VBox id="_IDGenVBox1" height="100%">
-                        <HBox id="_IDGenHBox1" justifyContent="SpaceBetween" alignItems="Center" class="headerBox">
-                            <Image id="logoImage" src="images/RaptorsLogoWhite.png" alt="Raptors Logo" class="headerImage"/>
-                            <HBox id="_IDGenHBox9" justifyContent="SpaceBetween" class="searchContainer">
-                                <HBox id="_IDGenHBox10" width="20%"/> <!-- Adjust width as needed to fine-tune position -->
-                                <SearchField id="searchField" width="250%" placeholder="Search..." class="searchField"/>
-                                <HBox id="_IDGenHBox11" width="50%"/>
+            <ScrollContainer id="_IDGenScrollContainer1" height="100%" vertical="true">
+                
+                <!-- Start of Header -->
+                <HBox id="_IDGenHBox1" justifyContent="SpaceBetween" alignItems="Center" class="headerBox">
+                    <Image id="logoImage" src="images/RaptorsLogoWhite.png" alt="Raptors Logo" class="headerImage"/>
+                    <HBox id="_IDGenHBox9" justifyContent="SpaceBetween" class="searchContainer">
+                        <HBox id="_IDGenHBox10" width="20%"/> <!-- Adjust width as needed to fine-tune position -->
+                        <SearchField id="searchField" width="250%" placeholder="Search..." class="searchField"/>
+                        <HBox id="_IDGenHBox111" width="50%"/>
+                    </HBox>
+                    <HBox id="_IDGenHBox2" justifyContent="End">
+                        <Button id="_IDGenButton1" icon="images/tickets.png" class="transparentBackgroundButton" press="onTicketButtonClick"></Button>
+                        <Button id="_IDGenButton2" icon="images/notf.png" class="transparentBackgroundButton" press="onNotificationButtonClick"></Button>
+                        <Button id="_IDGenButton3" icon="images/login.png" class="transparentBackgroundButton" press="onProfileSettingButtonClick"></Button>
+                    </HBox>
+                </HBox>
+                <!-- End of Header -->
+                
+                <l:Grid id="_IDGenGrid1" defaultSpan="XL4 L3 M6 S12" hSpacing="1" vSpacing="1">
+                    <l:content>
+                        
+                    <!-- Tile of total number of employees -->
+                    <GenericTile id="_IDGenGenericTile1" class="sapUiTinyMargin customTile" 
+                    header="Total Employees" subheader="32 New Hires, 3 Terminations" width="90%" frameType="TwoByOne">
+            <TileContent id="_IDGenTileContent4" footer="+3.21% from last month" class="customTileFooter">
+                <NumericContent id="_IDGenNumericContent1" value="254" valueColor="Neutral" 
+                                icon="sap-icon://group" withMargin="false" class="customTileNumeric"/>
+            </TileContent>
+        </GenericTile>
+                    
+                <!-- Tile of days unttil next payroll run -->
+                    <GenericTile id="_IDGenGenericTile2" class="sapUiTinyMargin customTile" 
+                    header="Next Payroll Run" subheader="Please make sure to run the payroll on time"
+                     width="90%" frameType="TwoByOne">
+            <TileContent id="_IDGenTileContent5" footer="Until next payroll run" class="customTileFooterRed">
+                <NumericContent id="_IDGenNumericContent2" value="5" scale="Days" valueColor="Neutral" 
+                                icon="sap-icon://calendar" withMargin="false" class="customTileNumeric"/>
+            </TileContent>
+            </GenericTile>
+                        
+            <!-- Estimated upcoming payroll -->
+            <GenericTile id="_IDGenGenericTile3" class="sapUiTinyMargin customTile" 
+                        header="Estimated Upcoming Payroll" width="90%" frameType="TwoByOne"
+                        subheader="This is a rough estimate of the total amount">
+                <TileContent id="_IDGenTileContent6">
+                    <NumericContent id="_IDGenNumericContent3" value="36,900" scale="USD" valueColor="Neutral" 
+                                    icon="sap-icon://money-bills" withMargin="false" class="customTileNumeric"
+                                    truncateValueTo="8"/>
+                </TileContent>
+            </GenericTile>
+            
+                        <!-- Code of pie chart-->
+                            <chart:ChartContainer id="chartContainer" showFullScreen="true" showZoom="false" 
+                            title="Payroll Cost Distribution" class="myPanelChart" width="92%">
+                               <chart:ChartContainerContent id="_IDGenChartContainerContent1">
+                                   <chart:content>
+                                    <viz:VizFrame id="idpiechart" width="auto" uiConfig="{applicationSet:'fiori'}" vizType="pie"
+                                      vizProperties="{
+                                             plotArea:{
+                                                              dataLabel:{visible: true,type:'value',
+                                                              formatString:'CustomFloatFormat_F2'},
+                                                              drawingEffect: 'glossy'
+                                                  },
+                                                              title : {text:'Q1, 2024'},
+                                                              legendGroup:{layout:{position: 'left'}}
+                                              }"
+                                              
+                                              selectData="myOnClickHandler"
+                                              renderComplete="handleRenderComplete">
+                                       <viz:dataset>
+                                      <viz.data:FlattenedDataset id="flattenData" data="{DataModel>/Items}">
+                                             <viz.data:dimensions>
+                                           <viz.data:DimensionDefinition id="_IDGenDimensionDefinition1" name="Name" 
+                                           value="{DataModel>Name}" />
+                                             </viz.data:dimensions>
+                                         <viz.data:measures>
+                                                <viz.data:MeasureDefinition id="_IDGenMeasureDefinition1" 
+                                                name="Number" value="{DataModel>Number}" />
+                                         </viz.data:measures>
+                                       </viz.data:FlattenedDataset>
+                                        </viz:dataset>
+                                             
+                                         <viz:feeds>
+                                           <viz.feeds:FeedItem id="_IDGenFeedItem1" uid="size" type="Measure" values="Number" />
+                                       <viz.feeds:FeedItem id="_IDGenFeedItem2" uid="color" type="Dimension" values="Name" />
+                                         </viz:feeds>
+                                     </viz:VizFrame>
+                                  </chart:content>
+                                </chart:ChartContainerContent>
+                           </chart:ChartContainer>
+                           
+                           <!-- Critical Alerts Panel -->
+                            <Panel id="_IDGenPanel3" width="90%" class="sapUiTinyMargin sapUiContentPadding myPanel"
+                             headerText="Critical Alerts">
+                        <VBox id="_IDGenVBox16" height="442px">
+                            <VBox id="_IDGenVBox18" height="20px"/>
+                            <HBox id="_IDGenHBox705">
+                                <core:Icon id="_IDGenIcon1" src="sap-icon://alert" color="red"/>
+                                <HBox id="_IDGenHBox11" width= "5px"/>
+                                <Text id="_IDGenText10" text="Missing Bank Details for Jane Doe"/>
                             </HBox>
-                            <HBox id="_IDGenHBox2" justifyContent="End">
-                                <Button id="_IDGenButton1" icon="images/tickets.png" class="transparentBackgroundButton" press="onTicketButtonClick"></Button>
-                                <Button id="_IDGenButton2" icon="images/notf.png" class="transparentBackgroundButton" press="onNotificationButtonClick"></Button>
-                                <Button id="_IDGenButton3" icon="images/login.png" class="transparentBackgroundButton" press="onProfileSettingButtonClick"></Button>
+                            <Text id="_IDGenText11" text="5 Records" class ="redUnderlineText SmallleftMargin2"/>
+                            <VBox id="_IDGenVBox9" height="30px"/>
+                            <HBox id="_IDGenHBox12">
+                                <core:Icon id="_IDGenIcon2" src="sap-icon://alert" color="red"/>
+                                <HBox id="_IDGenHBox13" width= "5px"/>
+                                <Text id="_IDGenText12" text="Missing Bank Details for Jane Doe"/>
                             </HBox>
-                        </HBox>
-                        <!-- Top Tiles -->
-                        <VBox id="_IDGenVBox2">
-                            <HBox id="_IDGenHBox3" justifyContent="SpaceAround" class="tileContainer">
-                                <GenericTile id="_IDGenGenericTile1" header="Total Employees" subheader="32 New Hires, 3 Terminations" frameType="TwoByOne" class="sapUiTinyMargin">
-                                    <TileContent id="_IDGenTileContent1">
-                                        <NumericContent id="_IDGenNumericContent1" value="254" valueColor="Good" indicator="Up" />
-                                        <Text id="_IDGenText2" text="+3.21% from last month" class="tileText"/>
-                                    </TileContent>
-                                </GenericTile>
-                                <GenericTile id="_IDGenGenericTile2" header="Total Upcoming Payroll Costs" subheader="Salaries, Overtime, Benefits, Taxes" frameType="TwoByOne" class="sapUiTinyMargin">
-                                    <TileContent id="_IDGenTileContent2">
-                                        <NumericContent id="_IDGenNumericContent2" value="$33,520" valueColor="Critical" indicator="Down" />
-                                        <Text id="_IDGenText3" text="-2.1% from last month" class="tileText"/>
-                                    </TileContent>
-                                </GenericTile>
-                                <GenericTile id="_IDGenGenericTile3" header="Total Employees" subheader="32 New Hires, 3 Terminations" frameType="TwoByOne" class="sapUiTinyMargin">
-                                    <TileContent id="_IDGenTileContent3">
-                                        <NumericContent id="_IDGenNumericContent3" value="254" valueColor="Good" indicator="Up" />
-                                        <Text id="_IDGenText4" text="+3.21% from last month" class="tileText"/>
-                                    </TileContent>
-                                </GenericTile>
+                            <Text id="_IDGenText13" text="5 Records" class ="redUnderlineText SmallleftMargin2"/>
+                            <VBox id="_IDGenVBox10" height="30px"/>
+                            <HBox id="_IDGenHBox14">
+                                <core:Icon id="_IDGenIcon3" src="sap-icon://alert" color="red"/>
+                                <HBox id="_IDGenHBox15" width= "5px"/>
+                                <Text id="_IDGenText14" text="Missing Bank Details for Jane Doe"/>
                             </HBox>
+                            <Text id="_IDGenText15" text="5 Records" class ="redUnderlineText SmallleftMargin2"/>
+                            <VBox id="_IDGenVBox11" height="30px"/>
+                            <HBox id="_IDGenHBox16">
+                                <core:Icon id="_IDGenIcon4" src="sap-icon://alert" color="red"/>
+                                <HBox id="_IDGenHBox17" width= "5px"/>
+                                <Text id="_IDGenText16" text="Missing Bank Details for Jane Doe"/>
+                            </HBox>
+                            <Text id="_IDGenText17" text="5 Records" class ="redUnderlineText SmallleftMargin2"/>
+                            <VBox id="_IDGenVBox12" height="30px"/>
+                            <HBox id="_IDGenHBox18">
+                                <core:Icon id="_IDGenIcon5" src="sap-icon://alert" color="red"/>
+                                <HBox id="_IDGenHBox19" width= "5px"/>
+                                <Text id="_IDGenText18" text="Missing Bank Details for Jane Doe"/>
+                            </HBox>
+                            <Text id="_IDGenText19" text="5 Records" class ="redUnderlineText SmallleftMargin2"/>
+                            <VBox id="_IDGenVBox13" height="50px"/>
+                            <HBox id="_IDGenHBox20" justifyContent="Center" class ="footerBox">
+                                <Button id="_IDGenButton7" text="View All Alerts" press="onViewAllAlerts"/>
+                            </HBox>
+                            </VBox>
+                    </Panel>
+
+                    
+                    <!-- Calendar Panel -->
+                    
+                        <Panel id="_IDGenPanel4" width="90%" headerText="Payroll Calendar" 
+                        class="sapUiTinyMargin sapUiContentPadding myPanel">
+                        <VBox id="_IDGenVBox19" height="442px">
+                            <u:Calendar id="calendar" intervalSelection="true"/>
+                            <u:CalendarLegend id="legend"/>
                         </VBox>
-                        <f:GridContainer id="_IDGenGridContainer1" width="100%" containerQuery="true" layout="Fixed">
-                            <!-- Upcoming Payroll Panel -->
-                            <Panel id="_IDGenPanel1" headerText="Upcoming Payroll" class="sapUiTinyMargin sapUiContentPadding">
-                                <layoutData>
-                                    <f:GridContainerItemLayoutData id="_IDGenGridContainerItemLayoutData1" columns="3"/>
-                                </layoutData>
-                                <HBox id="_IDGenHBox4" justifyContent="SpaceBetween">
-                                    <VBox id="_IDGenVBox3">
-                                        <Text id="_IDGenText5" text="Pay Period" class="sapUiTinyMarginBottom"/>
-                                        <Text id="_IDGenText6" text="26/05 → 26/06" class="sapUiTinyMarginBottom"/>
-                                    </VBox>
-                                    <VBox id="_IDGenVBox4">
-                                        <Button id="_IDGenButton5" text="Off-Cycle Payroll" press="onOffCyclePayroll" class="sapUiTinyMarginBottom"/>
-                                        <Button id="_IDGenButton6" text="Calculate Paycheck" press="onCalculatePaycheck" class="sapUiTinyMarginBottom"/>
-                                        <Button id="_IDGenButton7" text="Run Payroll" type="Emphasized" press="onRunPayroll" class="sapUiTinyMarginBottom"/>
-                                    </VBox>
-                                </HBox>
-                            </Panel>
+                        </Panel>
+                    
+                    
 
-                            <!-- Payroll Cost Distribution Panel -->
-                            <Panel id="_IDGenPanel2" headerText="Payroll Cost Distribution" class="sapUiTinyMargin sapUiContentPadding">
-                                <layoutData>
-                                    <f:GridContainerItemLayoutData id="_IDGenGridContainerItemLayoutData2" columns="3"/>
-                                </layoutData>
-                                <HBox id="_IDGenHBox5">
-                                    <core:Icon id="_IDGenIcon1" src="sap-icon://pie-chart"/>
-                                    <VBox id="_IDGenVBox5">
-                                        <Text id="_IDGenText7" text="Salaries: 25.37M" class="sapUiTinyMargin"/>
-                                        <Text id="_IDGenText8" text="Overtime: 7.61M" class="sapUiTinyMargin"/>
-                                        <Text id="_IDGenText9" text="Benefits: 15.22M" class="sapUiTinyMargin"/>
-                                        <Text id="_IDGenText10" text="Taxes: 2.54M" class="sapUiTinyMargin"/>
+                    <!-- Upcoming Payroll Tile -->
+                    <!-- <GenericTile id="_IDGenGenericTile4" header="Upcoming Payroll" subheader="Due in 14 Days"  
+                     frameType="TwoByOne" width="90%" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+                        <TileContent id="_IDGenTileContent14">
+                            <HBox id="_IDGenVBox6" justifyContent="SpaceBetween">
+                                <VBox id="_IDGenVBox4">
+                                    <Label id="_IDGenLabel1" text="Pay Period" />
+                                    <Text id="_IDGenText8" text="26/05 - 26/06" />
+                                    <VBox id="_IDGenVBox8" alignItems="End">
+                                        <Button id="_IDGenButton4" text="Run Payroll" type="Emphasized" />
                                     </VBox>
-                                </HBox>
-                            </Panel>
-
-                            <!-- Critical Alerts Panel -->
-                            <Panel id="_IDGenPanel3" headerText="Critical Alerts" class="sapUiTinyMargin sapUiContentPadding">
-                                <layoutData>
-                                    <f:GridContainerItemLayoutData id="_IDGenGridContainerItemLayoutData3" columns="3"/>
-                                </layoutData>
-                                <VBox id="_IDGenVBox6">
-                                    <HBox id="_IDGenHBox6">
-                                        <core:Icon id="_IDGenIcon2" src="sap-icon://alert" color="red"/>
-                                        <Text id="_IDGenText11" text="Missing Bank Details for Jane Doe"/>
-                                        <Button id="_IDGenButton8" text="Open" press="onOpenAlert"/>
-                                    </HBox>
-                                    <HBox id="_IDGenHBox7">
-                                        <core:Icon id="_IDGenIcon3" src="sap-icon://alert" color="red"/>
-                                        <Text id="_IDGenText12" text="Process Payroll for John Doe"/>
-                                        <Button id="_IDGenButton9" text="Open" press="onOpenAlert"/>
-                                    </HBox>
-                                    <HBox id="_IDGenHBox8">
-                                        <core:Icon id="_IDGenIcon4" src="sap-icon://alert" color="red"/>
-                                        <Text id="_IDGenText13" text="Missing Social Insurance for Jane Doe"/>
-                                        <Button id="_IDGenButton10" text="Open" press="onOpenAlert"/>
-                                    </HBox>
-                                    <Button id="_IDGenButton11" text="View All Alerts" press="onViewAllAlerts"/>
                                 </VBox>
-                            </Panel>
-
-                            <!-- Payroll Calendar Panel -->
-                            <Panel id="_IDGenPanel4" headerText="Payroll Calendar" class="sapUiTinyMargin sapUiContentPadding">
-                                <layoutData>
-                                    <f:GridContainerItemLayoutData id="_IDGenGridContainerItemLayoutData4" columns="3"/>
-                                </layoutData>
-                                <u:Calendar id="calendar" intervalSelection="true"/>
-                                <u:CalendarLegend id="legend"/>
-                            </Panel>
-
-                            <!-- Payroll History Panel -->
-                            <Panel id="_IDGenPanel5" headerText="Payroll History" class="sapUiTinyMargin sapUiContentPadding">
-                                <layoutData>
-                                    <f:GridContainerItemLayoutData id="_IDGenGridContainerItemLayoutData5" columns="3"/>
-                                </layoutData>
-                                <VBox id="_IDGenVBox7">
-                                    <Text id="_IDGenText14" text="Biweekly - Check date: Nov 11 - $12,968.47"/>
-                                    <Text id="_IDGenText15" text="Biweekly - Check date: Nov 11 - $12,968.46"/>
-                                    <Text id="_IDGenText16" text="Biweekly - Check date: Nov 11 - $12,620.19"/>
-                                    <Button id="_IDGenButton12" text="View Full Report" press="onViewFullReport"/>
+                                <VBox id="_IDGenVBox7" justifyContent="SpaceBetween">
+                                    <Label id="_IDGenLabel2" text="Payroll Actions" />
+                                    <Button id="_IDGenButton5" text="Off-Cycle Payroll" class="tileButton" />
+                                    <Button id="_IDGenButton6" text="Calculate Paycheck" class="tileButton" />
+                                    <Text id="_IDGenText9" text="" />
                                 </VBox>
-                            </Panel>
-                        </f:GridContainer>
-                    </VBox>
-                </ScrollContainer>
-            </VBox>
+                            </HBox>
+                        </TileContent>
+                    </GenericTile> -->
+                </l:content>
+            </l:Grid>
+
+            </ScrollContainer>
         </tnt:mainContents>
     </tnt:ToolPage>
 </mvc:View>
