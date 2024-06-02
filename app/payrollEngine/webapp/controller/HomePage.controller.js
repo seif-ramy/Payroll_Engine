@@ -68,6 +68,48 @@ sap.ui.define([
                                 Name:"Taxes",
                                 Number : 2540000
                             }
+                            ],
+                            "StackedItems": [
+                                {
+                                    "CW": "CW 14",
+                                    "Revenue": 491000.17,
+                                    "Cost": 221000,
+                                    "Actual Payout": 70200.54,
+                                    "Retro Payout": 150799.46,
+                                    "Cost3": 80799.46,
+                                    "Target": 500000,
+                                    "Budget": 238000
+                                    },
+                                    {
+                                    "CW": "CW 15",
+                                    "Revenue": 536000.34,
+                                    "Cost": 280000,
+                                    "Actual Payout": 158800.73,
+                                    "Retro Payout": 121199.27,
+                                    "Cost3": 108800.46,
+                                    "Target": 500000,
+                                    "Budget": 252000
+                                    },
+                                    {
+                                        "CW": "CW 16",
+                                        "Revenue": 675000,
+                                        "Cost": 230000,
+                                        "Actual Payout": 140000.91,
+                                        "Retro Payout": 89999.09,
+                                        "Cost3": 100099.09,
+                                        "Target": 600000,
+                                        "Budget": 266000
+                                        },
+                                        {
+                                        "CW": "CW 17",
+                                        "Revenue": 680000,
+                                        "Cost": 250000,
+                                        "Actual Payout": 172800.15,
+                                        "Retro Payout": 77199.85,
+                                        "Cost3": 57199.85,
+                                        "Target": 600000,
+                                        "Budget": 280000
+                                        }
                             ]
                 }
                 
@@ -80,6 +122,49 @@ sap.ui.define([
                 aColorPalate = ["#43BECC","#8E257A","#121B43","#E21F4A"];
                 oChartProperties.plotArea.colorPalette = aColorPalate;
                 oChart.setVizProperties(oChartProperties);
+
+                Format.numericFormatter(ChartFormatter.getInstance());
+            var formatPattern = ChartFormatter.DefaultPattern;
+                var StackedVizFrame = this.byId("idStackedVizFrame");
+                StackedVizFrame.setVizProperties({
+                    plotArea: {
+                        dataLabel: {
+                            formatString:formatPattern.SHORTFLOAT_MFD2,
+                            visible: false,
+                            showTotal: false,
+                                                              
+                        },
+                        drawingEffect: 'glossy',
+                        colorPalette: ["#43BECC","#121B43"]
+                    },
+                    valueAxis: {
+                        label: {
+                            formatString: formatPattern.SHORTFLOAT
+                        },
+                        title: {
+                            visible: false
+                        }
+                    },
+                    valueAxis2: {
+                        label: {
+                            formatString: formatPattern.SHORTFLOAT
+                        },
+                        title: {
+                            visible: false
+                        }
+                    },
+                    categoryAxis: {
+                        title: {
+                            visible: false
+                        }
+                    },
+                    title: {
+                        visible: true,
+                        text: 'Actual payout vs Retro payout for Q1, 2024'
+                    }
+                });
+
+
     },
 
     _setCustomFormatter:function(){	
@@ -96,7 +181,7 @@ sap.ui.define([
     },
     
     
-    onRunPayroll: function () {
+            onRunPayroll: function () {
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("PayrollProcessing");
             },
@@ -120,14 +205,14 @@ sap.ui.define([
                     var oSideNavigation = this.byId("sideNavigation");
                     var bExpanded = oSideNavigation.getExpanded();
                     //law bExpanded b false yeb2a expanded w law bExpanded b true yeb2a collapsed
-                    if(bExpanded==false){
-                        this.byId("_IDGenVBox16").setHeight("442px"); 
-                        //this.byId("_IDGenPanel14").setHeight("500px");
-                    }
-                    else if(bExpanded==true){
-                        this.byId("_IDGenVBox16").setHeight("435px"); 
-                        //this.byId("_IDGenPanel14").setHeight("460px");
-                    }
+                    // if(bExpanded==false){
+                    //     this.byId("_IDGenVBox16").setHeight("440px"); 
+                    //     //this.byId("_IDGenPanel14").setHeight("500px");
+                    // }
+                    // else if(bExpanded==true){
+                    //     this.byId("_IDGenVBox16").setHeight("440px"); 
+                    //     //this.byId("_IDGenPanel14").setHeight("460px");
+                    // }
                     oSideNavigation.setExpanded(!bExpanded);
                 }
                 
@@ -138,20 +223,14 @@ sap.ui.define([
                 //console.log(this.byId("navigationList").getSelectedItem());
 
             },
-            onOpenAlert: function (oEvent) {
-                MessageToast.show("Opening alert");
-            },
             onTicketButtonClick: function () {
-                window.location.href = "https://rptrs.freshdesk.com/support/login";
-            },
-            onOIPButtonClick: function () {
-                window.location.href = "https://rptrs.freshdesk.com/support/login";
+                window.open("https://rptrs.freshdesk.com/support/login", "_blank");
             },
             onNotificationButtonClick: function () {
-                window.location.href = "https://rptrs.freshdesk.com/support/login";
+                window.open("https://rptrs.freshdesk.com/support/login", "_blank");
             },
             onProfileSettingButtonClick: function () {
-                window.location.href = "https://rptrs.freshdesk.com/support/login";
+                window.open("https://salesdemo.successfactors.eu/login#/companyEntry", "_blank"); 
             }
            
         });

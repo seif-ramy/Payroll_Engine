@@ -334,6 +334,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adjust the shadow properties for the depth effect */
     background-color: #FFFFFF; /* Grey background color */;
     margin-top: 4.5px;
+    margin-left: 5px;
 }
 
 .centerChart {
@@ -359,6 +360,18 @@
     color: #E21F4A;
 }
 
+.SmallleftMargin2 {
+    margin-left: 20px;
+}
+
+.redUnderlineText{
+    color: red;
+    border-bottom: 1px solid red;
+    font-weight: bold;
+}
+.customTopMargin{
+    margin-left: 450px;
+}
 
 
 
