@@ -65,7 +65,7 @@
                         
                     <!-- Tile of total number of employees -->
                     <GenericTile id="_IDGenGenericTile1" class="sapUiTinyMargin customTile" 
-                    header="Total Employees" subheader="32 New Hires, 3 Terminations" width="90%" frameType="TwoByOne">
+                    header="Total Employees" subheader="32 New Hires, 3 Terminations" width="97.5%" frameType="TwoByOne">
             <TileContent id="_IDGenTileContent4" footer="+3.21% from last month" class="customTileFooter">
                 <NumericContent id="_IDGenNumericContent1" value="254" valueColor="Neutral" 
                                 icon="sap-icon://group" withMargin="false" class="customTileNumeric"/>
@@ -75,7 +75,7 @@
                 <!-- Tile of days unttil next payroll run -->
                     <GenericTile id="_IDGenGenericTile2" class="sapUiTinyMargin customTile" 
                     header="Next Payroll Run" subheader="Please make sure to run the payroll on time"
-                     width="90%" frameType="TwoByOne">
+                     width="97.5%" frameType="TwoByOne">
             <TileContent id="_IDGenTileContent5" footer="Until next payroll run" class="customTileFooterRed">
                 <NumericContent id="_IDGenNumericContent2" value="5" scale="Days" valueColor="Neutral" 
                                 icon="sap-icon://calendar" withMargin="false" class="customTileNumeric"/>
@@ -84,7 +84,7 @@
                         
             <!-- Estimated upcoming payroll -->
             <GenericTile id="_IDGenGenericTile3" class="sapUiTinyMargin customTile" 
-                        header="Estimated Upcoming Payroll" width="90%" frameType="TwoByOne"
+                        header="Estimated Upcoming Payroll" width="97.5%" frameType="TwoByOne"
                         subheader="This is a rough estimate of the total amount">
                 <TileContent id="_IDGenTileContent6">
                     <NumericContent id="_IDGenNumericContent3" value="36,900" scale="USD" valueColor="Neutral" 
@@ -96,8 +96,9 @@
             <VBox id="_IDGenVBox116">
                 <!-- Upcoming Payroll Tile -->
                 <GenericTile id="_IDGenGenericTile4" header="Upcoming Payroll" subheader="Due in 14 Days"  
-                frameType="TwoByOne" width="90%" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
-                   <TileContent id="_IDGenTileContent14">
+                frameType="TwoByOne" width="97.5%" height="100%" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
+                <TileContent id="_IDGenTileContent14">
+                   <VBox>
                        <HBox id="_IDGenVBox6" justifyContent="SpaceBetween">
                            <VBox id="_IDGenVBox4">
                                <Label id="_IDGenLabel1" text="Pay Period" />
@@ -116,11 +117,12 @@
                                <Text id="_IDGenText9" text="" />
                            </VBox>
                        </HBox>
+                       </VBox>
                    </TileContent>
                </GenericTile>
                
                <!-- Calendar Panel -->
-                <Panel id="_IDGenPanel4" width="90%" headerText="Payroll Calendar" 
+                <Panel id="_IDGenPanel4" width="97.5%" headerText="Payroll Calendar"
                 class="sapUiTinyMargin sapUiContentPadding myPanel">
                 <VBox id="_IDGenVBox19" height="808px">
                     <u:Calendar id="calendar" intervalSelection="true"/>
@@ -131,17 +133,16 @@
             
                         
 
-                         <!-- Code of pie chart-->
+                        <!-- Code of donut chart-->
                          <chart:ChartContainer id="chartContainer" showFullScreen="true" showZoom="false" 
-                         title="Payroll Cost Distribution" class="myPanelChart" width="92%">
+                         title="Payroll Cost Distribution" class="myPanelChart" width="97.5%">
                             <chart:ChartContainerContent id="_IDGenChartContainerContent1">
                                 <chart:content>
-                                 <viz:VizFrame id="idpiechart" width="auto" uiConfig="{applicationSet:'fiori'}" vizType="pie"
+                                 <viz:VizFrame id="idpiechart" width="auto" uiConfig="{applicationSet:'fiori'}" vizType="donut"
                                    vizProperties="{
                                           plotArea:{
                                                            dataLabel:{visible: true,type:'value',
-                                                           formatString:'CustomFloatFormat_F2'},
-                                                           drawingEffect: 'glossy'
+                                                           formatString:'CustomFloatFormat_F2'}
                                                },
                                                            title : {text:'Q1, 2024'},
                                                            legendGroup:{layout:{position: 'left'}}
@@ -170,13 +171,10 @@
                                </chart:content>
                              </chart:ChartContainerContent>
                         </chart:ChartContainer>
-            
-            
-            
            
                            
                            <!-- Critical Alerts Panel -->
-                            <Panel id="_IDGenPanel3" width="90%" class="sapUiTinyMargin sapUiContentPadding myPanel"
+                            <Panel id="_IDGenPanel3" width="97.5%" class="sapUiTinyMargin sapUiContentPadding myPanel"
                              headerText="Critical Alerts">
                         <VBox id="_IDGenVBox16" height="440px">
                             <VBox id="_IDGenVBox18" height="20px"/>
@@ -232,7 +230,7 @@
                
                     <!--  Code of Stacked Column chart by tasneem -->
                       <chart:ChartContainer id="chartContainer2" showFullScreen="true" showZoom="false" 
-                      title="Payroll History" class="myPanelChart" width="97%">
+                      title="Payroll History" class="myPanelChart" width="97.5%">
                       <chart:layoutData>
                       <l:GridData id="_IDGenGridData1" span="XL8"></l:GridData>
                       </chart:layoutData>

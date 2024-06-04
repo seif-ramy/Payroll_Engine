@@ -134,7 +134,6 @@ sap.ui.define([
                             showTotal: false,
                                                               
                         },
-                        drawingEffect: 'glossy',
                         colorPalette: ["#43BECC","#121B43"]
                     },
                     valueAxis: {
