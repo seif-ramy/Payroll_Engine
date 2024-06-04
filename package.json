@@ -6,6 +6,8 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@sap-cloud-sdk/http-client": "^3.15.0",
+    "@sap-cloud-sdk/resilience": "^3.15.0",
     "@sap/cds": "^7",
     "@sap/cds-hana": "^2",
     "@sap/cds-mtxs": "^1.9",
@@ -24,10 +26,18 @@
     "profile": "with-mtx-sidecar",
     "requires": {
       "multitenancy": true,
-      "auth": "mocked",
+      "auth": "dummy",
       "db": "hana",
       "messaging": {
         "kind": "enterprise-messaging"
+      },
+      "PLTUserManagement": {
+        "kind": "odata-v2",
+        "model": "srv/external/PLTUserManagement",
+        "credentials": {
+          "destination": "SF_SalesDemo",
+          "path": "/odata/v2/User"
+        }
       }
     },
     "features": {
