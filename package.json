@@ -38,6 +38,10 @@
           "destination": "SF_SalesDemo",
           "path": "/odata/v2/User"
         }
+      },
+      "ECCompensationInformation": {
+        "kind": "odata-v2",
+        "model": "srv/external/ECCompensationInformation"
       }
     },
     "features": {
