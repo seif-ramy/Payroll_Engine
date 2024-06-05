@@ -95,36 +95,47 @@
 
             <VBox id="_IDGenVBox116">
                 <!-- Upcoming Payroll Tile -->
-                <GenericTile id="_IDGenGenericTile4" header="Upcoming Payroll" subheader="Due in 14 Days"  
-                frameType="TwoByOne" width="97.5%" height="100%" class="sapUiTinyMarginBegin sapUiTinyMarginTop">
-                <TileContent id="_IDGenTileContent14">
-                   <VBox>
-                       <HBox id="_IDGenVBox6" justifyContent="SpaceBetween">
-                           <VBox id="_IDGenVBox4">
-                               <Label id="_IDGenLabel1" text="Pay Period" />
-                               <Text id="_IDGenText8" text="26/05 - 26/06" />
-                               <VBox id="_IDGenVBox8" alignItems="End">
-                                   <Button id="_IDGenButton4" text="Run Payroll" type="Emphasized" press="onRunPayroll"
-                                   />
-                               </VBox>
-                           </VBox>
-                           <VBox id="_IDGenVBox7" justifyContent="SpaceBetween">
-                               <Label id="_IDGenLabel2" text="Payroll Actions" />
-                               <Button id="_IDGenButton5" text="Off-Cycle Payroll" class="tileButton" press="onOffCyclePayroll"
-                               />
-                               <Button id="_IDGenButton6" text="Calculate Paycheck" class="tileButton" press="onCalculatePaycheck"
-                               />
-                               <Text id="_IDGenText9" text="" />
-                           </VBox>
-                       </HBox>
-                       </VBox>
-                   </TileContent>
-               </GenericTile>
+                <Panel id="_IDGenPanel5" width="97.5%" class="sapUiTinyMargin sapUiContentPadding myPanel">
+                    <headerToolbar >
+                    <OverflowToolbar id="_IDGenOverflowToolbar1" style="Clear"  >
+                        <Title id="_IDGenTitle1" text="Upcoming Payroll" />
+                        <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                        <Text id="IDText8" text="Due in 14 Days" />
+                        <Button id="_IDGenButton8" icon="sap-icon://calendar" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                 <HBox id="_IDGenVBox6" justifyContent="SpaceBetween" class="borderTop">
+                <VBox id="_IDGenVBox4" >
+                <VBox id="_IDGenInnerVBox" class="customBackgroundColor">
+                    <Label id="_IDGenLabel1" text="Pay Period" />
+                    <HBox id="_IDGenHBox21">
+                        <Text id="_IDGenText8" text="26/05" class="MarginRight" />
+                        <core:Icon id="_IDGenIcon51" src="sap-icon://arrow-right" class="MarginRight" />
+                        <Text id="IDTex9" text="26/06" class="MarginRight" />
+                    </HBox>
+                </VBox>
+                <VBox id="_IDGenVBox8" class="transparentBackground">
+                    <Button id="_IDGenButton4" text="Run Payroll"  type="Emphasized" press="onRunPayroll" class="sapUiTinyMarginTop" />
+                </VBox>
+            </VBox>
+                                   <VBox id="_IDGenVBox7" justifyContent="SpaceBetween" class="borderRight ">
+                                       <Label id="_IDGenLabel2" text="Payroll Actions" class="sapUiTinyMarginTop" />
+                                       <Button id="_IDGenButton5" text="Off-Cycle Payroll" press="onOffCyclePayroll"
+                                       />
+                                       <Button id="_IDGenButton6" text="Calculate Paycheck" class="sapUiTinyMarginTop" press="onCalculatePaycheck"
+                                       />
+                                       <Text id="_IDGenText9" text="" />
+                                        <Text id="_IDtext9" text="" />
+                                   </VBox>
+                               </HBox>
+                </content>
+                    </Panel>
                
                <!-- Calendar Panel -->
                 <Panel id="_IDGenPanel4" width="97.5%" headerText="Payroll Calendar"
                 class="sapUiTinyMargin sapUiContentPadding myPanel">
-                <VBox id="_IDGenVBox19" height="808px">
+                <VBox id="_IDGenVBox19">
                     <u:Calendar id="calendar" intervalSelection="true"/>
                     <u:CalendarLegend id="legend"/>
                 </VBox>
@@ -230,7 +241,7 @@
                
                     <!--  Code of Stacked Column chart by tasneem -->
                       <chart:ChartContainer id="chartContainer2" showFullScreen="true" showZoom="false" 
-                      title="Payroll History" class="myPanelChart" width="97.5%">
+                      title="Payroll History" class="myPanelChart" width="98.5%">
                       <chart:layoutData>
                       <l:GridData id="_IDGenGridData1" span="XL8"></l:GridData>
                       </chart:layoutData>

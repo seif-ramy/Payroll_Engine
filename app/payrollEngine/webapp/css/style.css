@@ -335,6 +335,7 @@
     background-color: #FFFFFF; /* Grey background color */;
     margin-top: 4.5px;
     margin-left: 5px;
+    margin-bottom: 10px;
 }
 
 .centerChart {
@@ -402,6 +403,32 @@
     width: 1px; /* Adjust the width of the line */
     height: 100%; /* Make it full height of the containing element */
     margin: 0 20px; /* Adjust margin to space out the line */
+}
+
+
+.MarginRight {
+    margin-right: 5px;
+}/* css for Upcoming Payroll Panel */
+.customBackgroundColor {
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius:10px ;
+}
+.transparentBackground {
+    background-color: transparent;
+}
+.whitesapUiBody {
+    background-color: white;
+}
+.borderRight{
+    border-left: 1px solid #ccc; 
+    padding-left: 40px;
+    height: 100%;
+}
+.borderTop{
+    border-top: 1px solid #ccc;
+    height: 100%;
 }
 
 
