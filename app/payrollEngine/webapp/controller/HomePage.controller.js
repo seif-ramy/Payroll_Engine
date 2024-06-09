@@ -16,7 +16,7 @@ sap.ui.define([
 
         return Controller.extend("sp.payrollEngine.controller.HomePage", {
             onInit: function () {
-                this._setModel();
+                this._setModel();            
                 this._setCustomFormatter();
                 var navigationList = this.byId("navigationList");
                 navigationList.setSelectedItem(null);
@@ -46,8 +46,10 @@ sap.ui.define([
                         type: sType,
                         tooltip: "Placeholder " + i
                     }));
+                    
                 }
             },
+           
             _setModel:function(){
 
                 var aData = {

@@ -31,22 +31,26 @@
             </tnt:SideNavigation>
         </tnt:sideContent>
         <tnt:mainContents>
-            <VBox id="mainContentVBox" height="100%">
-                <ScrollContainer id="_IDGenScrollContainer1" height="100%" vertical="true">
-                    <VBox id="_IDGenVBox21" height="100%">
-                        <HBox id="_IDGenHBox31" justifyContent="SpaceBetween" alignItems="Center" class="headerBox">
-                            <Image id="logoImage" src="images/RaptorsLogoWhite.png" alt="Raptors Logo" class="headerImage"/>
-                            <HBox id="_IDGenHBox9" justifyContent="SpaceBetween" class="searchContainer">
-                                <HBox id="_IDGenHBox10" width="20%"/> <!-- Adjust width as needed to fine-tune position -->
-                                <SearchField id="searchField" width="250%" placeholder="Search..." class="searchField"/>
-                                <HBox id="_IDGenHBox11" width="50%"/>
-                            </HBox>
-                            <HBox id="_IDGenHBox2" justifyContent="End">
-                                <Button id="_IDGenButton1" icon="images/tickets.png" class="transparentBackgroundButton" press="onTicketButtonClick"></Button>
-                                <Button id="_IDGenButton54" icon="images/notf.png" class="transparentBackgroundButton" press="onNotificationButtonClick"></Button>
-                                <Button id="_IDGenButton35" icon="images/login.png" class="transparentBackgroundButton" press="onProfileSettingButtonClick"></Button>
-                            </HBox>
-                        </HBox>
+        <Page id="payrollPreviewPage">
+           <headerContent>
+                    <!-- Header content goes here -->
+                    <Bar id="_IDGenBar1" class="darkBlueHeader">
+                        <contentLeft>
+                            <!-- Content for the left side of the header -->
+                            <Text id="_IDGenText1" text="Raptors" class="largeText sapUiSmallMargin whiteText"/>
+                        </contentLeft>
+                        <contentMiddle>
+                            <!-- Content for the middle of the header -->
+                            <SearchField id="_IDGenSearchField1" width="60%" placeholder="Search..."/>
+                        </contentMiddle>
+                        <contentRight>
+                            <Button id="_IDGenButton11" icon="images/ticket.png" press="onTicketButtonClick"></Button>
+                            <Button id="_IDGenButton12" icon="images/help.png"  press="onOIPButtonClick"></Button>
+                            <Button id="_IDGenButton13" icon="images/notification.png" press="onNotificationButtonClick"></Button>
+                            <Button id="_IDGenButton14" icon="images/ProfileSetting.png" press="onProfileSettingButtonClick"></Button>
+                        </contentRight>
+                    </Bar>
+                </headerContent>
                         <VBox id="_IDGenVBox3" height="25px"></VBox>
                         <VBox id="_IDGenVBox1" class="sapUiSmallMargin">
                             <Title id="_IDGenTitle1" level="H1" text="1. Enter Payroll" />

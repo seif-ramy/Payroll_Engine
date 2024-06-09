@@ -78,7 +78,7 @@
                      width="97.5%" frameType="TwoByOne">
             <TileContent id="_IDGenTileContent5" footer="Until next payroll run" class="customTileFooterRed">
                 <NumericContent id="_IDGenNumericContent2" value="5" scale="Days" valueColor="Neutral" 
-                                icon="sap-icon://calendar" withMargin="false" class="customTileNumeric"/>
+                                icon="sap-icon://calendar" withMargin="false" class="customTileNumeric2"/>
             </TileContent>
             </GenericTile>
                         

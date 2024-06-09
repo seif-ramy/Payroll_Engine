@@ -1,25 +1,34 @@
-<mvc:View 
-    controllerName="sp.payrollEngine.controller.PayrollPreview" 
+<mvc:View xmlns:cards="sap.f.cards" controllerName="sp.payrollEngine.controller.PayrollPreview"
     xmlns:mvc="sap.ui.core.mvc" 
     displayBlock="true"
     xmlns="sap.m"
+    xmlns:f="sap.f"
     xmlns:core="sap.ui.core"
-    xmlns:tnt="sap.tnt">
-
-    <tnt:ToolPage id="toolPage">
+    xmlns:tnt="sap.tnt"
+    xmlns:u="sap.ui.unified"
+    xmlns:card="sap.f.cards"
+    xmlns:w="sap.ui.integration.widgets"
+    xmlns:mc="sap.suite.ui.microchart"
+    xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz="sap.viz.ui5.controls" 
+    xmlns:chart="sap.suite.ui.commons">
+    
+    <tnt:ToolPage id="toolPage" sideExpanded="false">
         <tnt:sideContent>
-            <tnt:SideNavigation id="_IDGenSideNavigation1">
-                <tnt:NavigationList id="_IDGenNavigationList1" itemSelect="onItemSelect">
+            <tnt:SideNavigation id="sideNavigation">
+                <tnt:NavigationList id="navigationList" itemSelect="onItemSelect">
                     <tnt:items>
+                        <tnt:NavigationListItem id="_IDGenNavigationListItem0" icon="sap-icon://menu2" key="Toggle"/>
                         <tnt:NavigationListItem id="_IDGenNavigationListItem1" text="Home" icon="sap-icon://home" key="home"/>
-                        <tnt:NavigationListItem id="_IDGenNavigationListItem2" text="Payroll" icon="sap-icon://lead" key="PayrollProcessing"/>
+                        <tnt:NavigationListItem id="_IDGenNavigationListItem2" text="Payroll Operation Center" icon="sap-icon://lead" key="PayrollProcessing"/>
                         <tnt:NavigationListItem id="_IDGenNavigationListItem3" text="People" icon="sap-icon://group" key="people"/>
-                        <tnt:NavigationListItem id="_IDGenNavigationListItem4" text="Third-party Integration" icon="sap-icon://home" key="thirdPartyIntegration"/>
+                        <tnt:NavigationListItem id="_IDGenNavigationListItem4" text="Third Party Integration" icon="sap-icon://home" key="thirdPartyIntegration"/>
                         <tnt:NavigationListItem id="_IDGenNavigationListItem5" text="Reports" icon="sap-icon://expense-report" key="reports"/>
                         <tnt:NavigationListItem id="_IDGenNavigationListItem6" text="General Settings" icon="sap-icon://settings">
                             <tnt:items>
                                 <tnt:NavigationListItem id="_IDGenNavigationListItem7" text="Taxes" icon="sap-icon://money-bills" key="taxes"/>
-                                <tnt:NavigationListItem id="_IDGenNavigationListItem8" text="Social insurance" icon="sap-icon://insurance-life" key="socialInsurance"/>
+                                <tnt:NavigationListItem id="_IDGenNavigationListItem8" text="Social Insurance" icon="sap-icon://insurance-life" key="socialInsurance"/>
                                 <tnt:NavigationListItem id="_IDGenNavigationListItem9" text="Gratuity" key="gratuity"/>
                                 <tnt:NavigationListItem id="_IDGenNavigationListItem10" text="Absences" key="absences"/>
                                 <tnt:NavigationListItem id="_IDGenNavigationListItem11" text="Wage Types" key="wageTypes"/>
@@ -33,178 +42,248 @@
         </tnt:sideContent>
         
         <tnt:mainContents>
-            <Page id="payrollPreviewPage">
-                <headerContent>
-                    <!-- Header content goes here -->
-                    <Bar id="_IDGenBar1" class="darkBlueHeader">
-                        <contentLeft>
-                            <!-- Content for the left side of the header -->
-                            <Text id="_IDGenText1" text="Raptors" class="largeText sapUiSmallMargin whiteText"/>
-                        </contentLeft>
-                        <contentMiddle>
-                            <!-- Content for the middle of the header -->
-                            <SearchField id="_IDGenSearchField1" width="60%" placeholder="Search..."/>
-                        </contentMiddle>
-                        <contentRight>
-                            <Button id="_IDGenButton11" icon="images/ticket.png" press="onTicketButtonClick"></Button>
-                            <Button id="_IDGenButton12" icon="images/help.png"  press="onOIPButtonClick"></Button>
-                            <Button id="_IDGenButton13" icon="images/notification.png" press="onNotificationButtonClick"></Button>
-                            <Button id="_IDGenButton14" icon="images/ProfileSetting.png" press="onProfileSettingButtonClick"></Button>
-                        </contentRight>
-                    </Bar>
-                </headerContent>
-                <content>
+            <ScrollContainer id="_IDGenScrollContainer1" height="100%" vertical="true">
+                
+                <!-- Start of Header -->
+                <HBox id="_IDGenHBox1" justifyContent="SpaceBetween" alignItems="Center" class="headerBox">
+                    <Image id="logoImage" src="images/RaptorsLogoWhite.png" alt="Raptors Logo" class="headerImage"/>
+                    <HBox id="_IDGenHBox9" justifyContent="SpaceBetween" class="searchContainer">
+                        <HBox id="_IDGenHBox10" width="20%"/> <!-- Adjust width as needed to fine-tune position -->
+                        <SearchField id="searchField" width="250%" placeholder="Search..." class="searchField"/>
+                        <HBox id="_IDGenHBox111" width="50%"/>
+                    </HBox>
+                    <HBox id="_IDGenHBox2" justifyContent="End">
+                        <Button id="_IDGenButton1" icon="images/tickets.png" class="transparentBackgroundButton" press="onTicketButtonClick"></Button>
+                        <Button id="_IDGenButton2" icon="images/notf.png" class="transparentBackgroundButton" press="onNotificationButtonClick"></Button>
+                        <Button id="_IDGenButton3" icon="images/login.png" class="transparentBackgroundButton" press="onProfileSettingButtonClick"></Button>
+                    </HBox>
+                </HBox>
+                <!-- End of Header -->
+                
+                <!-- Start of Content -->
+                <VBox id="_IDGenVBoxContent" class="contentBox" fitContainer="true">
+                    
+                    <!-- Tile of total number of employees -->
+                    <HBox>
+                                        <HBox width="100px"/>
 
-            <VBox id="_IDGenVBox5">
-                 <VBox id="_IDGenVBox3" height="50px"></VBox>
-                 <Text id="_IDGenText2" text="Preview Payroll" class="largeText SmallLeftMargin"/>
-                 <VBox id="_IDGenVBox4" height="25px"></VBox>
-            </VBox>
-            <HBox id="_IDGenHBox9" class="container">
-    <!-- First box for Cash Required -->
-              <VBox id="_IDGenVBox6" class="boxContainer sapUiSmallMargin">
-                    <Text id="_IDGenText3" text="Cash Required" class="headerText"/>
-                    <Text id="_IDGenText4" text="$3344" class="contentText"/>
-                    <Text id="_IDGenText5" text="Biweekly" class="contentText greyText"/>
-                    <Text id="_IDGenText6" text="Apr 01, 2022 –> Apr 15, 2022" class="contentText"/>
-                </VBox>
-                <VBox id="_IDGenVBox7" class="boxContainer sapUiSmallMargin">
-                    <Text id="_IDGenText7" text="Payroll Dates" class="headerText"/>
-                    <Text id="_IDGenText8" text="" class="contentText"/>
-                    <Text id="_IDGenText9" text="" class="contentText"/>
-                    <HBox id="_IDGenHBox100" justifyContent="SpaceBetween" alignItems="Center">  
-                        <Text id="_IDGenText10" text="Check Date" class="contentText greyText"/>
-                        <HBox id="_IDGenHBox700" justifyContent="End">
-                            <Text id="_IDGenText11" text="Wed,April 20,2022" class="contentText"/>
-                        </HBox>
+                    <Panel width="200px" height ="180px" class="myPanel sapUiSmallMargin leftMargin">
+                        <VBox>
+                            <Text text="Head Count" class="headerText1"/>
+                            <Text text="Total no. of Employees"/>
+                            <NumericContent id="_IDGenNumericContent1" value="250" valueColor="Neutral" icon="sap-icon://group" withMargin="false" class="customTileNumeric1"/>
+                            <Text text="32 Hires"/>
+                            <Text text="3 Terminations"/>
+                        </VBox>
+                    </Panel>
+                    <HBox width="100px"/>
+
+                    <Panel width="200px" height ="180px" class="myPanel sapUiSmallMargin leftMargin">
+                        <VBox>
+                            <Text id="_text" text="Gross Profit" class="headerText1"/>
+                            <Text id="_text1" text="for current pay period"/>
+                            <NumericContent id="_IDGenNumericContent2" value="250" valueColor="Neutral" icon="sap-icon://money-bills" withMargin="false" class="customTileNumeric1"/>
+                            <Text text="$ 32,000 Base salaries"/>
+                            <Text text="$ 35,000 bonuses"/>
+                        </VBox>
+                    </Panel>
+                     <HBox width="100px"/>
+
+                    <Panel width="200px" height ="180px" class="myPanel sapUiSmallMargin leftMargin">
+                        <VBox>
+                            <Text  text="Retro Amounts" class="headerText1"/>
+                            <Text  text="for current pay period"/>
+                            <NumericContent value="250" valueColor="Neutral" icon="sap-icon://money-bills" withMargin="false" class="customTileNumeric1"/>
+                            <Text text="$ 32,000 Base salaries"/>
+                            <Text text="$ 35,000 bonuses"/>
+                        </VBox>
+                    </Panel>
+
+                         <HBox width="100px"/>
+
+                    <Panel width="200px" height ="180px" class="myPanel sapUiSmallMargin leftMargin">
+                        <VBox>
+                            <Text  text="Gross Profit" class="headerText1"/>
+                            <Text  text="for current pay period"/>
+                            <NumericContent value="250" valueColor="Neutral" icon="sap-icon://money-bills" withMargin="false" class="customTileNumeric1"/>
+                            <Text text="$ 32,000 Base salaries"/>
+                            <Text text="$ 35,000 bonuses"/>
+                        </VBox>
+                    </Panel>
+
+
                     </HBox>
-                </VBox>
-                <VBox id="_IDGenVBox8" class="boxContainer sapUiSmallMargin">
-                    <Text id="_IDGenText12" text="People" class="headerText SmallLeftMargin"/>
-                    <HBox id="_IDGenHBox10" justifyContent="SpaceBetween" alignItems="Center">  
-                        <Text id="_IDGenText13" text="3" class="blueText largerText SmallLeftMargin" />
-                        <HBox id="_IDGenHBox7" justifyContent="End">
-                            <Text id="_IDGenText14" text="0" class="blueText largerText RightMarginForLine" />
-                        </HBox>
-                    </HBox>
-                    <HBox id="_IDGenHBox11" justifyContent="SpaceBetween" alignItems="Center">  
-                        <Text id="_IDGenText15" text="Employees" class="contentText SmallLeftMargin greyText"/>
-                        <HBox id="_IDGenHBox12" justifyContent="End">
-                            <Text id="_IDGenText16" text="Contractors" class="contentText SmallLeftMargin greyText"/>
-                        </HBox>
-                    </HBox>
-                    <HBox id="_IDGenHBox701" justifyContent="SpaceBetween" alignItems="Center">
-                        <Text id="_IDGenText17" text="3" class="contentText SmallLeftMargin blueText largeText"/>
-                    </HBox>
-                    <Text id="_IDGenText61" text="1 terminated employee paid" class="contentText SmallLeftMargin"/>
-                </VBox>
-        </HBox>
-        <Table id="employeeTable" growing="true" growingScrollToLoad="true">
+                    <VBox height="55px"/>
+                    
+                    <!-- Estimated upcoming payroll -->
+ <Table id="employeeTable" growing="true" growingScrollToLoad="true">
             <columns>
-                <Column id="_IDGenColumn1">
-                    <Text id="_IDGenText19" text="Employee Name" class="greyText"/>
+                <Column >
+                    <Text  text="Employee ID" class="greyText"/>
                 </Column>
-                <Column id="_IDGenColumn2">
-                    <Text id="_IDGenText20" text="Type" class="greyText"/>
+                <Column >
+                    <Text text="Name" class="greyText"/>
                 </Column>
-                <Column id="_IDGenColumn3">
-                    <Text id="_IDGenText21" text="Total Hours" class="greyText"/>
+                <Column >
+                    <Text text="Gross Salary" class="greyText"/>
                 </Column>
-                <Column id="_IDGenColumn4">
-                    <Text id="_IDGenText22" text="Gross Pay" class="greyText"/>
+                <Column >
+                    <Text  text="Pay Period" class="greyText"/>
                 </Column>
-                <Column id="_IDGenColumn5">
-                    <Text id="_IDGenText23" text="Taxes" class="greyText"/>
+                <Column >
+                    <Text  text="Net Salary" class="greyText"/>
                 </Column>
-                <Column id="_IDGenColumn6">
-                    <Text id="_IDGenText24" text="Deductions" class="greyText"/>
+                <Column >
+                    <Text  text="Department" class="greyText"/>
                 </Column>
-                <Column id="_IDGenColumn7">
-                    <Text id="_IDGenText25" text="Net Pay" class="greyText"/>
+                <Column >
+                    <Text  text="Deductions" class="greyText"/>
                 </Column>
-                <Column id="_IDGenColumn8">
-                    <Text id="_IDGenText26" text="Employee Taxes" class="greyText"/>
+                <Column >
+                    <Text  text="Cost Center" class="greyText"/>
+                </Column>
+                <Column >
+                    <Text  text="Bank Account" class="greyText"/>
+                </Column>
+                <Column >
+                    <Text  text="Wage Type" class="greyText"/>
+                </Column>
+                <Column >
+                    <Text  text="Totals" class="greyText"/>
                 </Column>
             </columns>
     <items>
-        <ColumnListItem id="_IDGenColumnListItem1">
+        <ColumnListItem >
             <cells>
-                <Text id="_IDGenText27" text="2-Dept" />  
+                <Text  text="123458901234" class= "blueeText"/>
+                <Text  text="Jana Fouda"/>
+                <Text  text="$10000"/>
+                <Text  text="11/15/21"/>
+                <Text  text="$12,897.00"/>
+                <Text  text="MKTG" />
+                <Text  text="$2300"/>
+                <Text  text="IT"/>
+                <Text  text="21111111"/>
+                <Text  text="Base Salary"/>
+                <Text  text="$12,898"/>
             </cells>
         </ColumnListItem>
 
-        <ColumnListItem id="_IDGenColumnListItem2">   
+          <ColumnListItem >
             <cells>
-                <Text id="_IDGenText28" text="Don, May" class="blueeText" />
-                <Text id="_IDGenText29" text="Regular"/>
-                <Text id="_IDGenText30" text="0.00"/>
-                <Text id="_IDGenText31" text="$1600.00"/>
-                <Text id="_IDGenText32" text="$271.68"/>
-                <Text id="_IDGenText33" text="$0.00"/>
-                <Text id="_IDGenText34" text="$1,228.32"/>
-                <Text id="_IDGenText35" text="$156.75"/>
+                <Text  text="123458901234" class= "blueeText"/>
+                <Text  text="Jana Fouda"/>
+                <Text  text="$10000"/>
+                <Text  text="11/15/21"/>
+                <Text  text="$12,897.00"/>
+                <Text  text="MKTG" />
+                <Text  text="$2300"/>
+                <Text  text="IT"/>
+                <Text  text="21111111"/>
+                <Text  text="Base Salary"/>
+                <Text  text="$12,898"/>
             </cells>
         </ColumnListItem>
-        <ColumnListItem id="_IDGenColumnListItem3">
+          <ColumnListItem >
             <cells>
-              <Text id="_IDGenText36" text="Doe, Jane" class ="blueeText"/>
-                <Text id="_IDGenText37" text="Regular"/>
-                <Text id="_IDGenText38" text="25.00"/>
-                <Text id="_IDGenText39" text="$500.00"/>
-                <Text id="_IDGenText40" text="$85.04"/>
-                <Text id="_IDGenText41" text="$35.00"/>
-                <Text id="_IDGenText42" text="$379.96.32"/>
-                <Text id="_IDGenText43" text="$52.25"/>
+                <Text  text="123458901234" class= "blueeText"/>
+                <Text  text="Jana Fouda"/>
+                <Text  text="$10000"/>
+                <Text  text="11/15/21"/>
+                <Text  text="$12,897.00"/>
+                <Text  text="MKTG" />
+                <Text  text="$2300"/>
+                <Text  text="IT"/>
+                <Text  text="21111111"/>
+                <Text  text="Base Salary"/>
+                <Text  text="$12,898"/>
             </cells>
         </ColumnListItem>
-        <ColumnListItem id="_IDGenColumnListItem4">
+          <ColumnListItem >
             <cells>
-                <Text id="_IDGenText44" text="Smith, John" class ="blueeText"/>
-                <Text id="_IDGenText45" text="Regular"/>
-                <Text id="_IDGenText46" text="70.00"/>
-                <Text id="_IDGenText47" text="$1050.00"/>
-                <Text id="_IDGenText48" text="$207.00"/>
-                <Text id="_IDGenText49" text="$0.00"/>
-                <Text id="_IDGenText50" text="$843.00"/>
-                <Text id="_IDGenText51" text="$109.73"/>
+                <Text  text="123458901234" class= "blueeText"/>
+                <Text  text="Jana Fouda"/>
+                <Text  text="$10000"/>
+                <Text  text="11/15/21"/>
+                <Text  text="$12,897.00"/>
+                <Text  text="MKTG" />
+                <Text  text="$2300"/>
+                <Text  text="IT"/>
+                <Text  text="21111111"/>
+                <Text  text="Base Salary"/>
+                <Text  text="$12,898"/>
             </cells>
         </ColumnListItem>
-        <ColumnListItem id="_IDGenColumnListItem5">
+          <ColumnListItem >
             <cells>
-                <Text id="_IDGenText70" text="Totals"/>
-                <Text id="_IDGenText71" text=""/>
-                <Text id="_IDGenText54" text="95.00"/>
-                <Text id="_IDGenText55" text="$3,050.00"/>
-                <Text id="_IDGenText56" text="$563.72"/>
-                <Text id="_IDGenText57" text="$35"/>
-                <Text id="_IDGenText58" text="$2451.28"/>
-                <Text id="_IDGenText59" text="$318.73"/>
-            </cells>    
+                <Text  text="123458901234" class= "blueeText"/>
+                <Text  text="Jana Fouda"/>
+                <Text  text="$10000"/>
+                <Text  text="11/15/21"/>
+                <Text  text="$12,897.00"/>
+                <Text  text="MKTG" />
+                <Text  text="$2300"/>
+                <Text  text="IT"/>
+                <Text  text="21111111"/>
+                <Text  text="Base Salary"/>
+                <Text  text="$12,898"/>
+            </cells>
+        </ColumnListItem>
+          <ColumnListItem >
+            <cells>
+                <Text  text="123458901234" class= "blueeText"/>
+                <Text  text="Jana Fouda"/>
+                <Text  text="$10000"/>
+                <Text  text="11/15/21"/>
+                <Text  text="$12,897.00"/>
+                <Text  text="MKTG" />
+                <Text  text="$2300"/>
+                <Text  text="IT"/>
+                <Text  text="21111111"/>
+                <Text  text="Base Salary"/>
+                <Text  text="$12,898"/>
+            </cells>
+        </ColumnListItem>
+          <ColumnListItem >
+            <cells>
+                <Text  text="123458901234" class= "blueeText"/>
+                <Text  text="Jana Fouda"/>
+                <Text  text="$10000"/>
+                <Text  text="11/15/21"/>
+                <Text  text="$12,897.00"/>
+                <Text  text="MKTG" />
+                <Text  text="$2300"/>
+                <Text  text="IT"/>
+                <Text  text="21111111"/>
+                <Text  text="Base Salary"/>
+                <Text  text="$12,898"/>
+            </cells>
         </ColumnListItem>
     </items>
     </Table>
-       <VBox id="_IDGenVBox9" height="25px"></VBox>
-    <HBox id="_IDGenHBox702">
-        <Text id="_IDGenText52" text="Payrun Total: $3,365.73" class="SmallRightMargin mediumText"/>
-        <Text id="_IDGenText53" text="Cash Required: $3,333.73" class="SmallRightMargin2 mediumText"/>
-    </HBox>
-           <VBox id="_IDGenVBox10" height="25px"></VBox>
-
-    <HBox id="_IDGenHBox703" justifyContent="SpaceBetween" alignItems="Center">
-    <HBox id="_IDGenHBox704">  
-         <Button id="_IDGenButton141" text="Check Sub Message" class="SmallRightMargin "></Button>
-         <Button id="_IDGenButton142" text="Reports" class="SmallRightMargin "></Button>
-     </HBox>
-                    <HBox id="_IDGenHBox705" justifyContent="End">
-                        <Button id="_IDGenButton143" text="Previous" class="SmallRightMargin "></Button>
-                        <Button id="_IDGenButton144" text="Finish Later" class="SmallRightMargin "></Button>
-                        <Button id="_IDGenButton145" text="Approve" class="SmallRightMargin SmallRightMargin"></Button>
-
-                    </HBox>
-                    </HBox>
-                </content>
-            </Page>
+               <VBox height="50px"/>     
+        <HBox>
+        <HBox width= "50px"/>
+        <Text text ="Payrun Total: " class="headerText"/>
+        <HBox width= "10px"/>
+        <Text text ="$45,900"/>
+        <HBox width= "50px"/>
+        <Text text ="Cash Required: " class="headerText"/> 
+        <HBox width= "10px"/>
+        <Text text ="$45,900"/>
+        </HBox>     
+        <VBox height="25px"/>
+        <HBox justifyContent="End" >
+                                <HBox width="10px"/>
+                        <Button text="Previous" class="myCustomButton" press="onNext" />
+                        <HBox width="10px"/>
+                <Button text="Next" type="Emphasized" class="buttonRight" />
+        </HBox>              
+                   
+                </VBox>
+                <!-- End of Content -->
+                
+            </ScrollContainer>
         </tnt:mainContents>
     </tnt:ToolPage>
-    
 </mvc:View>
