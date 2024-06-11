@@ -71,6 +71,10 @@ sap.ui.define([
                                 Number : 2540000
                             }
                             ],
+                            "barChartData": [
+                                {"Date": "8/2/2012", "Name": "Previous Period", "Number": 70  },
+                                { "Date": "8/2/2012","Name": "Current Period", "Number": 50 }
+                              ],
                             "StackedItems": [
                                 {
                                     "CW": "CW 14",
@@ -114,6 +118,7 @@ sap.ui.define([
                                         }
                             ]
                 }
+              
                 
                 var oModel = new JSONModel();
                 oModel.setData(aData);
@@ -127,6 +132,32 @@ sap.ui.define([
 
                 Format.numericFormatter(ChartFormatter.getInstance());
             var formatPattern = ChartFormatter.DefaultPattern;
+            var oVizFrame = this.oVizFrame = this.getView().byId("idVizFrame");
+            oVizFrame.setVizProperties({
+                plotArea: {
+                    dataLabel: {
+                        formatString: formatPattern.SHORTFLOAT_MFD2,
+                        visible: true
+                    }
+                },
+                valueAxis: {
+                    label: {
+                        formatString: formatPattern.SHORTFLOAT
+                    },
+                    title: {
+                        visible: false
+                    }
+                },
+                categoryAxis: {
+                    title: {
+                        visible: false
+                    }
+                },
+                title: {
+                    visible: false,
+                    text: 'Revenue by City and Store Name'
+                }
+            });
                 var StackedVizFrame = this.byId("idStackedVizFrame");
                 StackedVizFrame.setVizProperties({
                     plotArea: {
@@ -167,6 +198,13 @@ sap.ui.define([
 
 
     },
+   
+
+
+    onSelection: function (oEvent) {
+        // Handle selection event
+    },
+    
 
     _setCustomFormatter:function(){	
         var chartFormatter = ChartFormatter.getInstance();
@@ -179,6 +217,14 @@ sap.ui.define([
         var ofloatInstance =  sap.ui.core.format.NumberFormat.getFloatInstance({style: 'short',maxFractionDigits: 2});
         return ofloatInstance.format(value);
                 });
+    },
+    	press: function (oEvent) {
+        MessageToast.show("The interactive bar chart is pressed.");
+    },
+
+    selectionChanged: function (oEvent) {
+        var oBar = oEvent.getParameter("bar");
+        MessageToast.show("The selection changed: " + oBar.getLabel() + " " + ((oBar.getSelected()) ? "selected" : "deselected"));
     },
     
     

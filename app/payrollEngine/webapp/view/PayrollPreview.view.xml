@@ -61,53 +61,134 @@
                 <!-- End of Header -->
                 
                 <!-- Start of Content -->
-                <VBox id="_IDGenVBoxContent" class="contentBox" fitContainer="true">
+                <VBox height="20px" class="whitesapUiBody"/>
+                 <OverflowToolbar id="_IDGenBar1" style="Clear" height="100%" >
+                <Title  text="Payroll Operation Center" level="H3" titleStyle="H3"  class="title-toolbar"></Title>
+                </OverflowToolbar>
+                <OverflowToolbar id="_IDGenOverflowToolbar1" style="Clear" height="100%" class="sapUiContentPadding">
+                <ToolbarSpacer id="_IDGenToolbarSpacer1" class="toolbarSpacerBorder" width="30px"/>
+                <Button id="StepButton1" text="1"  ></Button>
+                <Text id="_IDGenText2" text="Selecting Payroll Employees" ></Text>
+                <HBox id="lineHBox11" class="element" width="25%"></HBox>
+                <!-- <ToolbarSpacer id="_IDGenToolbarSpacer2" width="100px"></ToolbarSpacer> -->
+                <Button text="2" ></Button>
+                <Text id="_IDGenText3" text="Preview Payroll"></Text>
+                <!-- <ToolbarSpacer id="_IDGenToolbarSpacer3" ></ToolbarSpacer> -->
+                <HBox id="lineHBox2" class="element" width="25%"></HBox>
+                <Button id="_IDGenButton4" text="3"  ></Button>
+                <Text id="_IDGenText4" text="Payroll Summary" class=""></Text>
+                </OverflowToolbar>
+                <VBox id="_IDGenVBoxContent" class="contentBox whitesapUiBody" fitContainer="true">
                     
                     <!-- Tile of total number of employees -->
                     <HBox>
                                         <HBox width="100px"/>
 
-                    <Panel width="200px" height ="180px" class="myPanel sapUiSmallMargin leftMargin">
-                        <VBox>
-                            <Text text="Head Count" class="headerText1"/>
-                            <Text text="Total no. of Employees"/>
-                            <NumericContent id="_IDGenNumericContent1" value="250" valueColor="Neutral" icon="sap-icon://group" withMargin="false" class="customTileNumeric1"/>
-                            <Text text="32 Hires"/>
-                            <Text text="3 Terminations"/>
-                        </VBox>
-                    </Panel>
-                    <HBox width="100px"/>
+    <Panel width="200px" height="180px" class="myPanel sapUiSmallMargin leftMargin">
+        <VBox justifyContent="Center" alignItems="Center">
+            <Text text="Bank vs Cash" class="headerText1"/>
+            <VBox height="15px"/>
+                <HBox >
+                  <viz:VizFrame id="idPieChart" width="120px" height="100px" uiConfig="{applicationSet:'fiori'}" vizType="pie"
+                    vizProperties="{
+                        plotArea: {
+                            dataLabel: {
+                                visible: false
+                            }
+                        },
+                        title: {
+                            visible: false
+                        },
+                        legend: {
+                            visible: false
+                        }
+                        
+                    }">
+                    <viz:dataset>
+                        <viz.data:FlattenedDataset data="{DataModel>/Items}">
+                            <viz.data:dimensions>
+                                <viz.data:DimensionDefinition name="Name" value="{DataModel>Name}" />
+                            </viz.data:dimensions>
+                            <viz.data:measures>
+                                <viz.data:MeasureDefinition name="Number" value="{DataModel>Number}" />
+                            </viz.data:measures>
+                        </viz.data:FlattenedDataset>
+                    </viz:dataset>
+                    <viz:feeds>
+                        <viz.feeds:FeedItem uid="size" type="Measure" values="Number" />
+                        <viz.feeds:FeedItem uid="color" type="Dimension" values="Name" />
+                    </viz:feeds>
+                </viz:VizFrame>
+                <VBox justifyContent="Center" alignItems="Center" class="valueText">
+                    <Text text="1.8M" class="highlightText"/>
+                    <Text text="3M" />
+                </VBox>
+            </HBox>
+            <Text text="For current Pay Period" />
+        </VBox>
+    </Panel>
+
+         <HBox width="100px"/>
 
                     <Panel width="200px" height ="180px" class="myPanel sapUiSmallMargin leftMargin">
                         <VBox>
-                            <Text id="_text" text="Gross Profit" class="headerText1"/>
-                            <Text id="_text1" text="for current pay period"/>
-                            <NumericContent id="_IDGenNumericContent2" value="250" valueColor="Neutral" icon="sap-icon://money-bills" withMargin="false" class="customTileNumeric1"/>
-                            <Text text="$ 32,000 Base salaries"/>
-                            <Text text="$ 35,000 bonuses"/>
+                            <Text  text="Retro Statistics" class="headerText1"/>
+                            <VBox height="25px"/>
+                            <HBox>
+                                 <Text  text="17.3" class="headerText1 nuText"/>
+                                 <HBox width="5px"/>
+                                <Image src="images/red arrow.jpg" height="35px" width="35px"  />     
+                               </HBox>
+                                <VBox height="20px"/>
+                                <HBox>
+                            <Text text="Previous Period" class="lightText"/>
+                            <HBox width="30px"/>
+                            <Text  text="3.2k" class="lightText"/>
+                            </HBox>
+                            <VBox height ="5px"/>
+                              <HBox>
+                            <Text text="Current Period" class="greText"/>
+                            <HBox width="32px"/>
+                            <Text  text="4.49k" class="greText"/>
+                            </HBox>                  
                         </VBox>
                     </Panel>
+
                      <HBox width="100px"/>
 
                     <Panel width="200px" height ="180px" class="myPanel sapUiSmallMargin leftMargin">
                         <VBox>
-                            <Text  text="Retro Amounts" class="headerText1"/>
-                            <Text  text="for current pay period"/>
-                            <NumericContent value="250" valueColor="Neutral" icon="sap-icon://money-bills" withMargin="false" class="customTileNumeric1"/>
-                            <Text text="$ 32,000 Base salaries"/>
-                            <Text text="$ 35,000 bonuses"/>
+                            <Text  text="Head Count" class="headerText1"/>
+                            <Text  text="Total no. of Employees"/>
+                            <NumericContent value="250" valueColor="Neutral" icon="sap-icon://group" withMargin="false" class="customTileNumeric"/>
+                            <Text text="32 Hires"/>
+                            <Text text="3 Terminations"/>
                         </VBox>
                     </Panel>
 
                          <HBox width="100px"/>
 
                     <Panel width="200px" height ="180px" class="myPanel sapUiSmallMargin leftMargin">
-                        <VBox>
+                       <VBox>
                             <Text  text="Gross Profit" class="headerText1"/>
-                            <Text  text="for current pay period"/>
-                            <NumericContent value="250" valueColor="Neutral" icon="sap-icon://money-bills" withMargin="false" class="customTileNumeric1"/>
-                            <Text text="$ 32,000 Base salaries"/>
-                            <Text text="$ 35,000 bonuses"/>
+                            <VBox height="25px"/>
+                            <HBox>
+                                 <Text  text="17.3" class="headerText1 greText1"/>
+                                 <HBox width="5px"/>
+                                <Image src="images/green arrow.jpg" height="35px" width="35px"  />     
+                               </HBox>
+                                <VBox height="20px"/>
+                                <HBox>
+                            <Text text="Previous Period" class="lightText"/>
+                            <HBox width="30px"/>
+                            <Text  text="3.2k" class="lightText"/>
+                            </HBox>
+                            <VBox height ="5px"/>
+                              <HBox>
+                            <Text text="Current Period" class="greText"/>
+                            <HBox width="32px"/>
+                            <Text  text="4.49k" class="greText"/>
+                            </HBox>                  
                         </VBox>
                     </Panel>
 

@@ -76,9 +76,9 @@
                     <GenericTile id="_IDGenGenericTile2" class="sapUiTinyMargin customTile" 
                     header="Next Payroll Run" subheader="Please make sure to run the payroll on time"
                      width="97.5%" frameType="TwoByOne">
-            <TileContent id="_IDGenTileContent5" footer="Until next payroll run" class="customTileFooterRed">
+            <TileContent id="_IDGenTileContent5" footer="Until next payroll run">
                 <NumericContent id="_IDGenNumericContent2" value="5" scale="Days" valueColor="Neutral" 
-                                icon="sap-icon://calendar" withMargin="false" class="customTileNumeric2"/>
+                                icon="sap-icon://calendar" withMargin="false" class ="customTileNumeric2"/>
             </TileContent>
             </GenericTile>
                         
@@ -140,13 +140,51 @@
                     <u:CalendarLegend id="legend"/>
                 </VBox>
                 </Panel>
+
+      <Panel headerText="Payroll Cost Distribution" height="357px" class="sapUiTinyMargin myPanel" width="97.5%">
+    <chart:ChartContainer showFullScreen="true" showZoom="false" width="97.5%"  vizProperties="{
+                        plotArea: {
+                            dataLabel: {
+                                visible: false
+                            }
+                        },
+                        title: {
+                            visible: false
+                        },
+                        legend: {
+                            visible: false
+                        }
+                    }">
+        <chart:ChartContainerContent>
+            <chart:content>
+                <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" height="100%" width="100%" vizType="bar">
+                    <viz:dataset>
+                        <viz.data:FlattenedDataset data="{DataModel>/barChartData}">
+                            <viz.data:dimensions>
+                                <viz.data:DimensionDefinition name="Name" value="{DataModel>Name}" />
+                            </viz.data:dimensions>
+                            <viz.data:measures>
+                                <viz.data:MeasureDefinition name="Number" value="{DataModel>Number}" />
+                            </viz.data:measures>
+                        </viz.data:FlattenedDataset>
+                    </viz:dataset>
+                    <viz:feeds>
+                        <viz.feeds:FeedItem uid="valueAxis" type="Dimension" values="Name" />
+                        <viz.feeds:FeedItem uid="valueAxis2" type="Measure" values="Number" />
+                    </viz:feeds>
+                </viz:VizFrame>
+            </chart:content>
+        </chart:ChartContainerContent>
+    </chart:ChartContainer>
+</Panel>
+
             </VBox>
             
                         
 
                         <!-- Code of donut chart-->
                          <chart:ChartContainer id="chartContainer" showFullScreen="true" showZoom="false" 
-                         title="Payroll Cost Distribution" class="myPanelChart" width="97.5%">
+                         title="Payroll Cost Distribution"  class="myPanelChart" width="97.5%">
                             <chart:ChartContainerContent id="_IDGenChartContainerContent1">
                                 <chart:content>
                                  <viz:VizFrame id="idpiechart" width="auto" uiConfig="{applicationSet:'fiori'}" vizType="donut"
@@ -241,7 +279,7 @@
                
                     <!--  Code of Stacked Column chart by tasneem -->
                       <chart:ChartContainer id="chartContainer2" showFullScreen="true" showZoom="false" 
-                      title="Payroll History" class="myPanelChart" width="98.5%">
+                      title="Payroll History" subheader="Actual vs Budget. Q1, 2024" class="myPanelChart" width="97.5%">
                       <chart:layoutData>
                       <l:GridData id="_IDGenGridData1" span="XL8"></l:GridData>
                       </chart:layoutData>
@@ -274,6 +312,7 @@
                             </chart:content>
                           </chart:ChartContainerContent>
                      </chart:ChartContainer>
+                     
                 </l:content>
             </l:Grid>
             </ScrollContainer>

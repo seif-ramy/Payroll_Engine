@@ -303,7 +303,7 @@
 }
 
 .customTileFooter .sapMTileCntFtrTxt {
-    color: #00ff00; /* Green color for the footer text */
+    color: #078307; /* Green color for the footer text */
 }
 
 .customTileFooterRed .sapMTileCntFtrTxt {
@@ -354,6 +354,7 @@
     margin-top: 4.5px;
     margin-left: 5px;
     margin-bottom: 10px;
+    height: 100%;
 }
 
 .centerChart {
@@ -473,4 +474,31 @@
 .myCustomButton {
     background-color: transparent; /* Transparent background */
     color: #007bff; /* Blue text */
+}
+.highlightText {
+    font-size: 20px;
+    color: blue;
+}
+.nuText {
+    font-size: 35px;
+    color: rgb(249, 104, 104);
+}
+.lightText{
+    font-size: 15px;
+color: grey;
+}
+.greText{
+    font-size: 15px;
+color: #1B9D5F;
+}
+.greText1{
+    font-size: 35px;
+color: #1B9D5F;
+}
+.dark-grey {
+    fill: #555; /* Dark grey color */
+}
+
+.blue {
+    fill: #00f; /* Blue color */
 }
