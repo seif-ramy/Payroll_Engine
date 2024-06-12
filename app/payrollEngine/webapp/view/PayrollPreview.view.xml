@@ -360,7 +360,7 @@
                         <HBox width="10px"/>
                 <Button text="Next" type="Emphasized" class="buttonRight" />
         </HBox>              
-                   
+                   <VBox height="20px"/>
                 </VBox>
                 <!-- End of Content -->
                 

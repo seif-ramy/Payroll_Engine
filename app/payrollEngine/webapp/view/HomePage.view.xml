@@ -141,42 +141,36 @@
                 </VBox>
                 </Panel>
 
-      <Panel headerText="Payroll Cost Distribution" height="357px" class="sapUiTinyMargin myPanel" width="97.5%">
-    <chart:ChartContainer showFullScreen="true" showZoom="false" width="97.5%"  vizProperties="{
-                        plotArea: {
-                            dataLabel: {
-                                visible: false
-                            }
-                        },
-                        title: {
-                            visible: false
-                        },
-                        legend: {
-                            visible: false
-                        }
-                    }">
+    <Panel headerText="Payroll Cost Distribution" height="357px" class="sapUiTinyMargin myPanel" width="97.5%">
+    <chart:ChartContainer showFullScreen="true" showZoom="false" width="97.5%">
         <chart:ChartContainerContent>
             <chart:content>
-                <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" height="100%" width="100%" vizType="bar">
-                    <viz:dataset>
-                        <viz.data:FlattenedDataset data="{DataModel>/barChartData}">
-                            <viz.data:dimensions>
-                                <viz.data:DimensionDefinition name="Name" value="{DataModel>Name}" />
-                            </viz.data:dimensions>
-                            <viz.data:measures>
-                                <viz.data:MeasureDefinition name="Number" value="{DataModel>Number}" />
-                            </viz.data:measures>
-                        </viz.data:FlattenedDataset>
-                    </viz:dataset>
-                    <viz:feeds>
-                        <viz.feeds:FeedItem uid="valueAxis" type="Dimension" values="Name" />
-                        <viz.feeds:FeedItem uid="valueAxis2" type="Measure" values="Number" />
-                    </viz:feeds>
-                </viz:VizFrame>
+                 <viz:VizFrame
+                id="idbar"
+                uiConfig="{applicationSet:'fiori'}"
+                vizType="bar"
+                width="100%"
+                height="100px">
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{DataModel>/barChartData}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Name" value="{{DataModel>/Name}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Number" value="{{DataModel>/Number}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+                <viz:feeds>
+                  <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Number" />
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Name" />
+                </viz:feeds>
+            </viz:VizFrame>
             </chart:content>
         </chart:ChartContainerContent>
     </chart:ChartContainer>
 </Panel>
+
 
             </VBox>
             

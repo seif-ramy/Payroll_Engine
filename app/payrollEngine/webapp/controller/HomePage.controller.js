@@ -10,129 +10,127 @@ sap.ui.define([
     "sap/viz/ui5/format/ChartFormatter",
     "sap/viz/ui5/api/env/Format"
 ],
-    function (Controller, UI5Date, CalendarLegendItem, DateTypeRange, JSONModel, Core, MessageToast, UIComponent,ChartFormatter,
-        Format) {
-        "use strict";
+function (Controller, UI5Date, CalendarLegendItem, DateTypeRange, JSONModel, Core, MessageToast, UIComponent, ChartFormatter, Format) {
+    "use strict";
 
-        return Controller.extend("sp.payrollEngine.controller.HomePage", {
-            onInit: function () {
-                this._setModel();            
-                this._setCustomFormatter();
-                var navigationList = this.byId("navigationList");
-                navigationList.setSelectedItem(null);
-                //Calendar and legend initialization
-                var oCal = this.byId("calendar"),
-                    oLeg = this.byId("legend"),
-                    oRefDate = UI5Date.getInstance(),
-                    sType;
-                for (var i = 1; i <= 10; i++) {
-                    sType = (i < 10) ? "Type0" + i : "Type" + i;
+    return Controller.extend("sp.payrollEngine.controller.HomePage", {
+        onInit: function () {
+            this._setModel();
+            this._setCustomFormatter();
 
-                    oLeg.addItem(new CalendarLegendItem({
-                        type: sType,
-                        text: "Placeholder " + i
-                    }));
+            var navigationList = this.byId("navigationList");
+            navigationList.setSelectedItem(null);
 
-                    oRefDate.setDate(i);
-                    oCal.addSpecialDate(new DateTypeRange({
-                        startDate: UI5Date.getInstance(oRefDate),
-                        type: sType,
-                        tooltip: "Placeholder " + i
-                    }));
+            // Calendar and legend initialization
+            var oCal = this.byId("calendar"),
+                oLeg = this.byId("legend"),
+                oRefDate = UI5Date.getInstance(),
+                sType;
+            for (var i = 1; i <= 10; i++) {
+                sType = (i < 10) ? "Type0" + i : "Type" + i;
 
-                    oRefDate.setDate(i + 12);
-                    oCal.addSpecialDate(new DateTypeRange({
-                        startDate: UI5Date.getInstance(oRefDate),
-                        type: sType,
-                        tooltip: "Placeholder " + i
-                    }));
-                    
-                }
-            },
-           
-            _setModel:function(){
+                oLeg.addItem(new CalendarLegendItem({
+                    type: sType,
+                    text: "Placeholder " + i
+                }));
 
-                var aData = {
-                        Items : [  
-                            {
-                                Name:"Salaries",
-                                Number : 25370000
-                            },
-                            {
-                                Name:"Benefits",
-                                Number : 7610000
-                            },
-                            {
-                                Name:"Overtime",
-                                Number : 15220000
-                            },
-                            {
-                                Name:"Taxes",
-                                Number : 2540000
-                            }
-                            ],
-                            "barChartData": [
-                                {"Date": "8/2/2012", "Name": "Previous Period", "Number": 70  },
-                                { "Date": "8/2/2012","Name": "Current Period", "Number": 50 }
-                              ],
-                            "StackedItems": [
-                                {
-                                    "CW": "CW 14",
-                                    "Revenue": 491000.17,
-                                    "Cost": 221000,
-                                    "Actual Payout": 70200.54,
-                                    "Retro Payout": 150799.46,
-                                    "Cost3": 80799.46,
-                                    "Target": 500000,
-                                    "Budget": 238000
-                                    },
-                                    {
-                                    "CW": "CW 15",
-                                    "Revenue": 536000.34,
-                                    "Cost": 280000,
-                                    "Actual Payout": 158800.73,
-                                    "Retro Payout": 121199.27,
-                                    "Cost3": 108800.46,
-                                    "Target": 500000,
-                                    "Budget": 252000
-                                    },
-                                    {
-                                        "CW": "CW 16",
-                                        "Revenue": 675000,
-                                        "Cost": 230000,
-                                        "Actual Payout": 140000.91,
-                                        "Retro Payout": 89999.09,
-                                        "Cost3": 100099.09,
-                                        "Target": 600000,
-                                        "Budget": 266000
-                                        },
-                                        {
-                                        "CW": "CW 17",
-                                        "Revenue": 680000,
-                                        "Cost": 250000,
-                                        "Actual Payout": 172800.15,
-                                        "Retro Payout": 77199.85,
-                                        "Cost3": 57199.85,
-                                        "Target": 600000,
-                                        "Budget": 280000
-                                        }
-                            ]
-                }
-              
-                
-                var oModel = new JSONModel();
-                oModel.setData(aData);
-                this.getView().setModel(oModel, "DataModel");
+                oRefDate.setDate(i);
+                oCal.addSpecialDate(new DateTypeRange({
+                    startDate: UI5Date.getInstance(oRefDate),
+                    type: sType,
+                    tooltip: "Placeholder " + i
+                }));
 
-                var oChart = this.getView().byId("idpiechart"),
+                oRefDate.setDate(i + 12);
+                oCal.addSpecialDate(new DateTypeRange({
+                    startDate: UI5Date.getInstance(oRefDate),
+                    type: sType,
+                    tooltip: "Placeholder " + i
+                }));
+            }
+        },
+
+        _setModel: function () {
+            var aData = {
+                Items: [
+                    {
+                        Name: "Salaries",
+                        Number: 25370000
+                    },
+                    {
+                        Name: "Benefits",
+                        Number: 7610000
+                    },
+                    {
+                        Name: "Overtime",
+                        Number: 15220000
+                    },
+                    {
+                        Name: "Taxes",
+                        Number: 2540000
+                    }
+                ],
+                barChartData: [
+                    { "Name": "Previous Period", "Number": 0.7 },
+                    { "Name": "Current Period", "Number": 0.3 }
+                ],
+                StackedItems: [
+                    {
+                        "CW": "CW 14",
+                        "Revenue": 491000.17,
+                        "Cost": 221000,
+                        "Actual Payout": 70200.54,
+                        "Retro Payout": 150799.46,
+                        "Cost3": 80799.46,
+                        "Target": 500000,
+                        "Budget": 238000
+                    },
+                    {
+                        "CW": "CW 15",
+                        "Revenue": 536000.34,
+                        "Cost": 280000,
+                        "Actual Payout": 158800.73,
+                        "Retro Payout": 121199.27,
+                        "Cost3": 108800.46,
+                        "Target": 500000,
+                        "Budget": 252000
+                    },
+                    {
+                        "CW": "CW 16",
+                        "Revenue": 675000,
+                        "Cost": 230000,
+                        "Actual Payout": 140000.91,
+                        "Retro Payout": 89999.09,
+                        "Cost3": 100099.09,
+                        "Target": 600000,
+                        "Budget": 266000
+                    },
+                    {
+                        "CW": "CW 17",
+                        "Revenue": 680000,
+                        "Cost": 250000,
+                        "Actual Payout": 172800.15,
+                        "Retro Payout": 77199.85,
+                        "Cost3": 57199.85,
+                        "Target": 600000,
+                        "Budget": 280000
+                    }
+                ]
+            };
+
+            var oModel = new JSONModel();
+            oModel.setData(aData);
+            this.getView().setModel(oModel, "DataModel");
+
+            var oChart = this.getView().byId("idpiechart"),
                 oChartProperties = oChart.getVizProperties(),
-                aColorPalate = ["#43BECC","#8E257A","#121B43","#E21F4A"];
-                oChartProperties.plotArea.colorPalette = aColorPalate;
-                oChart.setVizProperties(oChartProperties);
+                aColorPalate = ["#43BECC", "#8E257A", "#121B43", "#E21F4A"];
+            oChartProperties.plotArea.colorPalette = aColorPalate;
+            oChart.setVizProperties(oChartProperties);
 
-                Format.numericFormatter(ChartFormatter.getInstance());
+            Format.numericFormatter(ChartFormatter.getInstance());
             var formatPattern = ChartFormatter.DefaultPattern;
-            var oVizFrame = this.oVizFrame = this.getView().byId("idVizFrame");
+            var oVizFrame = this.oVizFrame = this.getView().byId("idbar");
             oVizFrame.setVizProperties({
                 plotArea: {
                     dataLabel: {
@@ -158,47 +156,80 @@ sap.ui.define([
                     text: 'Revenue by City and Store Name'
                 }
             });
-                var StackedVizFrame = this.byId("idStackedVizFrame");
-                StackedVizFrame.setVizProperties({
-                    plotArea: {
-                        dataLabel: {
-                            formatString:formatPattern.SHORTFLOAT_MFD2,
-                            visible: false,
-                            showTotal: false,
-                                                              
-                        },
-                        colorPalette: ["#43BECC","#121B43"]
+
+            var StackedVizFrame = this.byId("idStackedVizFrame");
+            StackedVizFrame.setVizProperties({
+                plotArea: {
+                    dataLabel: {
+                        formatString: formatPattern.SHORTFLOAT_MFD2,
+                        visible: false,
+                        showTotal: false,
                     },
-                    valueAxis: {
-                        label: {
-                            formatString: formatPattern.SHORTFLOAT
-                        },
-                        title: {
-                            visible: false
-                        }
-                    },
-                    valueAxis2: {
-                        label: {
-                            formatString: formatPattern.SHORTFLOAT
-                        },
-                        title: {
-                            visible: false
-                        }
-                    },
-                    categoryAxis: {
-                        title: {
-                            visible: false
-                        }
+                    colorPalette: ["#43BECC", "#121B43"]
+                },
+                valueAxis: {
+                    label: {
+                        formatString: formatPattern.SHORTFLOAT
                     },
                     title: {
-                        visible: true,
-                        text: 'Actual payout vs Retro payout for Q1, 2024'
+                        visible: false
                     }
-                });
-
-
-    },
-   
+                },
+                valueAxis2: {
+                    label: {
+                        formatString: formatPattern.SHORTFLOAT
+                    },
+                    title: {
+                        visible: false
+                    }
+                },
+                categoryAxis: {
+                    title: {
+                        visible: false
+                    }
+                },
+                title: {
+                    visible: true,
+                    text: 'Actual payout vs Retro payout for Q1, 2024'
+                }
+            });
+            var BarVizFrame = this.byId("idbar");
+            BarVizFrame.setVizProperties({
+                plotArea: {
+                    dataLabel: {
+                        formatString: formatPattern.SHORTFLOAT_MFD2,
+                        visible: false,
+                        showTotal: false,
+                    },
+                    colorPalette: ["#43BECC", "#121B43"]
+                },
+                valueAxis: {
+                    label: {
+                        formatString: formatPattern.SHORTFLOAT
+                    },
+                    title: {
+                        visible: false
+                    }
+                },
+                valueAxis2: {
+                    label: {
+                        formatString: formatPattern.SHORTFLOAT
+                    },
+                    title: {
+                        visible: false
+                    }
+                },
+                categoryAxis: {
+                    title: {
+                        visible: false
+                    }
+                },
+                title: {
+                    visible: true,
+                    text: 'Actual payout vs Retro payout for Q1, 2024'
+                }
+            });
+        },
 
 
     onSelection: function (oEvent) {
