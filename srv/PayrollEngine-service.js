@@ -1,7 +1,7 @@
 const cds = require('@sap/cds');
 const {
-    getEmployees
-} = require('./services/DataManagementService');
+    executePayroll
+} = require('./services/ExecutePayroll');
 
 module.exports = cds.service.impl(async function () {
     /*** SERVICE ENTITIES ***/
@@ -12,7 +12,7 @@ module.exports = cds.service.impl(async function () {
     /*** HANDLERS REGISTRATION ***/
     // ON events
     
-    this.on('READ', DataManagementService, getEmployees);
+    this.on('READ', DataManagementService, executePayroll);
     
     // BEFORE events
 
