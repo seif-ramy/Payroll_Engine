@@ -138,7 +138,72 @@
     height: fit-content; /* Ensure both boxes have the same height */
 }
 
-
+.title-toolbar{
+    margin-top: 25px;
+    padding-left: 25px;
+}
+.toolbarSpacerBorder {
+    border-right: 1px solid black; /* Add your desired border styles */
+  }
+  .RadiosBorder{
+    border-radius: 50px;
+    background-color: #f4f4f4;
+    padding:3px;
+    /* margin: 10px; */
+    /* height: min-content; */
+  }
+  .CurrentStep{
+    background: #0064d9;
+    color: #000;
+    border-color: #0064d9;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+    width: 2rem;
+    height: 2.25rem;
+    line-height: 2rem;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+    font-size: .875rem;
+}
+.sapMPanelContent{
+    padding: 0px;
+  }
+  .panelPadding{
+    padding: 10px;
+  }
+  .StepCircle{
+    background: #fff;
+    border-color: #0064d9;
+    color: #0064d9;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+    width: 2rem;
+    height: 2.25rem;
+    line-height: 2rem;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+    font-size: .875rem;
+  }
+  .element{
+    border: 1px solid #ccc;
+  }
+  .customMarginLeft{
+    margin-left: 100px;
+  }
+  
+ 
+/* css for Upcoming Payroll Panel */
+.borderLeft{
+    border-left: 1px solid #ccc; 
+    padding-left: 70px;
+    height: 100%;
+}
 .contentText {
     font-size: 16px;
     margin-top: 5px;
@@ -183,11 +248,7 @@
 }
 
 
-/* .transparentBackgroundButton {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-} */
+
 .infoBox {
     background-color: white;
     padding: 10px;
@@ -207,11 +268,9 @@
 .sapUiTinyMargin {
     margin: 5px;
 }
+
 .sapUiTinyMarginBottom {
     margin-bottom: 5px;
-}
-.sapUiContentPadding {
-    padding: 10px;
 }
 .sapUiSmallMargin {
     margin: 10px;
@@ -446,13 +505,18 @@
 .borderRight{
     border-left: 1px solid #ccc; 
     padding-left: 40px;
-    height: 100%;
 }
 .borderTop{
     border-top: 1px solid #ccc;
     height: 100%;
 }
-
+.sapMarginBottom {
+    margin: 25px;
+}
+.no-margin-padding {
+    margin: 0 !important;
+    padding: 0 !important;
+}
 .vbox1 {
     display: flex;
     flex-direction: column;    /* Arrange children in a column */

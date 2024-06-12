@@ -84,10 +84,10 @@
                     <HBox>
                                         <HBox width="100px"/>
 
-    <Panel width="200px" height="180px" class="myPanel sapUiSmallMargin leftMargin">
+    <Panel width="200px" height="180px" class="myPanel panelPadding sapUiSmallMargin leftMargin">
         <VBox justifyContent="Center" alignItems="Center">
             <Text text="Bank vs Cash" class="headerText1"/>
-            <VBox height="15px"/>
+            <VBox height="10px"/>
                 <HBox >
                   <viz:VizFrame id="idPieChart" width="120px" height="100px" uiConfig="{applicationSet:'fiori'}" vizType="pie"
                     vizProperties="{
@@ -130,7 +130,7 @@
 
          <HBox width="100px"/>
 
-                    <Panel width="200px" height ="180px" class="myPanel sapUiSmallMargin leftMargin">
+                    <Panel width="200px" height ="180px" class="myPanel panelPadding sapUiSmallMargin leftMargin">
                         <VBox>
                             <Text  text="Retro Statistics" class="headerText1"/>
                             <VBox height="25px"/>
@@ -156,7 +156,7 @@
 
                      <HBox width="100px"/>
 
-                    <Panel width="200px" height ="180px" class="myPanel sapUiSmallMargin leftMargin">
+                    <Panel width="200px" height ="180px" class="myPanel panelPadding sapUiSmallMargin leftMargin">
                         <VBox>
                             <Text  text="Head Count" class="headerText1"/>
                             <Text  text="Total no. of Employees"/>
@@ -168,7 +168,7 @@
 
                          <HBox width="100px"/>
 
-                    <Panel width="200px" height ="180px" class="myPanel sapUiSmallMargin leftMargin">
+                    <Panel width="200px" height ="180px" class="myPanel panelPadding sapUiSmallMargin leftMargin">
                        <VBox>
                             <Text  text="Gross Profit" class="headerText1"/>
                             <VBox height="25px"/>
