@@ -76,9 +76,9 @@
                     <GenericTile id="_IDGenGenericTile2" class="sapUiTinyMargin customTile" 
                     header="Next Payroll Run" subheader="Please make sure to run the payroll on time"
                      width="97.5%" frameType="TwoByOne">
-            <TileContent id="_IDGenTileContent5" footer="Until next payroll run" class="customTileFooterRed">
+            <TileContent id="_IDGenTileContent5" footer="Until next payroll run">
                 <NumericContent id="_IDGenNumericContent2" value="5" scale="Days" valueColor="Neutral" 
-                                icon="sap-icon://calendar" withMargin="false" class="customTileNumeric"/>
+                                icon="sap-icon://calendar" withMargin="false" class ="customTileNumeric2"/>
             </TileContent>
             </GenericTile>
                         
@@ -95,19 +95,21 @@
 
             <VBox id="_IDGenVBox116">
                 <!-- Upcoming Payroll Tile -->
-                <Panel id="_IDGenPanel5" width="97.5%" class="sapUiTinyMargin sapUiContentPadding myPanel">
-                    <headerToolbar >
-                    <OverflowToolbar id="_IDGenOverflowToolbar1" style="Clear"  >
+              <Panel id="_IDGenPanel5" width="97.5%" class="sapUiTinyMargin myPanel ">
+                    <headerToolbar>
+                    <OverflowToolbar id="_IDGenOverflowToolbar1" style="Standard" height="100%" class="sapUiTinyMarginTop sapUiContentPadding" design="Solid">
                         <Title id="_IDGenTitle1" text="Upcoming Payroll" />
                         <ToolbarSpacer id="_IDGenToolbarSpacer1" />
-                        <Text id="IDText8" text="Due in 14 Days" />
-                        <Button id="_IDGenButton8" icon="sap-icon://calendar" />
+                        <FlexBox id="IDHBox" justifyContent="End" alignItems="Center" class="RadiosBorder">
+                        <Label id="IDText8" text="Due in 14 Days" />
+                        <Button id="_IDGenButton8" icon="sap-icon://calendar" class="" />
+                        </FlexBox>
                     </OverflowToolbar>
                 </headerToolbar>
                 <content>
-                 <HBox id="_IDGenVBox6" justifyContent="SpaceBetween" class="borderTop">
+                 <HBox id="_IDGenVBox6" justifyContent="SpaceBetween">
                 <VBox id="_IDGenVBox4" >
-                <VBox id="_IDGenInnerVBox" class="customBackgroundColor">
+                <VBox id="_IDGenInnerVBox" class="customBackgroundColor sapUiTinyMargin " >
                     <Label id="_IDGenLabel1" text="Pay Period" />
                     <HBox id="_IDGenHBox21">
                         <Text id="_IDGenText8" text="26/05" class="MarginRight" />
@@ -115,21 +117,20 @@
                         <Text id="IDTex9" text="26/06" class="MarginRight" />
                     </HBox>
                 </VBox>
-                <VBox id="_IDGenVBox8" class="transparentBackground">
+                <VBox id="_IDGenVBox8" class="transparentBackground sapUiTinyMargin">
                     <Button id="_IDGenButton4" text="Run Payroll"  type="Emphasized" press="onRunPayroll" class="sapUiTinyMarginTop" />
                 </VBox>
             </VBox>
-                                   <VBox id="_IDGenVBox7" justifyContent="SpaceBetween" class="borderRight ">
-                                       <Label id="_IDGenLabel2" text="Payroll Actions" class="sapUiTinyMarginTop" />
-                                       <Button id="_IDGenButton5" text="Off-Cycle Payroll" press="onOffCyclePayroll"
-                                       />
-                                       <Button id="_IDGenButton6" text="Calculate Paycheck" class="sapUiTinyMarginTop" press="onCalculatePaycheck"
+                                   <VBox id="_IDGenVBox7" justifyContent="SpaceBetween" class="borderLeft ">
+                                       <Label id="_IDGenLabel2" text="Payroll Actions" class=" sapUiTinyMargin RightMarginForLine" />
+                                       <Button id="_IDGenButton5" text="Off-Cycle Payroll" width="80%"  press="onOffCyclePayroll" class="RightMarginForLine" />
+                                       <Button id="_IDGenButton6" text="Calculate Paycheck" class="sapUiTinyMarginTop RightMarginForLine" press="onCalculatePaycheck"
                                        />
                                        <Text id="_IDGenText9" text="" />
                                         <Text id="_IDtext9" text="" />
                                    </VBox>
                                </HBox>
-                </content>
+                               </content>
                     </Panel>
                
                <!-- Calendar Panel -->
@@ -140,13 +141,45 @@
                     <u:CalendarLegend id="legend"/>
                 </VBox>
                 </Panel>
+
+    <Panel headerText="Payroll Cost Distribution" height="357px" class="sapUiTinyMargin myPanel" width="97.5%">
+    <chart:ChartContainer showFullScreen="true" showZoom="false" width="97.5%">
+        <chart:ChartContainerContent>
+            <chart:content>
+            <viz:VizFrame
+                id="idbar"
+                uiConfig="{applicationSet:'fiori'}"
+                vizType="bar"
+                width="100%"
+                height="100px">
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{DataModel>/barChartData}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Name" value="{{DataModel>/Name}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Number" value="{{DataModel>/Number}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+                <viz:feeds>
+                  <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Number" />
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Name" />
+                </viz:feeds>
+            </viz:VizFrame>
+            </chart:content>
+        </chart:ChartContainerContent>
+    </chart:ChartContainer>
+</Panel>
+
+
             </VBox>
             
                         
 
                         <!-- Code of donut chart-->
                          <chart:ChartContainer id="chartContainer" showFullScreen="true" showZoom="false" 
-                         title="Payroll Cost Distribution" class="myPanelChart" width="97.5%">
+                         title="Payroll Cost Distribution"  class="myPanelChart" width="97.5%">
                             <chart:ChartContainerContent id="_IDGenChartContainerContent1">
                                 <chart:content>
                                  <viz:VizFrame id="idpiechart" width="auto" uiConfig="{applicationSet:'fiori'}" vizType="donut"
@@ -241,7 +274,7 @@
                
                     <!--  Code of Stacked Column chart by tasneem -->
                       <chart:ChartContainer id="chartContainer2" showFullScreen="true" showZoom="false" 
-                      title="Payroll History" class="myPanelChart" width="98.5%">
+                      title="Payroll History" subheader="Actual vs Budget. Q1, 2024" class="myPanelChart" width="97.5%">
                       <chart:layoutData>
                       <l:GridData id="_IDGenGridData1" span="XL8"></l:GridData>
                       </chart:layoutData>
@@ -274,6 +307,7 @@
                             </chart:content>
                           </chart:ChartContainerContent>
                      </chart:ChartContainer>
+                     
                 </l:content>
             </l:Grid>
             </ScrollContainer>

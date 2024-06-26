@@ -7,8 +7,8 @@ sap.ui.define([
 
     return Controller.extend("sp.payrollEngine.controller.PayrollProcessing", {
         onInit: function () {
-                // var navigationList = this.byId("navigationList");
-                // navigationList.setSelectedItem(null);
+            var navigationList = this.byId("navigationList");
+            navigationList.setSelectedItem(null);
             var oData = {
                 payrollItems: [
                     { name: "Dan, May", department: "Dept1", rate: "$80.00 / hr", regularHours: "95.00", salaryAmount: "1500.00", overtimeHours: "0.00", vacationHours: "0.00", sickHours: "0.00", personalHours: "0.00", holidayHours: "0.00", bonusAmount: "0.00", miscAmount: "0.00", miscReimb: "0.00" },
@@ -26,7 +26,7 @@ sap.ui.define([
                     { key: "department", text: "Department" }
                 ]
             };
-
+            // var idbutton=this.byId("");
             var oModel = new JSONModel(oData);
             this.getView().setModel(oModel);
         },
@@ -37,26 +37,31 @@ sap.ui.define([
         },
         onItemSelect: function (oEvent) {
             var sKey = oEvent.getParameter("item").getKey();
-            UIComponent.getRouterFor(this).navTo(sKey);
+            if (sKey == "Toggle") {
+                var oSideNavigation = this.byId("sideNavigation");
+                var bExpanded = oSideNavigation.getExpanded();
+                oSideNavigation.setExpanded(!bExpanded);
+            }
+            else {
+                UIComponent.getRouterFor(this).navTo(sKey);
+            }
         },
-        onTicketButtonClick: function() {
+        onTicketButtonClick: function () {
             // Redirect to the ticket link
             window.location.href = "https://rptrs.freshdesk.com/support/login";
         },
-
-        onOIPButtonClick: function() {
-            // Redirect to the OIP link
-            window.location.href = "https://rptrs.freshdesk.com/support/login";
-        },
-
-        onNotificationButtonClick: function() {
+        onNotificationButtonClick: function () {
             // Redirect to the notification link
             window.location.href = "https://rptrs.freshdesk.com/support/login";
         },
 
-        onProfileSettingButtonClick: function() {
+        onProfileSettingButtonClick: function () {
             // Redirect to the profile setting link
             window.location.href = "https://rptrs.freshdesk.com/support/login";
+        },
+        // Navigate to the Preview Payroll page
+        onNextPage: function (){
+            UIComponent.getRouterFor(this).navTo("PayrollPreview");
         }
     });
 });

@@ -1,22 +1,4 @@
 /* Enter your custom styles here */
-/* .sapMImg.logo{
-    border-radius: 50%;
-}
-.color{
-    background-color: #121b43 ;
-}
-.titleColor{
-    color: white;
-}
-
-:root {
-    --dynamic-color: #fff; 
-}
-
-.sapUiCalendarApp {
-    background-color:var(--dynamic-color);
-} */
-/* webapp/css/style.css */
 .body {
     font-family: "72", Arial, Helvetica, sans-serif;
 }
@@ -40,6 +22,9 @@
 }
 .sapUiSmallMargin {
     margin: 10px;
+}
+.sapUiSmallMargin2 {
+    margin: 15px;
 }
 .leftMargin {
     margin-left: 250px; /* Adjust the value as needed */
@@ -153,7 +138,72 @@
     height: fit-content; /* Ensure both boxes have the same height */
 }
 
-
+.title-toolbar{
+    margin-top: 25px;
+    padding-left: 25px;
+}
+.toolbarSpacerBorder {
+    border-right: 1px solid black; /* Add your desired border styles */
+  }
+  .RadiosBorder{
+    border-radius: 50px;
+    background-color: #f4f4f4;
+    padding:3px;
+    /* margin: 10px; */
+    /* height: min-content; */
+  }
+  .CurrentStep{
+    background: #0064d9;
+    color: #000;
+    border-color: #0064d9;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+    width: 2rem;
+    height: 2.25rem;
+    line-height: 2rem;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+    font-size: .875rem;
+}
+.sapMPanelContent{
+    padding: 0px;
+  }
+  .panelPadding{
+    padding: 10px;
+  }
+  .StepCircle{
+    background: #fff;
+    border-color: #0064d9;
+    color: #0064d9;
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    text-align: center;
+    width: 2rem;
+    height: 2.25rem;
+    line-height: 2rem;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+    font-size: .875rem;
+  }
+  .element{
+    border: 1px solid #ccc;
+  }
+  .customMarginLeft{
+    margin-left: 100px;
+  }
+  
+ 
+/* css for Upcoming Payroll Panel */
+.borderLeft{
+    border-left: 1px solid #ccc; 
+    padding-left: 70px;
+    height: 100%;
+}
 .contentText {
     font-size: 16px;
     margin-top: 5px;
@@ -167,8 +217,17 @@
     padding: 10px;
 }
 .headerText {
-    color: white;
-    font-size: 24px;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+.headerText1 {
+    color: black;
+    font-size: 18px;
+}
+.subHeaderText {
+    color: grey;
+    font-size: 16px;
 }
 .searchContainer {
     width: 100%;
@@ -189,11 +248,7 @@
 }
 
 
-/* .transparentBackgroundButton {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-} */
+
 .infoBox {
     background-color: white;
     padding: 10px;
@@ -213,11 +268,9 @@
 .sapUiTinyMargin {
     margin: 5px;
 }
+
 .sapUiTinyMarginBottom {
     margin-bottom: 5px;
-}
-.sapUiContentPadding {
-    padding: 10px;
 }
 .sapUiSmallMargin {
     margin: 10px;
@@ -254,6 +307,11 @@
 
 .customTile {
     background-color: #E2EEFC; /* Light blue background */
+    border-radius: 8px;
+    padding: 10px;
+}
+.customTile1{
+    background-color: #f0f0f0; /* Light blue background */
     border-radius: 8px;
     padding: 10px;
 }
@@ -304,7 +362,7 @@
 }
 
 .customTileFooter .sapMTileCntFtrTxt {
-    color: #00ff00; /* Green color for the footer text */
+    color: #078307; /* Green color for the footer text */
 }
 
 .customTileFooterRed .sapMTileCntFtrTxt {
@@ -315,6 +373,18 @@
     color: #0064D9; /* Blue color for the numeric value */
     font-weight: bold;
 }
+.customTileNumeric2 .sapMNCValue{
+    color: red;
+    font-weight: bold;
+}
+.customTileNumeric1 {
+    color:  #f0f0f0; /* Blue color for the numeric value */
+    font-weight: bold;
+}
+.custom-tile-height {
+    height: 300px; /* Set the desired height here */
+}
+
 
 .tileVContainer {
     display: flex;
@@ -324,18 +394,26 @@
 }
 
 .myPanel {
+    position: relative; /* Ensure the Panel is the positioning context for the vertical line */
     border-radius: 10px; /* Adjust the value to change the roundness of the edges */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adjust the shadow properties for the depth effect */
-    background-color: #FFFFFF; /* Grey background color */;
+    background-color: #FFFFFF; /* Grey background color */
+}
+.myPanel1 {
+    position: relative; /* Ensure the Panel is the positioning context for the vertical line */
+    border-radius: 10px; /* Adjust the value to change the roundness of the edges */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adjust the shadow properties for the depth effect */
+    background-color: lightgray; /* Grey background color */
 }
 
 .myPanelChart {
     border-radius: 10px; /* Adjust the value to change the roundness of the edges */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adjust the shadow properties for the depth effect */
-    background-color: #FFFFFF; /* Grey background color */;
+    background-color: #FFFFFF; /* Grey background color */
     margin-top: 4.5px;
     margin-left: 5px;
     margin-bottom: 10px;
+    height: 100%;
 }
 
 .centerChart {
@@ -400,15 +478,18 @@
 }
 .verticalLinePanel {
     background-color: #000; /* Adjust the color as needed */
-    width: 1px; /* Adjust the width of the line */
+    width: 2px; /* Adjust the width of the line */
     height: 100%; /* Make it full height of the containing element */
-    margin: 0 20px; /* Adjust margin to space out the line */
+    position: absolute; /* Ensure it stays at the end of the calendar */
+    right: 0; /* Position it to the far right */
+    top: 0;
+    bottom: 0;
 }
 
 
 .MarginRight {
     margin-right: 5px;
-}/* css for Upcoming Payroll Panel */
+} /* css for Upcoming Payroll Panel */
 .customBackgroundColor {
     background-color: #f4f4f4;
     padding: 10px;
@@ -424,39 +505,64 @@
 .borderRight{
     border-left: 1px solid #ccc; 
     padding-left: 40px;
-    height: 100%;
 }
 .borderTop{
     border-top: 1px solid #ccc;
     height: 100%;
 }
+.sapMarginBottom {
+    margin: 25px;
+}
+.no-margin-padding {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.vbox1 {
+    display: flex;
+    flex-direction: column;    /* Arrange children in a column */
+    background-color: #f0f0f0; /* Light grey background color */
+    padding: 20px;             /* Padding inside the panel */
+    border: 1px solid #ccc;    /* Light grey border */
+    border-radius: 5px;        /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 10px 0;            /* Margin to separate from other elements */
+    box-sizing: border-box;    /* Include padding and border in the element's total width and height */
+    width: 100%;               /* Ensure the panel takes the full width of its container */
+}
+.myCustomButton {
+    background-color: #007bff; /* Blue background */
+}
+.buttonRight{
+    margin-right: 25px;
+}
+.myCustomButton {
+    background-color: transparent; /* Transparent background */
+    color: #007bff; /* Blue text */
+}
+.highlightText {
+    font-size: 20px;
+    color: blue;
+}
+.nuText {
+    font-size: 35px;
+    color: rgb(249, 104, 104);
+}
+.lightText{
+    font-size: 15px;
+color: grey;
+}
+.greText{
+    font-size: 15px;
+color: #1B9D5F;
+}
+.greText1{
+    font-size: 35px;
+color: #1B9D5F;
+}
+.dark-grey {
+    fill: #555; /* Dark grey color */
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Define additional classes for other colors as needed */
-
-
-/* .sapUiCalendarRowVisFilled>.sapUiCalendarRowApps>.sapUiCalendarAppType06.sapUiCalendarApp:not(.sapUiCalendarAppSel)>.sapUiCalendarAppCont {
-    background-color: darkblue;
-} */
-/* .sapUiCalendarAppType01.sapUiCalendarApp, .sapUiCalendarAppType06.sapUiCalendarApp:active {
-    border-left-color:darkblue;
-} */
-/* .sapUiCalendarRowVisFilled>.sapUiCalendarRowApps>.sapUiCalendarAppType01.sapUiCalendarApp:not(.sapUiCalendarAppSel)>.sapUiCalendarAppCont {
-    background-color:#e21f4a;
-} */
-/* .sapUiCalendarAppType01.sapUiCalendarApp, .sapUiCalendarAppType01.sapUiCalendarApp:active  {
-    border-left-color: #e21f4a;
-} */
+.blue {
+    fill: #00f; /* Blue color */
+}
