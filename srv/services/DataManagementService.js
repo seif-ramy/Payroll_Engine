@@ -1,7 +1,8 @@
 const cds = require('@sap/cds');
 
 let employeeService = null;
-let compensationService = null;
+let payGroupService = null;
+// let compensationService=null;
 let recurringService= null;
 let oneTimePaymentService= null;
 
@@ -18,14 +19,14 @@ let oneTimePaymentService= null;
         }
     });
     
-    compensationService = await cds.connect.to({
-        "kind": "odata-v2",
-        "model": "srv/external/ECCompensationInformation",
-        "credentials": {
-          "destination": "SF_SalesDemo",
-          "path": "/odata/v2/EmpPayCompRecurring"
-        }
-    });
+    // compensationService = await cds.connect.to({
+    //     "kind": "odata-v2",
+    //     "model": "srv/external/ECCompensationInformation",
+    //     "credentials": {
+    //       "destination": "SF_SalesDemo",
+    //       "path": "/odata/v2/EmpPayCompRecurring"
+    //     }
+    // });
     
     recurringService= await cds.connect.to({
             "kind": "odata-v2",
@@ -81,7 +82,7 @@ async function getEmployees(payGroup,month,year) {
             path: urlPathQuery,
         });
 
-        console.log("Employee Response",employeeResponse)
+        // console.log("Employee Response",employeeResponse)
 
         
         //Filter the employees by payGroup
