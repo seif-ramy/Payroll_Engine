@@ -7,7 +7,7 @@ const {
 module.exports = cds.service.impl(async function () {
     /*** SERVICE ENTITIES ***/
     const {
-        DataManagementService
+        ExecutePayrollService
     } = this.entities;
 
     /*** HANDLERS REGISTRATION ***/

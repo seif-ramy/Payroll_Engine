@@ -56,7 +56,7 @@ async function executePayroll(payGroup, month, year) {
         
         //Get Employees
         const employees = await getEmployees(payGroup,month,year);
-        const employeesPayroll={};
+        let employeesPayroll=[];
         
         // Loop through each employee to perform further operations
         for (const employee of employees) {
@@ -65,6 +65,7 @@ async function executePayroll(payGroup, month, year) {
             const employeeRecurringInfo=employee.recurringInfo;
             const employeeOneTimePaymentInfo=employee.oneTimePaymentInfo;
             let totalAmount=0;
+            let totalDeductions=0;
             
             if(employeeCompensation.length!==0){
                 for (const comp of employeeCompensation) {
@@ -121,6 +122,7 @@ async function executePayroll(payGroup, month, year) {
                     const diffDaysRecurring = (diffTimeRecurring / (1000 * 60 * 60 * 24))+1;
                     for (const recurringItem of recurring.recurringItems) {
                         let amountRecurring= Math.round((Number(recurringItem.amount)/daysOfMonth)*diffDaysRecurring);
+                        totalDeductions+=amountRecurring;
                         totalAmount-=amountRecurring;
                     }
 
@@ -133,13 +135,27 @@ async function executePayroll(payGroup, month, year) {
                 }
             }
 
-            employeesPayroll[employee.userId]=totalAmount;
+            //employeesPayroll[employee.userId]=totalAmount;
+            const employeesObject={
+                userId:employee.userId,
+                defaultFullName:employee.defaultFullName,
+                Gross_Salary:totalAmount,
+                Net_Salary:"Pending",
+                Deductions:totalDeductions,
+                Pay_Period_Month:month,
+                Pay_Period_Year:year,
+                Payroll_Area:payGroup,
+                Cost_Center:employee.costCenter,
+                
+
+            };
+            employeesPayroll.push(employeesObject);
         }
 
         console.log(employeesPayroll);
 
         //console.log('Employees with compensation and recurring info:', employees);
-        return employees;
+        return employeesPayroll;
         // Perform further operations with the fetched employees data if needed
     } catch (error) {
         console.error('Error executing payroll:', error);

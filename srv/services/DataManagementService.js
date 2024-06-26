@@ -1,6 +1,7 @@
 const cds = require('@sap/cds');
 
 let employeeService = null;
+let costCenterService= null;
 let payGroupService = null;
 // let compensationService=null;
 let recurringService= null;
@@ -9,6 +10,8 @@ let oneTimePaymentService= null;
 (async function () {
     // Connect to external SFSF OData services
     employeeService = await cds.connect.to('PLTUserManagement');
+
+    costCenterService= await cds.connect.to('ECEmploymentInformation');
 
     payGroupService = await cds.connect.to({
         "kind": "odata-v2",
@@ -73,7 +76,7 @@ async function getEmployees(payGroup,month,year) {
         const toDate = `${firstDayNextMonth.getFullYear()}-${(firstDayNextMonth.getMonth() + 1).toString().padStart(2, '0')}-${firstDayNextMonth.getDate().toString().padStart(2, '0')}`;
 
         
-        const selectQuery = '$select=userId,defaultFullName,email,division,department,title';
+        const selectQuery = '$select=userId,defaultFullName';
         const urlPathQuery = `?${selectQuery}`;
 
 
@@ -82,7 +85,32 @@ async function getEmployees(payGroup,month,year) {
             path: urlPathQuery,
         });
 
-        // console.log("Employee Response",employeeResponse)
+        //console.log("Employee Response",employeeResponse);
+
+        //Get Cost Center
+        const selectQueryCostCenter = '$select=userId,costCenter';
+        const urlPathQueryCostCenter = `?${selectQueryCostCenter}`;
+
+
+        let employeeResponseCostCenter = await costCenterService.send({
+            method: "GET",
+            path: urlPathQueryCostCenter,
+        });
+
+        //console.log("Employee Response CostCenter",employeeResponseCostCenter);
+
+        //Merging Employees With Cost Center
+        const mergedResponse = employeeResponse.map(employee => {
+            const costCenter = employeeResponseCostCenter.find(cost => cost.userId === employee.userId)?.costCenter || null;
+            return { ...employee, costCenter };
+        });
+
+        // Remove duplicate userId
+        const uniqueResponse = mergedResponse.filter((value, index, self) => 
+            index === self.findIndex((t) => t.userId === value.userId)
+        );
+
+        //console.log("uniqueResponse",uniqueResponse)
 
         
         //Filter the employees by payGroup
@@ -107,7 +135,7 @@ async function getEmployees(payGroup,month,year) {
 
         //console.log("Full Details:", JSON.stringify(payGroupFilteredResponse, null, 2));
         
-        const mergedResponses = employeeResponse.map(employee => {
+        const mergedResponses = uniqueResponse.map(employee => {
             // Filter the pay data for each employee and remove the userId from each entry
             const compensationInfo = payGroupFilteredResponse.filter(pay => pay.userId === employee.userId).map(pay => ({
               startDate: pay.startDate,

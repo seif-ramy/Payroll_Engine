@@ -290,6 +290,7 @@
                     <!--  Code of Stacked Column chart by tasneem -->
      <chart:ChartContainer id="chartContainer2" showFullScreen="true" showZoom="false" 
                       title="Expenses" class="myPanelChart" width="99%">
+                      title="Expenses" class="myPanelChart" width="99%">
     <chart:layoutData>
         <l:GridData id="_IDGenGridData1" span="XL8 L8"></l:GridData>
     </chart:layoutData>
