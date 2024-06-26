@@ -15,11 +15,11 @@ let pickListService= null;
 
 
 // Define an async function to call getEmployees and handle the result
-async function executePayroll() {
+async function executePayroll(payGroup, month, year) {
     try {
-        const payGroup = 'R1'; // Set your desired payGroup
-        const month= "06";
-        const year= "2024";
+        //const payGroup = 'R1'; // Set your desired payGroup
+        //const month= "05";
+        //const year= "2023";
 
         //////////////////////////////Constructing fromDate///////////////////////////////////////////
         const formattedMonth = month.toString().length === 1 ? `0${month}` : month; // Add leading zero if necessary

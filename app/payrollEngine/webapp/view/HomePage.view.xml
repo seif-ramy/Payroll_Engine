@@ -60,7 +60,7 @@
                 </HBox>
                 <!-- End of Header -->
                 
-                <l:Grid id="_IDGenGrid1" defaultSpan="XL4 L3 M6 S12" hSpacing="0" vSpacing="0">
+                <l:Grid id="_IDGenGrid1" defaultSpan="XL4 L4 M6 S12" hSpacing="0" vSpacing="0">
                     <l:content>
                         
                     <!-- Tile of total number of employees -->
@@ -143,21 +143,21 @@
                 </Panel>
 
     <Panel id ="panelwidth" height="365px" class="myPanel  sapUiContentPadding sapUiTinyMargin " width="97.6%">
-      <VBox>
-                            <Text  text="Retro Statistics" class="headerText1"/>
-                            <Text  text="Previous vs Current Period Statistics" class="greyText1"/>
+      <VBox id="_IDGenVBox110">
+                            <Text id="_IDGenText120"  text="Retro Statistics" class="headerText1"/>
+                            <Text id="_IDGenText130"  text="Previous vs Current Period Statistics" class="greyText1"/>
 
-                            <VBox height="40px"/>
-                            <HBox>
-                                 <Text  text="17.3" class="headerText1 nuText"/>
-                                 <HBox width="5px"/>
-                                <Image src="images/red arrow.jpg" height="35px" width="35px"  />     
+                            <VBox id="_IDGenVBox121" height="40px"/>
+                            <HBox id="_IDGenHBox210">
+                                 <Text id="_IDGenText131"  text="17.3" class="headerText1 nuText"/>
+                                 <HBox id="_IDGenHBox220" width="5px"/>
+                                <Image id="_IDGenImage1" src="images/red arrow.jpg" height="35px" width="35px"  />     
                                </HBox>
-                                <VBox height="10px"/>
+                                <VBox id="_IDGenVBox132" height="10px"/>
                                            
                         </VBox>
     
-        <chart:ChartContainerContent>
+        <chart:ChartContainerContent id="_IDGenChartContainerContent3">
             <chart:content>
             <viz:VizFrame
                 id="idbar"
@@ -166,19 +166,19 @@
                 width="97.6%"
                 height="170px">
                 <viz:dataset>
-                    <viz.data:FlattenedDataset data="{DataModel>/barChartData}">
+                    <viz.data:FlattenedDataset id="_IDGenFlattenedDataset2" data="{DataModel>/barChartData}">
                         <viz.data:dimensions>
-                                <viz.data:DimensionDefinition name="Name" value="{Name}" />
+                                <viz.data:DimensionDefinition id="_IDGenDimensionDefinition3" name="Name" value="{Name}" />
                         </viz.data:dimensions>
                         <viz.data:measures>
-                            <viz.data:MeasureDefinition name="Number" value="{Number}" />
+                            <viz.data:MeasureDefinition id="_IDGenMeasureDefinition4" name="Number" value="{Number}" />
 
                         </viz.data:measures>
                     </viz.data:FlattenedDataset>
                 </viz:dataset>
                 <viz:feeds>
-                  <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Number" />
-                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Name" />
+                  <viz.feeds:FeedItem id="_IDGenFeedItem5" uid="valueAxis" type="Measure" values="Number" />
+                    <viz.feeds:FeedItem id="_IDGenFeedItem6" uid="categoryAxis" type="Dimension" values="Name" />
                 </viz:feeds>
                 
             </viz:VizFrame>
@@ -289,9 +289,9 @@
                
                     <!--  Code of Stacked Column chart by tasneem -->
      <chart:ChartContainer id="chartContainer2" showFullScreen="true" showZoom="false" 
-                      title="Expenses" subheader="Actual vs Budget. Q1, 2024" class="myPanelChart" width="99%">
+                      title="Expenses" class="myPanelChart" width="99%">
     <chart:layoutData>
-        <l:GridData id="_IDGenGridData1" span="XL8"></l:GridData>
+        <l:GridData id="_IDGenGridData1" span="XL8 L8"></l:GridData>
     </chart:layoutData>
     <chart:ChartContainerContent id="_IDGenChartContainerContent2">
         <chart:content>
