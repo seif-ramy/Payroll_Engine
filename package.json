@@ -57,6 +57,14 @@
         "credentials": {
           "destination": "SF_SalesDemo"
         }
+      },
+      "ECEmploymentInformation": {
+        "kind": "odata-v2",
+        "model": "srv/external/ECEmploymentInformation",
+        "credentials": {
+          "destination": "SF_SalesDemo",
+          "path": "/odata/v2/EmpJob"
+        }
       }
     },
     "features": {

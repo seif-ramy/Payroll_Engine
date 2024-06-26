@@ -1,6 +1,6 @@
 {
  "meta": {
-  "creator": "cds-dk 7.8.2"
+  "creator": "cds-dk 7.4.0"
  },
  "$version": "2.0",
  "definitions": {

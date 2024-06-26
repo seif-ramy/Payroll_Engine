@@ -6,17 +6,17 @@ namespace payroll.engine.service;
 service PayrollEngine @(path :'/payrollengine') {
   
 @readonly
-entity DataManagementService as select from PLTUM_API.User {
+entity ExecutePayrollService as select from PLTUM_API.User {
     userId,
     defaultFullName,
-    email,
-    division,
-    department,
-    title,
-    '' as compensationInfo:String,
-    '' as recurringInfo:String,
-    '' as oneTimePaymentInfo:String
+    '' as Gross_Salary:String,
+    '' as Net_Salary:String,
+    '' as Deductions:String,
+    '' as Pay_Period_Month:String,
+    '' as Pay_Period_Year:String,
+    '' as Payroll_Area:String,
+    '' as Cost_Center:String
     };
 
-annotate DataManagementService with @(cds.odata.valuelist);
+annotate ExecutePayrollService with @(cds.odata.valuelist);
 }

@@ -6,13 +6,13 @@ const {
 module.exports = cds.service.impl(async function () {
     /*** SERVICE ENTITIES ***/
     const {
-        DataManagementService
+        ExecutePayrollService
     } = this.entities;
 
     /*** HANDLERS REGISTRATION ***/
     // ON events
     
-    this.on('READ', DataManagementService, executePayroll);
+    this.on('READ', ExecutePayrollService, executePayroll);
     
     // BEFORE events
 
