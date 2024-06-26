@@ -95,7 +95,7 @@
 
             <VBox id="_IDGenVBox116">
                 <!-- Upcoming Payroll Tile -->
-              <Panel id="_IDGenPanel5" width="97.5%" class="sapUiTinyMargin myPanel ">
+              <Panel id="_IDGenPanel5" width="97.6%" class="sapUiTinyMargin myPanel ">
                     <headerToolbar>
                     <OverflowToolbar id="_IDGenOverflowToolbar1" style="Standard" height="100%" class="sapUiTinyMarginTop sapUiContentPadding" design="Solid">
                         <Title id="_IDGenTitle1" text="Upcoming Payroll" />
@@ -123,8 +123,8 @@
             </VBox>
                                    <VBox id="_IDGenVBox7" justifyContent="SpaceBetween" class="borderLeft ">
                                        <Label id="_IDGenLabel2" text="Payroll Actions" class=" sapUiTinyMargin RightMarginForLine" />
-                                       <Button id="_IDGenButton5" text="Off-Cycle Payroll" width="80%"  press="onOffCyclePayroll" class="RightMarginForLine" />
-                                       <Button id="_IDGenButton6" text="Calculate Paycheck" class="sapUiTinyMarginTop RightMarginForLine" press="onCalculatePaycheck"
+                                       <Button id="_IDGenButton5" text="Off-Cycle Payroll" width="82.2%"  press="onOffCyclePayroll" class="RightMarginForLine" />
+                                       <Button id="_IDGenButton6" text="Calculate Paycheck" width="82.2%" class="sapUiTinyMarginTop RightMarginForLine" press="onCalculatePaycheck"
                                        />
                                        <Text id="_IDGenText9" text="" />
                                         <Text id="_IDtext9" text="" />
@@ -134,7 +134,7 @@
                     </Panel>
                
                <!-- Calendar Panel -->
-                <Panel id="_IDGenPanel4" width="97.5%" headerText="Payroll Calendar"
+                <Panel id="_IDGenPanel4" width="97.6%" headerText="Payroll Calendar"
                 class="sapUiTinyMargin sapUiContentPadding myPanel">
                 <VBox id="_IDGenVBox19">
                     <u:Calendar id="calendar" intervalSelection="true"/>
@@ -142,23 +142,37 @@
                 </VBox>
                 </Panel>
 
-    <Panel headerText="Payroll Cost Distribution" height="357px" class="sapUiTinyMargin myPanel" width="97.5%">
-    <chart:ChartContainer showFullScreen="true" showZoom="false" width="97.5%">
+    <Panel id ="panelwidth" height="365px" class="myPanel  sapUiContentPadding sapUiTinyMargin " width="97.6%">
+      <VBox>
+                            <Text  text="Retro Statistics" class="headerText1"/>
+                            <Text  text="Previous vs Current Period Statistics" class="greyText1"/>
+
+                            <VBox height="40px"/>
+                            <HBox>
+                                 <Text  text="17.3" class="headerText1 nuText"/>
+                                 <HBox width="5px"/>
+                                <Image src="images/red arrow.jpg" height="35px" width="35px"  />     
+                               </HBox>
+                                <VBox height="10px"/>
+                                           
+                        </VBox>
+    
         <chart:ChartContainerContent>
             <chart:content>
             <viz:VizFrame
                 id="idbar"
                 uiConfig="{applicationSet:'fiori'}"
                 vizType="bar"
-                width="100%"
-                height="100px">
+                width="97.6%"
+                height="170px">
                 <viz:dataset>
                     <viz.data:FlattenedDataset data="{DataModel>/barChartData}">
                         <viz.data:dimensions>
-                            <viz.data:DimensionDefinition name="Name" value="{{DataModel>/Name}" />
+                                <viz.data:DimensionDefinition name="Name" value="{Name}" />
                         </viz.data:dimensions>
                         <viz.data:measures>
-                            <viz.data:MeasureDefinition name="Number" value="{{DataModel>/Number}" />
+                            <viz.data:MeasureDefinition name="Number" value="{Number}" />
+
                         </viz.data:measures>
                     </viz.data:FlattenedDataset>
                 </viz:dataset>
@@ -166,10 +180,10 @@
                   <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Number" />
                     <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Name" />
                 </viz:feeds>
+                
             </viz:VizFrame>
             </chart:content>
         </chart:ChartContainerContent>
-    </chart:ChartContainer>
 </Panel>
 
 
@@ -179,7 +193,7 @@
 
                         <!-- Code of donut chart-->
                          <chart:ChartContainer id="chartContainer" showFullScreen="true" showZoom="false" 
-                         title="Payroll Cost Distribution"  class="myPanelChart" width="97.5%">
+                         title="Payroll Cost Distribution"  class="myPanelChart" width="97.6%">
                             <chart:ChartContainerContent id="_IDGenChartContainerContent1">
                                 <chart:content>
                                  <viz:VizFrame id="idpiechart" width="auto" uiConfig="{applicationSet:'fiori'}" vizType="donut"
@@ -192,17 +206,17 @@
                                                            legendGroup:{layout:{position: 'left'}}
                                            }"
                                            
-                                           selectData="myOnClickHandler"
+                                           
                                            renderComplete="handleRenderComplete">
                                     <viz:dataset>
                                    <viz.data:FlattenedDataset id="flattenData" data="{DataModel>/Items}">
                                           <viz.data:dimensions>
                                         <viz.data:DimensionDefinition id="_IDGenDimensionDefinition1" name="Name" 
-                                        value="{DataModel>Name}" />
+                                        value="{Name}" />
                                           </viz.data:dimensions>
                                       <viz.data:measures>
                                              <viz.data:MeasureDefinition id="_IDGenMeasureDefinition1" 
-                                             name="Number" value="{DataModel>Number}" />
+                                             name="Number" value="{Number}" />
                                       </viz.data:measures>
                                     </viz.data:FlattenedDataset>
                                      </viz:dataset>
@@ -211,6 +225,7 @@
                                         <viz.feeds:FeedItem id="_IDGenFeedItem1" uid="size" type="Measure" values="Number" />
                                     <viz.feeds:FeedItem id="_IDGenFeedItem2" uid="color" type="Dimension" values="Name" />
                                       </viz:feeds>
+                                      
                                   </viz:VizFrame>
                                </chart:content>
                              </chart:ChartContainerContent>
@@ -273,40 +288,36 @@
                     
                
                     <!--  Code of Stacked Column chart by tasneem -->
-                      <chart:ChartContainer id="chartContainer2" showFullScreen="true" showZoom="false" 
-                      title="Payroll History" subheader="Actual vs Budget. Q1, 2024" class="myPanelChart" width="97.5%">
-                      <chart:layoutData>
-                      <l:GridData id="_IDGenGridData1" span="XL8"></l:GridData>
-                      </chart:layoutData>
-                         <chart:ChartContainerContent id="_IDGenChartContainerContent2">
-                             <chart:content>
-                              <viz:VizFrame id="idStackedVizFrame" width="auto" uiConfig="{applicationSet:'fiori'}" vizType="stacked_column" 
-                              >
-                              <viz:dataset>
-                        <viz.data:FlattenedDataset id="_IDGenFlattenedDataset1" data="{DataModel>/StackedItems}">
-                   <viz.data:dimensions>
-                      <viz.data:DimensionDefinition id="_IDGenDimensionDefinition2" name="CW"
-                          value="{CW}" />
-                  </viz.data:dimensions>
-                  <viz.data:measures>
-                      <viz.data:MeasureDefinition id="_IDGenMeasureDefinition2" name="Actual Payout"
-                          value="{Actual Payout}" />
-                      <viz.data:MeasureDefinition id="_IDGenMeasureDefinition3" name="Retro Payout"
-                          value="{Retro Payout}" />
-                  </viz.data:measures>
-              </viz.data:FlattenedDataset>
-          </viz:dataset>
+     <chart:ChartContainer id="chartContainer2" showFullScreen="true" showZoom="false" 
+                      title="Expenses" subheader="Actual vs Budget. Q1, 2024" class="myPanelChart" width="99%">
+    <chart:layoutData>
+        <l:GridData id="_IDGenGridData1" span="XL8"></l:GridData>
+    </chart:layoutData>
+    <chart:ChartContainerContent id="_IDGenChartContainerContent2">
+        <chart:content>
+            <viz:VizFrame id="idStackedVizFrame" width="auto" uiConfig="{applicationSet:'fiori'}" vizType="stacked_column"
+            >
+                <viz:dataset>
+                    <viz.data:FlattenedDataset id="_IDGenFlattenedDataset1" data="{DataModel>/StackedItems}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition id="_IDGenDimensionDefinition2" name="CW" value="{DataModel>CW}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition id="_IDGenMeasureDefinition2" name="Actual" value="{DataModel>Actual Payout}" />
+                            <viz.data:MeasureDefinition id="_IDGenMeasureDefinition3" name="Budget" value="{DataModel>Retro Payout}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
 
-          <viz:feeds>
-              <viz.feeds:FeedItem id="_IDGenFeedItem3" uid="valueAxis" type="Measure"
-                  values="Retro Payout,Actual Payout" />
-              <viz.feeds:FeedItem id="_IDGenFeedItem4" uid="categoryAxis" type="Dimension"
-                  values="CW" />
-          </viz:feeds>
-                               </viz:VizFrame>
-                            </chart:content>
-                          </chart:ChartContainerContent>
-                     </chart:ChartContainer>
+                <viz:feeds>
+                    <viz.feeds:FeedItem id="_IDGenFeedItem3" uid="valueAxis" type="Measure" values="Actual,Budget" />
+                    <viz.feeds:FeedItem id="_IDGenFeedItem4" uid="categoryAxis" type="Dimension" values="CW" />
+                </viz:feeds>
+            </viz:VizFrame>
+        </chart:content>
+    </chart:ChartContainerContent>
+</chart:ChartContainer>
+
                      
                 </l:content>
             </l:Grid>

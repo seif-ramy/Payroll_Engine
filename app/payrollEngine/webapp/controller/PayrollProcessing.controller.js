@@ -7,8 +7,8 @@ sap.ui.define([
 
     return Controller.extend("sp.payrollEngine.controller.PayrollProcessing", {
         onInit: function () {
-            var navigationList = this.byId("navigationList");
-            navigationList.setSelectedItem(null);
+            var oRouter = UIComponent.getRouterFor(this);
+            oRouter.attachRouteMatched(this._onRouteMatched, this);
             var oData = {
                 payrollItems: [
                     { name: "Dan, May", department: "Dept1", rate: "$80.00 / hr", regularHours: "95.00", salaryAmount: "1500.00", overtimeHours: "0.00", vacationHours: "0.00", sickHours: "0.00", personalHours: "0.00", holidayHours: "0.00", bonusAmount: "0.00", miscAmount: "0.00", miscReimb: "0.00" },
@@ -30,15 +30,26 @@ sap.ui.define([
             var oModel = new JSONModel(oData);
             this.getView().setModel(oModel);
         },
+        _onRouteMatched: function (oEvent) {
+            // Get the SideNavigation control
+            var oSideNavigation = this.byId("sideNavigation");
+            // Clear the selected key to ensure nothing is selected
+            oSideNavigation.setSelectedKey("payrollProcessing");
+        },
 
         onNext: function () {
             // Navigate to the Preview Payroll page
             UIComponent.getRouterFor(this).navTo("PayrollPreview");
         },
+        onCancel: function () {
+            // Navigate to the Preview Payroll page
+            UIComponent.getRouterFor(this).navTo("home");
+        },
         onItemSelect: function (oEvent) {
             var sKey = oEvent.getParameter("item").getKey();
             if (sKey == "Toggle") {
                 var oSideNavigation = this.byId("sideNavigation");
+                
                 var bExpanded = oSideNavigation.getExpanded();
                 oSideNavigation.setExpanded(!bExpanded);
             }
@@ -62,6 +73,7 @@ sap.ui.define([
         // Navigate to the Preview Payroll page
         onNextPage: function (){
             UIComponent.getRouterFor(this).navTo("PayrollPreview");
-        }
+        },
+        
     });
 });

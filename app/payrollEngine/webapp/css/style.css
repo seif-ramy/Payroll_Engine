@@ -211,6 +211,11 @@
 .greyText {
     color: grey;
 }
+.greyText11 {
+    color: grey;
+    font-size: 22px;
+}
+    
 
 .headerBox {
     background-color: #121b43;
@@ -224,6 +229,10 @@
 .headerText1 {
     color: black;
     font-size: 18px;
+}
+.headerText11 {
+    color: black;
+    font-size: 26px;
 }
 .subHeaderText {
     color: grey;
@@ -248,7 +257,21 @@
 }
 
 
-
+.WhiteButton{font-size: .875rem;
+    height: 2rem;
+    min-width: 2rem;
+    /* margin: 0;
+    padding: 0; */
+    text-align: center;
+    position: relative;
+    border-radius: 50%;
+    text-shadow: none;
+    color: white;
+    border-color: #0064d9;
+        background-color: transparent;
+        background: #0064D9;
+        
+    }
 .infoBox {
     background-color: white;
     padding: 10px;
@@ -545,6 +568,10 @@
 }
 .nuText {
     font-size: 35px;
+    color: rgb(249, 104, 104);
+}
+.nuText1 {
+    font-size: 50px;
     color: rgb(249, 104, 104);
 }
 .lightText{

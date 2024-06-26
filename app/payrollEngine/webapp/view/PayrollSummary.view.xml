@@ -1,4 +1,4 @@
-<mvc:View xmlns:cards="sap.f.cards" controllerName="sp.payrollEngine.controller.PayrollPreview"
+<mvc:View xmlns:cards="sap.f.cards" controllerName="sp.payrollEngine.controller.PayrollSummary"
     xmlns:mvc="sap.ui.core.mvc" 
     displayBlock="true"
     xmlns="sap.m"
@@ -71,11 +71,11 @@
                 <Text id="_IDGenText2" text="Selecting Payroll Employees" ></Text>
                 <HBox id="lineHBox11" class="element" width="25%"></HBox>
                 <!-- <ToolbarSpacer id="_IDGenToolbarSpacer2" width="100px"></ToolbarSpacer> -->
-                <Button text="2" class="WhiteButton" type="Unstyled" ></Button>
+                <Button text="2" ></Button>
                 <Text id="_IDGenText3" text="Preview Payroll"></Text>
                 <!-- <ToolbarSpacer id="_IDGenToolbarSpacer3" ></ToolbarSpacer> -->
                 <HBox id="lineHBox2" class="element" width="25%"></HBox>
-                <Button id="_IDGenButton4" text="3"  ></Button>
+                <Button id="_IDGenButton4" text="3" class="WhiteButton" type="Unstyled"  ></Button>
                 <Text id="_IDGenText4" text="Payroll Summary" class=""></Text>
                 </OverflowToolbar>
                 <VBox id="_IDGenVBoxContent" class="contentBox whitesapUiBody" fitContainer="true">
@@ -95,7 +95,6 @@
                             dataLabel: {
                                 visible: false
                             }
-                            
                         },
                         title: {
                             visible: false
@@ -359,7 +358,7 @@
                                 <HBox width="10px"/>
                         <Button text="Previous" class="myCustomButton" press="onNext" />
                         <HBox width="10px"/>
-                <Button text="Next" type="Emphasized" class="buttonRight" press="onNextPage"/>
+                <Button text="Finish" type="Emphasized" class="buttonRight" press="press" />
         </HBox>              
         
                    <VBox height="20px"/>

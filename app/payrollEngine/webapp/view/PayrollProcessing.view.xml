@@ -54,11 +54,11 @@
                 </OverflowToolbar>
                 <OverflowToolbar id="_IDGenOverflowToolbar1" style="Clear" height="100%" class="sapUiContentPadding">
                 <ToolbarSpacer id="_IDGenToolbarSpacer1" class="toolbarSpacerBorder" width="30px"/>
-                <Button id="StepButton1" text="1"  ></Button>
+<Button id="StepButton1" text="1" class="WhiteButton" type="Unstyled" ></Button>
                 <Text id="_IDGenText2" text="Selecting Payroll Employees" ></Text>
                 <HBox id="lineHBox11" class="element" width="25%"></HBox>
                 <!-- <ToolbarSpacer id="_IDGenToolbarSpacer2" width="100px"></ToolbarSpacer> -->
-                <Button id="_IDGenButton3" text="2" ></Button>
+                <Button id="_IDGenButton3" text="2"  ></Button>
                 <Text id="_IDGenText3" text="Preview Payroll"></Text>
                 <!-- <ToolbarSpacer id="_IDGenToolbarSpacer3" ></ToolbarSpacer> -->
                 <HBox id="lineHBox2" class="element" width="25%"></HBox>
@@ -254,7 +254,7 @@
     </VBox>
     <OverflowToolbar id="footerOverflowToolbar" style="Clear" >
     <ToolbarSpacer id="_IDGenToolbarSpacer4" ></ToolbarSpacer>
-    <Button id="_cancelButton" text="Cancel"></Button>
+    <Button id="_cancelButton" text="Cancel" press="onCancel"></Button>
     <Button id="_IDGenButton5" text="Next" type="Emphasized" press="onNextPage"></Button>
     </OverflowToolbar>
                 
