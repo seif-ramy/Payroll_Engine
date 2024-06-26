@@ -42,6 +42,21 @@
       "ECCompensationInformation": {
         "kind": "odata-v2",
         "model": "srv/external/ECCompensationInformation"
+      },
+      "ECFoundationOrganization": {
+        "kind": "odata-v2",
+        "model": "srv/external/ECFoundationOrganization",
+        "credentials": {
+          "destination": "SF_SalesDemo",
+          "path": "/odata/v2/FOPayComponent"
+        }
+      },
+      "FoundationPlatformPLT": {
+        "kind": "odata-v2",
+        "model": "srv/external/FoundationPlatformPLT",
+        "credentials": {
+          "destination": "SF_SalesDemo"
+        }
       }
     },
     "features": {
