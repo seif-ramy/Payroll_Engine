@@ -5,6 +5,12 @@ const {
 
 //Date format is 'YYYY-MM-DD'
 // Helper function to extract Month
+function extractDay(dateString){
+    const parts = dateString.split('-');
+    return parseInt(parts[2], 10);
+} 
+
+// Helper function to extract Month
 function extractMonth(dateString){
     const parts = dateString.split('-');
     return parseInt(parts[1], 10);
@@ -95,6 +101,37 @@ function salaryDifferences(payrolls, retros){
     return differences;
 }
 
+// Calculate partial salary
+// MISSING EMPLOYEE START DATE
+function calculatePartialSalary(employee, startDate){
+
+    const startDay = extractDay(startDate);
+    const startMonth = extractMonth(startDate);
+    const startYear = extractYear(startDate);
+
+    const today = '2024-07-02';
+    const currentDay = extractDay(today);
+    const currentMonth = extractMonth(today);
+    const currentYear = extractYear(today);
+
+    let noOfDays;
+
+    if((currentMonth == startMonth) && (currentYear == startYear)){
+        noOfDays = currentDay - startDay + 1;
+    }
+
+    else{
+        const daysInStartMonth = new Date(startYear, startMonth, 0).getDate(); 
+        console.log(daysInStartMonth);
+        noOfDays = daysInStartMonth - startDay + 1;
+    }
+
+    const monthlySalary = employee.Gross_Salary;
+    const dailySalary = Math.round(monthlySalary / 30);
+
+    return noOfDays * dailySalary;
+}
+
 // Execute RetroActive
 async function executeRetroactive(){
 
@@ -151,6 +188,16 @@ async function executeRetroactive(){
     console.log(dummyRetros);
 
     
+    const startDate = '2024-05-15';
+    const specificMonth = extractMonth(startDate);
+    const specificYear = extractYear(startDate);
+
+
+
+    const specificPayroll = payrollsResult.find(result => result.month === specificMonth && result.year === specificYear);
+    const specificUser = specificPayroll.payroll.find(employee => employee.userId == '10021');
+
+    console.log(calculatePartialSalary(specificUser, startDate));
 
     
     
