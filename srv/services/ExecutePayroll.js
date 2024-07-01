@@ -146,9 +146,8 @@ async function executePayroll(payGroup, month, year) {
                 Pay_Period_Year:year,
                 Payroll_Area:payGroup,
                 Cost_Center:employee.costCenter,
-                
-
             };
+            
             employeesPayroll.push(employeesObject);
         }
 

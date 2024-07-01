@@ -143,17 +143,17 @@
                 </Panel>
 
     <Panel id ="panelwidth" height="365px" class="myPanel  sapUiContentPadding sapUiTinyMargin " width="97.6%">
-      <VBox id="_IDGenVBox110">
-                            <Text id="_IDGenText120"  text="Retro Statistics" class="headerText1"/>
-                            <Text id="_IDGenText130"  text="Previous vs Current Period Statistics" class="greyText1"/>
+      <VBox id="_IDGenVBox15">
+                            <Text id="_IDGenText88"  text="Retro Statistics" class="headerText1"/>
+                            <Text id="_IDGenText89"  text="Previous vs Current Period Statistics" class="greyText1"/>
 
-                            <VBox id="_IDGenVBox121" height="40px"/>
-                            <HBox id="_IDGenHBox210">
-                                 <Text id="_IDGenText131"  text="17.3" class="headerText1 nuText"/>
-                                 <HBox id="_IDGenHBox220" width="5px"/>
+                            <VBox id="_IDGenVBox90" height="40px"/>
+                            <HBox id="_IDGenHBox77">
+                                 <Text id="_IDGenText45"  text="17.3" class="headerText1 nuText"/>
+                                 <HBox id="_IDGenHBox22" width="5px"/>
                                 <Image id="_IDGenImage1" src="images/red arrow.jpg" height="35px" width="35px"  />     
                                </HBox>
-                                <VBox id="_IDGenVBox132" height="10px"/>
+                                <VBox id="_IDGenVBox154" height="10px"/>
                                            
                         </VBox>
     
@@ -289,7 +289,6 @@
                
                     <!--  Code of Stacked Column chart by tasneem -->
      <chart:ChartContainer id="chartContainer2" showFullScreen="true" showZoom="false" 
-                      title="Expenses" class="myPanelChart" width="99%">
                       title="Expenses" class="myPanelChart" width="99%">
     <chart:layoutData>
         <l:GridData id="_IDGenGridData1" span="XL8 L8"></l:GridData>
